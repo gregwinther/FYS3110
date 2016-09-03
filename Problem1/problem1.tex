@@ -20,13 +20,34 @@ a)
 \begin{align*}
 \ket{\Psi} 		&= c(\sqrt{5}\ket{0}+i\ket{1})\\
 \braket{\Psi} 	&= c^*(\sqrt{5}\bra{0}-i\bra{1}) c(\sqrt{5}\ket{0}+i\ket{1})\\
-				&= c^*c(5\braket{0}+\sqrt{5}i\braket{0}{1}-\sqrt{5}\braket{1}{0}-\braket{1})\\
-				&= \abs{c}(5-1) \rightarrow \abs{c}=\frac{1}{4}
+				&= c^*c(5\braket{0}+\sqrt{5}i\braket{0}{1}-\sqrt{5}\braket{1}{0}+\braket{1})\\
+				&= \abs{c}(5+1) \rightarrow \abs{c}=\frac{1}{6}
 \end{align*}
 
 \hspace{1cm}
 
 b)
+
+The following representation is used for the basis vectors
+\begin{align*}
+\ket{0} &= \begin{pmatrix} 1 \\ 0 \end{pmatrix}\\
+\ket{1} &= \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\end{align*}
+
+it follows that
+
+\begin{align*}
+\ket{\Psi} 	&= c(\sqrt{5}\ket{0}+i\ket{1}) \\
+			&= c\left(
+				\sqrt{5} \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+				i \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+				\right) \\
+			&= c \begin{pmatrix} \sqrt{5} \\ i \end{pmatrix} \\[10pt]
+\bra{\Psi} 	&= c^*(\sqrt{5}\bra{0}-i\bra{1}) \\
+			&= c^*( \sqrt{5} ( 1 \quad 0 ) -i ( 0 \quad 1 )) \\
+			&= c^* ( \sqrt{5} \quad  -i ) \\[10pt]
+\braket{\Psi} &= \abs{c}6 \rightarrow \abs{c}=\frac{1}{6}
+\end{align*}
 
 
 \end{document}
