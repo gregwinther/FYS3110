@@ -118,4 +118,120 @@ U = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
 
 where $a, b, c, d$ are complex numbers.
 
+\hspace{1cm}
+
+a)
+
+\hspace{0.5cm}
+
+\begin{align*}
+U^T &= \begin{pmatrix} a & c \\ b & d \end{pmatrix} \\
+U^{\dagger} &= \begin{pmatrix} a^* & b^* \\ c^* & d^* \end{pmatrix}^T
+=\begin{pmatrix} a^* & c^* \\ b^* & d^* \end{pmatrix}
+\end{align*}
+
+\vspace{1cm}
+
+b)
+
+\vspace{0.5cm}
+
+$U$ is \emph{Hermittian} if $U=U^{\dagger}$, which implies that $a=a^*$, $b=c^*$, $c=b^*$, and $d=d*$. This means that $a$ and $d$ are real.
+
+\vspace{1cm}
+
+c)
+
+\vspace{0.5cm}
+
+Eigenvalues $\lambda$ for matrix $A$ satisfy $\abs{A-\lambda I}=0$.
+
+\begin{equation*}
+\abs{U-\lambda I}=\begin{vmatrix} a-\lambda & b \\ c & d-\lambda \end{vmatrix}
+=(a-\lambda)(d-\lambda)-bc
+\end{equation*}
+
+\begin{equation*}
+\abs{U^{\dagger}-\lambda^{\dagger} I}=\begin{vmatrix} a^*-\lambda^{\dagger} & c^* \\ b^* & d^*-\lambda^{\dagger} \end{vmatrix}
+=(a^*-\lambda^{\dagger})(d^*-\lambda^{\dagger})-b^*c^*
+\end{equation*}
+
+Because $a=a^*$, $b=c^*$, $c=b^*$, and $d=d^*$, one sees that $\lambda$ must be equal to $\lambda^{\dagger}$, which implies that $\lambda$ is real. Here follows a more general proof that eigenvalues of a Hermitian matrix ($U=U^{\dagger}$) are real
+
+\begin{align*}
+U\vb{v} &= \lambda\vb{v} \\
+(U\vb{v})^{\dagger} &= (\lambda\vb{v})^{\dagger} \\
+\vb{v}^{\dagger} U^{\dagger} &= \lambda^{\dagger} \vb{v}^{\dagger} \\
+\vb{v}^{\dagger} U^{\dagger} \vb{v} &= \lambda^{\dagger} \vb{v}^{\dagger} \vb{v} \\
+(U&=U^{\dagger}) \\
+\vb{v}^{\dagger} U \vb{v} &= \lambda^{\dagger} \vb{v}^{\dagger} \vb{v} \\
+\vb{v}^{\dagger} \lambda \vb{v} &= \lambda^{\dagger} \vb{v}^{\dagger} \vb{v} \\
+\lambda \vb{v}^{\dagger} \vb{v} &= \lambda^{\dagger} \vb{v}^{\dagger} \vb{v} \\
+\lambda &= \lambda^{\dagger}
+\end{align*}
+
+Which must mean that the eigenvalues are real. A note on notation: the adjoint is to en operator what the complex conjugate is to numbers. $\lambda^{\dagger}$ is the complex conjugate of the eigenvalue.
+
+\vspace{1cm}
+
+d)
+
+\vspace{0.5cm}
+
+An operator $U$ is \emph{unitary} if $UU^{\dagger}=I$.
+
+\begin{equation*}
+UU^{\dagger}= 
+\begin{pmatrix} a &  b \\  c & d \end{pmatrix} 
+\begin{pmatrix} a^* & c^* \\ b^* & d^*\end{pmatrix}
+= \begin{pmatrix} 
+aa^*+bb^* & ac^* +bd^* \\
+a^*c + b^*d & cc^* + dd^*
+\end{pmatrix} 
+= \begin{pmatrix} 
+a^2+bc & ab + bd \\
+ac + cd & bc + d^2
+\end{pmatrix} 
+\end{equation*}
+
+This implies the following conditions:
+\begin{itemize}
+	\item $a^2+bc=1$ 
+	\item $b(a+d)=0$
+	\item $c(a+d)=0$
+	\item $d^2+bc=1$
+\end{itemize}
+
+The trivial case is when $b=c=0$ and $a,d=\pm1$. If instead $a+d=0$ and $b,c\neq0$ there are other, more interesting solutions to the problem, for instance
+\begin{equation*}
+\begin{pmatrix}
+\cos{\theta} & i\sine{\theta} \\
+-i\sine{\theta} & -\cos{\theta}
+\end{pmatrix},
+\quad \theta \in [0,2\pi]
+\end{equation*}
+
+\vspace{1cm}
+
+d)
+
+\vspace{0.5cm}
+
+The determinant of a unitary matrix must be 1, because $\det(U)\det(U^T)=\det(UU^T)=\det(1)=1$. Moreover,
+\begin{equation*}
+{\begin{vmatrix}
+a & b \\ 
+c & d
+\end{vmatrix}}
+= ad-bc = 1
+\end{equation*}
+
+then
+
+\begin{equation*}
+\abs{U-\lambda I} = \lambda^2-(a+d)\lambda+ad-bc = \lambda^2 -(a+d)\lambda+1=0
+\end{equation*}
+
+From above, $-(a+d)$ can have three possible values $-2$, $0$, $2$, which gives the possible eigenvalues of $\pm1$ and $\pm i$. Only real, eigenvalues are accepted if the matrix is Hermitian. If the matrix is both Hermitian and unitary, the matrix must therefore have unit egenvalues.
+
 \end{document}
