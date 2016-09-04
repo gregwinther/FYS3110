@@ -11,7 +11,7 @@
 
 \maketitle
 
-Problem 1.1
+\subsection*{Problem 1.1}
 
 \hspace{1cm}
 
@@ -28,6 +28,8 @@ a)
 
 b)
 
+\hspace{1cm}
+
 The following representation is used for the basis vectors
 \begin{align*}
 \ket{0} &= \begin{pmatrix} 1 \\ 0 \end{pmatrix}\\
@@ -43,6 +45,9 @@ it follows that
 				i \begin{pmatrix} 0 \\ 1 \end{pmatrix}
 				\right) \\
 			&= c \begin{pmatrix} \sqrt{5} \\ i \end{pmatrix} \\[10pt]
+\end{align*}
+
+\begin{align*}
 \bra{\Psi} 	&= c^*(\sqrt{5}\bra{0}-i\bra{1}) \\
 			&= c^*( \sqrt{5} ( 1 \quad 0 ) -i ( 0 \quad 1 )) \\
 			&= c^* ( \sqrt{5} \quad  -i ) \\[10pt]
@@ -50,11 +55,67 @@ it follows that
 \end{align*}
 
 Furthermore, $\hat{A}$ is an operator defined thusly
+\begin{equation*}
+\hat{A}\ket{0} = -i\ket{1}, \quad \hat{A}\ket{1} = i\ket{0}
+\end{equation*}
 
 
 It is quite easy to see that 
 \begin{equation*}
-
+\hat{A} = \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix}
 \end{equation*}
+
+$\hat{A}$ applied to $\ket{0}$:
+\begin{equation*}
+\hat{A}\ket{0} =
+\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ -i \end{pmatrix} = -i \begin{pmatrix} 0 \\ 1 \end{pmatrix} = -i\ket{1}
+\end{equation*}
+
+
+and $\hat{A}$ applied to $\ket{1}$:
+\begin{equation*}
+\hat{A}\ket{1} =
+\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} i \\ 0 \end{pmatrix} = i \begin{pmatrix} 1 \\ 0 \end{pmatrix} = i\ket{0}
+\end{equation*}
+
+\hspace{1cm}
+
+c)
+
+\hspace{1cm}
+
+There are now two ways to calculate $\bra{\Psi}\hat{A}\ket{\Psi}$
+
+\begin{align*}
+\bra{\Psi}\hat{A}\ket{\Psi} &=
+c^*\begin{pmatrix}\sqrt{5} & -i \end{pmatrix}
+\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix}
+c\begin{pmatrix} \sqrt{5} \\ i \end{pmatrix} \\ &=
+\abs{c} \begin{pmatrix} \sqrt{5} & -i \end{pmatrix}
+\begin{pmatrix} -1 \\ -\sqrt{5}i \end{pmatrix} \\ &=
+\frac{1}{6}(-\sqrt{5} - \sqrt{5}) = -\frac{\sqrt{5}}{3}
+\end{align*}
+
+\begin{align*}
+\bra{\Psi}\hat{A}\ket{\Psi} &=
+c^*(\sqrt{5}\bra{0}í\bra{1})\hat{A}c(\sqrt{5}\ket{0}+i\ket{1}) \\ &=
+\abs{c}(\sqrt{5}\bra{0}-i\bra{1})(-\sqrt{5}i\ket{1}-\ket{0}) \\ &=
+\frac{1}{6}(-5i\braket{0}{1}-\sqrt{5}\braket{0}{0}-\sqrt{5}\braket{1}{1}+i\braket{1}{0}) \\ &=
+\frac{1}{6}(-2\sqrt{5}) = -\frac{\sqrt{5}}{3}
+\end{align*}
+
+\hspace{1cm}
+
+\subsection*{Problem 1.2}
+
+\hspace{1cm}
+
+A complex matrix is given as
+
+\begin{equation*}
+U = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+\end{equation*}
+
+where $a, b, c, d$ are complex numbers.
 
 \end{document}
