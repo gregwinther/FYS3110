@@ -1,0 +1,7 @@
+# Ignore useless .tex biproducts
+*.aux
+*.log
+*.gz
+
+# Dirac's book
+Principles of Quantum Mechanics - Dirac.pdf
