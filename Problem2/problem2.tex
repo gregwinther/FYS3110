@@ -55,9 +55,50 @@ $\hat{H}=\hat{H}^{\dagger}$.
 
 Three ket vectors are given 
 \begin{align}
-\ket{1} \simeq& \frac{1}{\sqrt{2}}\colvec[i]{1}{0} \\
-\ket{2} \simeq& \colvec[0]{0}{1} \\
-\ket{3} \simeq& \frac{1}{\sqrt{3}}\colvec[-i]{1}{-1} \\
+\ket{1} \simeq& \frac{1}{\sqrt{2}}\colvec[i]{1}{0}  \label{ket1}\\
+\ket{2} \simeq& \colvec[0]{0}{1} \label{ket2}\\
+\ket{3} \simeq& \frac{1}{\sqrt{3}}\colvec[-i]{1}{-1} \label{ket3}
 \end{align}
+
+$\ket{1}$ is and eigenvector of $\hat{H}$ with eigenvalue $\frac{3}{2}$:
+\begin{equation}
+\hat{H}\ket{1} = 
+\begin{pmatrix}
+1 & \frac{i}{2} & 0 \\
+-\frac{i}{2} & 1 & 0 \\
+0 & 0 & \frac{1}{2}
+\end{pmatrix}
+\frac{1}{\sqrt{2}}\colvec[i]{1}{0} =
+\frac{1}{\sqrt{2}}\colvec[\frac{3i}{2}]{\frac{3}{2}}{0} =
+\frac{3}{2}\ket{1}
+\end{equation}
+
+$\ket{2}$ is and eigenvector of $\hat{H}$ with eigenvalue $\frac{1}{2}$:
+\begin{equation}
+\hat{H}\ket{2} = 
+\begin{pmatrix}
+1 & \frac{i}{2} & 0 \\
+-\frac{i}{2} & 1 & 0 \\
+0 & 0 & \frac{1}{2}
+\end{pmatrix}
+\colvec[0]{0}{1} =
+\colvec[0]{0}{\frac{1}{2}} =
+\frac{1}{2}\ket{2}
+\end{equation}
+
+$\ket{3}$ is and eigenvector of $\hat{H}$ with eigenvalue $\frac{1}{2}$:
+\begin{equation}
+\hat{H}\ket{3} = 
+\begin{pmatrix}
+1 & \frac{i}{2} & 0 \\
+-\frac{i}{2} & 1 & 0 \\
+0 & 0 & \frac{1}{2}
+\end{pmatrix}
+\frac{1}{\sqrt{3}}\colvec[-i]{1}{-1} =
+\frac{1}{\sqrt{3}}\colvec[-\frac{i}{2}]{\frac{1}{2}}{-\frac{1}{2}} =
+\frac{1}{2}\ket{3}
+\end{equation}
+
+\subsubsection{c)}
 
 \end{document}
