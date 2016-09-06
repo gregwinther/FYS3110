@@ -1,0 +1,63 @@
+\documentclass{article}
+
+\usepackage{physics}
+\usepackage{amsmath}
+
+
+\newcommand*\colvec[3][]{
+    \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+}
+
+\title{Problem Set II \\
+  \large{FYS3110}}
+
+\author{Sebastian G. Winther-Larsen (sebastwi)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Problem 2.1}
+
+An operator $\hat{H}$ is represented in a particular orthonormal basis
+as the matrix
+\begin{equation}
+\hat{H}\simeq
+\begin{pmatrix}
+1 & \frac{i}{2} & 0 \\
+-\frac{i}{2} & 1 & 0 \\
+0 & 0 & \frac{1}{2}
+\end{pmatrix}
+\end{equation}
+
+\subsubsection*{a)}
+
+$\hat{H}$ is Hermitian if it is equal to its own transpose conjugate,
+$\hat{H}=\hat{H}^{\dagger}$.
+
+\begin{equation}
+\hat{H}^{\dagger}=(\hat{H}^*)^T=
+\begin{pmatrix}
+1 & -\frac{i}{2} & 0 \\
+\frac{i}{2} & 1 & 0 \\
+0 & 0 & \frac{1}{2}
+\end{pmatrix}^T=
+\begin{pmatrix}
+1 & \frac{i}{2} & 0 \\
+-\frac{i}{2} & 1 & 0 \\
+0 & 0 & \frac{1}{2}
+\end{pmatrix}=
+\hat{H}
+\end{equation}
+
+\subsection*{b)}
+
+Three ket vectors are given 
+\begin{align}
+\ket{1} \simeq& \frac{1}{\sqrt{2}}\colvec[i]{1}{0} \\
+\ket{2} \simeq& \colvec[0]{0}{1} \\
+\ket{3} \simeq& \frac{1}{\sqrt{3}}\colvec[-i]{1}{-1} \\
+\end{align}
+
+\end{document}
