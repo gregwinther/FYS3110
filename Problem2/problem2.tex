@@ -105,7 +105,7 @@ Computing the matrix elements of the linear operator
 
 \begin{align}
 \bra{1}\hat{H}\ket{1} &= \frac{3}{2}\braket{1} 
-=\frac{3}{2}\frac{1}{2}\begin{pmatrix} i & 1 &
+=\frac{3}{2}\frac{1}{2}\begin{pmatrix} -i & 1 &
   0 \end{pmatrix}\colvec[i]{1}{0}
 =\frac{3}{2}\frac{1}{2}2=\frac{3}{2}
 \\
@@ -117,7 +117,7 @@ Computing the matrix elements of the linear operator
 \bra{1}\hat{H}\ket{3} &= \frac{1}{2}\braket{1}{3} 
 =\frac{1}{2}\frac{1}{\sqrt{2}}\frac{1}{\sqrt{3}}\begin{pmatrix} i & 1 &
   0 \end{pmatrix}\colvec[-i]{1}{-1}
-= \frac{1}{2}\frac{1}{\sqrt{2}}\frac{1}{\sqrt{3}}2=\frac{1}{\sqrt{6}}
+= \frac{1}{2}\frac{1}{\sqrt{2}}\frac{1}{\sqrt{3}}0=0
 \end{align}
 
 \begin{align}
@@ -140,17 +140,89 @@ Computing the matrix elements of the linear operator
 \frac{3}{2}\braket{3}{1}=
 \frac{3}{2}\frac{1}{\sqrt{2}}\frac{1}{\sqrt{3}}
 \begin{pmatrix}
--i & 1 & -1
+i & 1 & -1
 \end{pmatrix}
 \colvec[i]{1}{0}
-= \frac{3}{2}\frac{1}{\sqrt{2}}\frac{1}{\sqrt{3}}2
-= \sqrt{\frac{3}{2}}
+= \frac{3}{2}\frac{1}{\sqrt{2}}\frac{1}{\sqrt{3}}0
+= 0
 \\
 \bra{3}\hat{H}\ket{2} &=
+\frac{1}{2}\braket{3}{2}=
+\frac{1}{2}\frac{1}{\sqrt{3}}
+\begin{pmatrix}
+i & 1 & -1
+\end{pmatrix}
+\colvec[0]{0}{1}=
+\frac{1}{2}\frac{1}{\sqrt{3}}(-1)=-\frac{1}{2\sqrt{3}}
 \\
 \bra{3}\hat{H}\ket{3} &=
+\frac{1}{2}\braket{3}=
+\frac{1}{2}\frac{1}{3}
+\begin{pmatrix}
+i & 1 & -1
+\end{pmatrix}
+\colvec[-i]{1}{-1}=
+\frac{1}{2}\frac{1}{3}3=\frac{1}{2}
 \end{align}
 
+Thus, the full matrix is
+\begin{equation}
+H_{ij}=\begin{pmatrix}
+\frac{3}{2} & 0 & 0 \\
+0 & \frac{1}{2} & -\frac{1}{2\sqrt{3}} \\
+0 & -\frac{1}{2\sqrt{3}} & \frac{1}{2}
+\end{pmatrix}
+\end{equation}
+
+Evidently, the matrix $H_{ij}$ is not diagonal, but is symmetric with the eigenvalues as main diagonal entries.
+
+\subsection*{d)}
+
+From the results when $H_{ij}$ was computed one can already gather that $\ket{2}$ and $\ket{3}$ are non-orthogonal. The Gram-Schmidt precedure can be employed to convert a linearly independent basis into an orthonormal one, but it is not necessary to do all the work. It is easy to see that the kets are already of unit length as $\sqrt{\braket{i}{i}} = 1, i=1,2,3$. A new orthonomral basis is computed as follows.
+
+Everything is already fine with the first ket:
+
+\begin{equation}
+\ket{1'}=\ket{1}
+\end{equation}
+
+The second vector in the new basis is the $\ket{2}$ minus the part pointing along the first vector. 
+
+\begin{equation}
+\ket{2'}=\ket{2}-\ket{1'}\braket{1'}{2}=\ket{2}
+\end{equation}
+
+The second ket in the new basis is also equal to its ``predecessor'', because no part of it points along the first ket ($\braket{1'}{2}=0$).
+
+Finally, the third new basis vector is computed by subtracting both the part of it that points along the first and the second vector.
+
+\begin{align}
+\ket{\tilde{3}}&=\ket{3}-\ket{1'}\braket{1'}{3}-\ket{2'}\braket{2'}{3}
+=\ket{3}-\ket{2'}\braket{2'}{3}\\
+&=\frac{1}{\sqrt{3}}\colvec[-i]{1}{-1} - 
+\frac{1}{\sqrt{3}}\colvec[0]{0}{1}\begin{pmatrix}0 & 0 & 1\end{pmatrix}\colvec[-i]{1}{-1}=\frac{1}{\sqrt{3}}\colvec[-i]{1}{0}
+\end{align}
+
+Now this vector must be normalised
+
+\begin{equation}
+\ket{3'}=\frac{\ket{\tilde{3}}}{\sqrt{\braket{\tilde{3}}}}
+=\frac{\ket{\tilde{3}}}{\sqrt{\frac{1}{3}\begin{pmatrix}i & 1 & 0\end{pmatrix}\colvec[-1]{1}{0}}}=
+\frac{\ket{\tilde{3}}}{\sqrt{\frac{2}{3}}}=\frac{1}{\sqrt{2}}\colvec[-i]{1}{0}
+\end{equation}
+
+One should have been able to see that one coming from far away. It is easy to see that 
+\begin{equation}
+\braket{i'}{j'}=
+\begin{cases}
+1, & i=j\\
+0, & i\neq j
+\end{cases}
+\end{equation}
+Therefore, $H_{i'j'}$ must be a diagonal matrix. The only unknown element is
+\begin{equation}
+\bra{3'}\hat{H}\ket{3'}
+\end{equation}
 
 
 \end{document}
