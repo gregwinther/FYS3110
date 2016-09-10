@@ -1,5 +1,6 @@
 \documentclass{article}
 
+\usepackage[utf8]{inputenc}
 \usepackage{physics}
 \usepackage{amsmath}
 
@@ -251,7 +252,7 @@ H_{i'j'}=\begin{pmatrix}
 
 \section*{Problem 2.2}
 \subsection*{a)}
-Here I will determine the Hermitian conugate of operators $i$, $x²$ and $\frac{d}{dx}$. Given an operator $\hat{O}$, its Hermitian conjugate $\hat{O}^{\dagger}$ satisfies the following property by definition.
+Here I will determine the Hermitian conugate of operators $i$, $x^2$ and $\frac{d}{dx}$. Given an operator $\hat{O}$, its Hermitian conjugate $\hat{O}^{\dagger}$ satisfies the following property by definition.
 \begin{equation}
 \label{hermconj}
 \braket{\phi}{\hat{O}\psi} = \braket{\hat{O}^{\dagger}\phi}{\psi} 
@@ -266,7 +267,7 @@ Therefore, in general an operator which is simply an complex number will have it
 \braket{(a-ib)\phi}{\psi}=\braket{\phi}{(a+ib)\psi}
 \end{equation}
 
-Bearing this result in mind, the Hermitian conjugates of $i$ and $x²$ are simply their complex conjugates, $(i)^*=-i$ and $(x²)^*=x^2$. Now, to compute the Hermitian conjugate of $\frac{d}{dx}$ I will derive the result using integration by parts.
+Bearing this result in mind, the Hermitian conjugates of $i$ and $x^2$ are simply their complex conjugates, $(i)^*=-i$ and $(x^2)^*=x^2$. Now, to compute the Hermitian conjugate of $\frac{d}{dx}$ I will derive the result using integration by parts.
 \begin{align}
 \braket{\phi}{\frac{d}{dx}\psi}&=\int_{-\infty}^{\infty}\phi^*(x)\frac{d\psi(x)}{dx} dx\\
 &=\left[\phi^*(x)\psi(x)\right]_{-\infty}^{\infty}
@@ -305,5 +306,22 @@ Now for the proof
 \bra{\lambda}\hat{K}\hat{L}\ket{g}=\bra{\lambda}\hat{L}\hat{K}\ket{g}=
 (\bra{g}\hat{L}\hat{K}\ket{\lambda})^*=(\bra{g}\hat{L}\lambda\ket{\lambda})^*=\bra{\lambda}\hat{L}\ket{g}\lambda
 \end{equation}
+
+\section*{2.3}
+
+The following system is under scrutiny. A Hamiltonian $\hat{H}$ is linear and acts as follows
+\begin{equation*}
+\hat{H}\ket{\psi}=g\ket{\phi}, \quad \hat{H}\ket{\phi}=g^*\ket{\psi}, \quad \hat{H}\ket{\gamma_n}=0
+\end{equation*}
+where $g$ is and arbitrary complex number, $\ket{\psi}$ and $\ket{\phi}$ is a pair of linearly independent states, normalised to unity\footnote{Not necesarily orthogonal}, and $\ket{\gamma_n}$, $n\in[1,N]$ are all sates orthogonal to both $\ket{\psi}$ and $\ket{\phi}$.
+
+\begin{itemize}
+\item Skriv av fasit fra forrige oppgave
+\item Bevis at de må være reelle
+\item det rett under
+\item $\ket{\psi}$ and $\ket{\phi}$ er eigenstates
+\end{itemize}
+
+From the two problems above one can conlude that computing $\bra{k}\hat{O}\ket{k}$ will produce the eigenvalues of eigenstate $\ket{k}$.
 
 \end{document}
