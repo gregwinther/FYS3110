@@ -3,20 +3,25 @@
 \usepackage{physics}
 \usepackage{amsmath}
 
+\usepackage{epigraph}
 
 \newcommand*\colvec[3][]{
     \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
 }
 
 \title{Problem Set II \\
-  \large{FYS3110}}
+  \hrulefill\fbox{\small{FYS3110}}\hrulefill}
 
-\author{Sebastian G. Winther-Larsen (sebastwi)}
+\author{Sebastian G. Winther-Larsen}
 \date{\today}
 
 \begin{document}
 
 \maketitle
+
+%---------- Some lame ass quote -----------
+\epigraph{\centering \large{\emph{``I invented the bra.''}}}{--P.A.M. Dirac}
+
 
 \section*{Problem 2.1}
 
@@ -244,21 +249,61 @@ H_{i'j'}=\begin{pmatrix}
 \end{pmatrix}
 \end{equation}
 
-\section*{2.2}
+\section*{Problem 2.2}
 \subsection*{a)}
-Find the Hermitian conugate of the following operators $i$, $x²$ and $\frac{d}{dx}$. Given an operator $\hat{O}$, its Hermitian conjugate $\hat{O}^{\dagger}$ satisfies the following property by definition.
+Here I will determine the Hermitian conugate of operators $i$, $x²$ and $\frac{d}{dx}$. Given an operator $\hat{O}$, its Hermitian conjugate $\hat{O}^{\dagger}$ satisfies the following property by definition.
 \begin{equation}
+\label{hermconj}
 \braket{\phi}{\hat{O}\psi} = \braket{\hat{O}^{\dagger}\phi}{\psi} 
 \end{equation} 
-where $\bra{\phi}$ and $\ket{\psi}$ are simply an arbitrary bra and ket, respectively. Given a (complex) number $\alpha$ the following properties are important.
+where $\bra{\phi}$ and $\ket{\psi}$ are simply an arbitrary bra and ket, respectively. Given a (complex) number $\alpha$, the following properties are important.
 \begin{align}
 \alpha\ket{\psi} &= \ket{\psi} \\
-\bra{\alpha\phi} &= \bra{\phi}\alpha*
+\bra{\alpha\phi} &= \bra{\phi}\alpha^*
 \end{align}
 Therefore, in general an operator which is simply an complex number will have its complex conjugate as Hermitian conjugate.
 \begin{equation}
 \braket{(a-ib)\phi}{\psi}=\braket{\phi}{(a+ib)\psi}
 \end{equation}
 
+Bearing this result in mind, the Hermitian conjugates of $i$ and $x²$ are simply their complex conjugates, $(i)^*=-i$ and $(x²)^*=x^2$. Now, to compute the Hermitian conjugate of $\frac{d}{dx}$ I will derive the result using integration by parts.
+\begin{align}
+\braket{\phi}{\frac{d}{dx}\psi}&=\int_{-\infty}^{\infty}\phi^*(x)\frac{d\psi(x)}{dx} dx\\
+&=\left[\phi^*(x)\psi(x)\right]_{-\infty}^{\infty}
+-\int_{-\infty}^{\infty}\frac{d\phi^*(x)}{x}\psi(x) dx \label{intparts}\\
+&= \braket{-\frac{d}{dx}\phi}{\psi}
+\end{align}
+The first term in (\ref{intparts}) is zero, consequently providing the result
+\begin{equation}
+\left(\frac{d}{dx} \right)^{\dagger} = -\frac{d}{dx}
+\end{equation}
+
+\subsection*{b)}
+By employing the property in (\ref{hermconj}) it is quite straightforward to compute the Hermitian conjugate of a composit operator $\hat{O}=\hat{K}\hat{L}$
+\begin{equation}
+\braket{\phi}{\hat{K}\hat{L}\psi}=\braket{\hat{K}^{\dagger}\phi}{\hat{L}\psi}=\braket{\hat{L}^{\dagger}\hat{K}^{\dagger}\phi}{\psi}
+\end{equation}
+or, somewhat more condensely written
+\begin{equation}
+(\hat{K}\hat{L})^{\dagger}=\hat{L}^{\dagger}\hat{K}^{\dagger}
+\end{equation}
+
+\subsection*{c)}
+
+The vector $\ket{\lambda}$ is an eigenket og the Hermitian operator $\hat{K}$ with eigenvalue $\lambda$, such that $\hat{K}\ket{\lambda}=\lambda\ket{\lambda}$. Now the task is to prove that
+\begin{equation}
+\bra{\lambda}\hat{K}\hat{L}\ket{g}=\bra{\lambda}\hat{L}\ket{g}\lambda
+\end{equation}
+
+Firstly, because of the properties of Hermitian and composite operators
+\begin{equation}
+(\hat{K}\hat{L})^{\dagger}=\hat{L}^{\dagger}\hat{K}^{\dagger}=\hat{L}\hat{K}
+\end{equation}
+
+Now for the proof
+\begin{equation}
+\bra{\lambda}\hat{K}\hat{L}\ket{g}=\bra{\lambda}\hat{L}\hat{K}\ket{g}=
+(\bra{g}\hat{L}\hat{K}\ket{\lambda})^*=(\bra{g}\hat{L}\lambda\ket{\lambda})^*=\bra{\lambda}\hat{L}\ket{g}\lambda
+\end{equation}
 
 \end{document}
