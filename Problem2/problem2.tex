@@ -221,7 +221,27 @@ One should have been able to see that one coming from far away. It is easy to se
 \end{equation}
 Therefore, $H_{i'j'}$ must be a diagonal matrix. The only unknown element is
 \begin{equation}
-\bra{3'}\hat{H}\ket{3'}
+\bra{3'}\hat{H}\ket{3'}=
+\frac{1}{2}\begin{pmatrix}
+i & 1 & 0
+\end{pmatrix}\begin{pmatrix}
+1 & \frac{i}{2} & 0 \\
+\frac{i}{2} & 1 & 0 \\
+0 & 0 & \frac{1}{2}
+\end{pmatrix}
+\colvec[-i]{1}{0}=
+\frac{1}{2}\begin{pmatrix}
+i & 1 & 0
+\end{pmatrix}
+\colvec[-\frac{i}{2}]{\frac{1}{2}}{0}=\frac{1}{2}
+\end{equation}
+Not surprisingly, the last eigenvalue is the same and the new matrix is
+\begin{equation}
+H_{i'j'}=\begin{pmatrix}
+\frac{3}{2} & 0 & 0 \\
+0 & \frac{1}{2} & 0 \\
+0 & 0 & \frac{1}{2}
+\end{pmatrix}
 \end{equation}
 
 
