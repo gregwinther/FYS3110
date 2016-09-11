@@ -315,13 +315,27 @@ The following system is under scrutiny. A Hamiltonian $\hat{H}$ is linear and ac
 \end{equation*}
 where $g$ is and arbitrary complex number, $\ket{\psi}$ and $\ket{\phi}$ is a pair of linearly independent states, normalised to unity\footnote{Not necesarily orthogonal}, and $\ket{\gamma_n}$, $n\in[1,N]$ are all sates orthogonal to both $\ket{\psi}$ and $\ket{\phi}$.
 
-\begin{itemize}
-\item Skriv av fasit fra forrige oppgave
-\item Bevis at de må være reelle
-\item det rett under
-\item $\ket{\psi}$ and $\ket{\phi}$ er eigenstates
-\end{itemize}
+From the two problems above one can conlude that computing $\bra{\lambda}\hat{O}\ket{\lambda}$ will produce the eigenvalues of eigenstate $\ket{\lambda}$ for unit length vectors. The eigenvalues were the same whether the states were orthogonal or not, it is enough for them to be linearly independent, as is the case here, because then they are a basis for the system. That means that they are also eigenstates for the system.
+\begin{align}
+\bra{\psi}\hat{H}\ket{\psi}&=\braket{\psi}{\hat{H}\psi}=\braket{\psi}{g\phi}=g\braket{\psi}{\phi} \\
+&=\braket{\hat{H}\psi}{\psi}=\braket{g\psi}{\psi}=g^*\braket{\phi}{\psi}=g^*\braket{\psi}{\phi}=g^*\braket{\phi}{\psi}
+\end{align} 
 
-From the two problems above one can conlude that computing $\bra{k}\hat{O}\ket{k}$ will produce the eigenvalues of eigenstate $\ket{k}$.
+Which gives the eigenvalue for eigenstate $\ket{\psi}$ as $g\braket{\phi}{\psi}=g^*\braket{\psi}{\phi}^*$. Similarly, the eigenvalue for eigenstate $\ket{\phi}$ is $g\braket{\psi}{\phi}=g^*\braket{\phi}{\psi}^*$. Because $\ket{\gamma_n}$ are orthogonal to both $\ket{\psi}$ and $\ket{\phi}$, they must also be eigenstates, but are not as interesting because their eigenvalues are zero.
+
+Additionally, one can prove that all eigenvalues of an Hermitian operator are real. Consider
+\begin{align}
+\hat{O}\ket{\lambda} &= \lambda\ket{\lambda} \\
+\bra{\lambda}\hat{O}\ket{\lambda} &= \lambda\braket{\lambda}{\lambda} \label{this}\\
+\bra{\lambda}\hat{O}^{\dagger}\ket{\lambda} &= \lambda^*\braket{\lambda}{\lambda} \\
+\bra{\lambda}\hat{O}\ket{\lambda} &= \lambda^*\braket{\lambda}{\lambda} \label{that}
+\end{align}
+subtracting \ref{this} from \ref{that} yields
+\begin{align}
+0=(\lambda&-\lambda^*)\braket{\lambda}\\
+\lambda&=\lambda^*
+\end{align}
+which only holds for real numbers.
 
 \end{document}
+
