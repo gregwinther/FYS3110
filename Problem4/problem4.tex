@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{physics}
+
+\title{Problem Sheet 4 \\
+\large{FYS3110}}
+
+\author{Sebastian G. Winther-Larsen}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+The hamiltonian of particle with mass $m$ in a one-dimensional oscillator potetial having a characteristic frequency $\omega$ is
+\begin{equation}
+\hat{H}=\frac{1}{2m}\hat{p}^2+\frac{1}{2}m\omega^2\hat{X}^2
+\end{equation}
+The ladder operators for the harmonic oscillator potential are
+\begin{align}
+\hat{a}&=\frac{1}{\sqrt{2\hbar m\omega}}(m\omega\hat{X}+i\hat{P})
+&\text{(lowering operator)} \label{eq:ladderdown} \\
+\hat{a}^{\dagger}&=\frac{1}{\sqrt{2\hbar m\omega}}(m\omega\hat{X}-i\hat{P})
+&\text{(raising operator)} \label{eq:ladderup}
+\end{align}
+
+\section*{Problem 4.1}
+
+\subsection*{a)}
+
+I want to find an expression for $\hat{X}$ in terms of. This can be done by first rewriting equation \ref{eq:ladderdown}
+\begin{align*}
+\hat{a}&=\frac{1}{\sqrt{2\hbar m\omega}}(m\omega\hat{X}+i\hat{P}) \\
+\hat{a}&= \sqrt{\frac{m\omega}{2\hbar}}\hat{X}+\frac{i}{\sqrt{2\hbar m \omega}}\hat{P}
+\end{align*}
+
+
+\end{document}
