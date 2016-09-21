@@ -30,11 +30,49 @@ The ladder operators for the harmonic oscillator potential are
 
 \subsection*{a)}
 
-I want to find an expression for $\hat{X}$ in terms of. This can be done by first rewriting equation \ref{eq:ladderdown}
+I want to find an expression for $\hat{X}$ in terms of $\hat{a}_{nm}$ and $\hat{a}^{\dagger}_{nm}$. This can be done by first rewriting equation \ref{eq:ladderdown}
 \begin{align*}
-\hat{a}&=\frac{1}{\sqrt{2\hbar m\omega}}(m\omega\hat{X}+i\hat{P}) \\
-\hat{a}&= \sqrt{\frac{m\omega}{2\hbar}}\hat{X}+\frac{i}{\sqrt{2\hbar m \omega}}\hat{P}
+\hat{a}=\frac{1}{\sqrt{2\hbar m\omega}}(m\omega\hat{X}+i\hat{P})
+= \sqrt{\frac{m\omega}{2\hbar}}\hat{X}+\frac{i}{\sqrt{2\hbar m \omega}}\hat{P} \\
+\rightarrow \hat{X} = \sqrt{\frac{2\hbar}{m\omega}}\hat{a}-\sqrt{\frac{2\hbar}{m\omega}}\frac{i}{\sqrt{2\hbar m\omega}}\hat{P}, 
 \end{align*}
+and then equation \ref{eq:ladderup}
+\begin{align*}
+\hat{a}^{\dagger} = \frac{1}{\sqrt{2\hbar m\omega}}(m\omega\hat{X}-i\hat{P}) = \sqrt{\frac{2\hbar}{m\omega}}\hat{X}+\frac{i}{2\hbar m\omega}\hat{P} \\
+\rightarrow \hat{P}= \frac{2\hbar m \omega}{i}\sqrt{\frac{m\omega}{2\hbar}}\hat{X}-\frac{2\hbar m\omega}{i}\hat{a}^{\dagger}.
+\end{align*}
+Now putting the latter equation into the former yields
+\begin{align*}
+\hat{X}&=\sqrt{\frac{2\hbar}{m\omega}}\hat{a}-\sqrt{\frac{2\hbar}{m\omega}}\frac{i}{2\hbar m\omega}\left(\frac{2\hbar m\omega}{i}\sqrt{\frac{m\omega}{2\hbar}}\hat{X}-\frac{2\hbar m\omega}{i}\hat{a} \right) \\
+&=\sqrt{\frac{2\hbar}{m\omega}}\hat{a}+\sqrt{\frac{2\hbar}{m\omega}}\hat{a}^{\dagger}-\sqrt{\frac{2\hbar}{m\omega}}\sqrt{\frac{m\omega}{2\hbar}}\hat{x},
+\end{align*}
+which simplifies to
+\begin{equation}
+\label{eq:xoperator}
+\hat{X}=\sqrt{\frac{\hbar}{2m\omega}}(\hat{a}+\hat{a}^{\dagger})
+\end{equation}
 
+It will be necessary to know what $[\hat{a},\hat{H}]$ is. This is easiest to compute if one knows how $\hat{a}$ and $\hat{a}^{\dagger}$ is related to $\hat{H}$. By looking at the expressions for $\hat{a}$ and $\hat{a}^{\dagger}$ one is tempted to compute the following
+\begin{equation*}
+\hat{a}\hat{a}^{\dagger}=\frac{m\omega}{2\hbar}\hat{X}^2+\frac{1}{2m\omega\hbar}\hat{P}^2+\frac{i}{2\hbar}[\hat{X},\hat{P}],
+\end{equation*}
+where $[X,P]=i\hbar$, which follows from $\hat{X}\rightarrow x$ and $\hat{P}\rightarrow i\hbar (d/dx)$, but is independent of basis. So we see that
+\begin{equation}
+\hat{H} = (\hat{a}\hat{a}^{\dagger}+\frac{1}{2})\hbar\omega.
+\end{equation}
+Then we have that 
+\begin{equation}
+[\hat{a},\hat{H}] = [\hat{a},\hat{a}^{\dagger}\hat{a}+1/2]=[\hat{a},,\hat{a}^{\dagger}\hat{a}] = \hat{a},
+\end{equation}
+if we measure the eigenvalues in units of $\hbar\omega$. Similarly, $[\hat{a^{\dagger}},\hat{H}]=-\hat{a}^{\dagger}$.
+
+The utility of $\hat{a}$ and $\hat{a}^{\dagger}$ stems from the fact that given an eigenstate of $\hat{H}$, they generate others. Consider
+\begin{equation}
+\label{eq:neweigenvalues}
+\hat{H}a\ket{E}=(\hat{a}\hat{H}-[\hat{a},\hat{H}])\ket{E}=(\hat{a}\hat{H}-\hat{a})\ket{E}=
+\end{equation}
+where $\varepsilon$ is the energy measured in units of $\hbar\omega$.
+
+Now my idea is to find matrix elements for $a_{nm}$ and $a^{\dagger}_{nm}$, plug these into equation \ref{eq:xoperator} to get the matrix elements of $X_{nm}$.
 
 \end{document}
