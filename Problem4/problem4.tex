@@ -137,7 +137,12 @@ while an algebraic expression will  be (also employing equation \ref{eq:xoperato
 \subsection*{b)}
 Let $\ket{\psi(0)}=\sum_{x=0}^n c_n\ket{n}$. It follows that
 \begin{align*}
-\braket{\psi(0)}=
+\braket{\psi(0)} &= \sum_n \abs{c_n}^2 \braket{n} + 2\sum_{n \neq n'} c_nc_{n'} \braket{n}{n'} \\
+ &= \sum_n \abs{c_n}^2 \delta_{n,n} + 2\sum_{n \neq n'} c_nc_{n'} \delta_{n,n'}, 
 \end{align*}
+where the first Kronecker delta will always be $1$ and the second Kronecker delta will always be $0$. The condition on the $c_n$'s for $\ket{\psi(0)}$ to have unit norm is therefore
+\begin{equation}
+\sum_n \abs{c_n}^2 = 1
+\end{equation}
 
 \end{document}
