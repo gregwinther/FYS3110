@@ -58,21 +58,80 @@ It will be necessary to know what $[\hat{a},\hat{H}]$ is. This is easiest to com
 \end{equation*}
 where $[X,P]=i\hbar$, which follows from $\hat{X}\rightarrow x$ and $\hat{P}\rightarrow i\hbar (d/dx)$, but is independent of basis. So we see that
 \begin{equation}
-\hat{H} = (\hat{a}\hat{a}^{\dagger}+\frac{1}{2})\hbar\omega.
+\label{eq:hamilton}
+\hat{H} = \hbar\omega(\hat{a}\hat{a}^{\dagger}+\frac{1}{2}),
 \end{equation}
-Then we have that 
+or alternatively that $\hat{a}\hat{a}^{\dagger}=\frac{\hat{H}}{\hbar \omega}-\frac{1}{2}$.
+This combined ladder operator can be referred to by a new name $\hat{a}\hat{a}^{\dagger}=\hat{N}$, so that equation \ref{eq:hamilton} becomes
 \begin{equation}
-[\hat{a},\hat{H}] = [\hat{a},\hat{a}^{\dagger}\hat{a}+1/2]=[\hat{a},,\hat{a}^{\dagger}\hat{a}] = \hat{a},
+\hat{H} = \hbar\omega(\hat{N}+\frac{1}{2}),
 \end{equation}
-if we measure the eigenvalues in units of $\hbar\omega$. Similarly, $[\hat{a^{\dagger}},\hat{H}]=-\hat{a}^{\dagger}$.
-
-The utility of $\hat{a}$ and $\hat{a}^{\dagger}$ stems from the fact that given an eigenstate of $\hat{H}$, they generate others. Consider
+Thus, we have the energy eigenbasis which satisfy
 \begin{equation}
-\label{eq:neweigenvalues}
-\hat{H}a\ket{E}=(\hat{a}\hat{H}-[\hat{a},\hat{H}])\ket{E}=(\hat{a}\hat{H}-\hat{a})\ket{E}=
+\hat{H}\ket{n}=\hbar\omega(n-\frac{1}{2})\ket{n}, \text{ for } i \in 0, 1, 2 \dots
 \end{equation}
-where $\varepsilon$ is the energy measured in units of $\hbar\omega$.
 
-Now my idea is to find matrix elements for $a_{nm}$ and $a^{\dagger}_{nm}$, plug these into equation \ref{eq:xoperator} to get the matrix elements of $X_{nm}$.
+We now get
+\begin{equation}
+\hat{a}\ket{n} = C_n\ket{n},
+\end{equation}
+where $C_n$ is a constant which can be found the following way
+\begin{align*}
+\bra{n}\hat{a}^{\dagger}\hat{a}\ket{n} = & \abs{C_n}^2\braket{n-1}\\
+\rightarrow & \abs{C_n}=\sqrt{n}=C_n,
+\end{align*}
+by choosing the phase to be zero\footnote{Actually, $C_n=\sqrt{n}e^{i\phi}$ where $\phi$ is arbitrary, but is is conventional to set $\phi=0$.}. We land at
+\begin{equation}
+\hat{a}\ket{n}=\sqrt{n}\ket{n-1}
+\end{equation}
+Similarly for $\hat{a}^{\dagger}$
+\begin{equation}
+\hat{a}^{\dagger}\ket{n} = D_n\ket{n+1}
+\end{equation}
+\begin{align*}
+\bra{n}\hat{a}\hat{a}^{\dagger}\ket{n}=&\abs{D_n}^2\braket{n+1} \\
+\rightarrow & \abs{D_n}=\sqrt{n+1}=D_n
+\end{align*}
+\begin{equation}
+\hat{a}^{\dagger}\ket{n}=\sqrt{n+1}\ket{n+1}
+\end{equation}
+
+Now to compute the matrix elements for $\hat{a}$ and $\hat{a}^{\dagger}$
+\begin{align}
+\bra{m}\hat{a}\ket{n}=\sqrt{n}\braket{m}{n-1}=&\sqrt{n}\delta_{m,n-1} \\
+\bra{m}\hat{a}^{\dagger}\ket{n}=\sqrt{n-1}\braket{m}{n+1}=&\sqrt{n-1}\delta_{m,n+1}.
+\end{align}
+The actual matrices for these particular operators will look something like this\footnote{I am perfectly aware that $\sqrt{1}=1$ but I will keep the root symbol here in order to underline the symmetry.}
+\begin{align}
+a &\leftrightarrow \begin{bmatrix}
+0 & \sqrt{1} & 0 & 0 & \dots \\
+0 & 0 & \sqrt{2} & 0 &  \\
+0 & 0 & 0 & \sqrt{3} & \\
+\vdots & & & & \ddots 
+\end{bmatrix} \\
+a^{\dagger} &\leftrightarrow \begin{bmatrix}
+0 & 0 & 0 & \dots \\
+\sqrt{1} & 0 & 0 & \\
+0 & \sqrt{2} & 0 & \\
+0 & 0 & \sqrt{3} & \\
+\vdots & & & \ddots 
+\end{bmatrix}.
+\end{align}
+
+Finding the matrix representation of $\hat{X}$ is now an easy matter of employing equation \ref{eq:xoperator}
+\begin{equation}
+X \leftrightarrow  \begin{bmatrix}
+0 & \sqrt{1} & 0 & 0 & \dots \\
+\sqrt{1} & 0 & \sqrt{2} & 0 &  \\
+0 & \sqrt{2} & 0 & \sqrt{3} & \\
+0 & 0 & \sqrt{3} & 0 \\
+\vdots & & & & \ddots 
+\end{bmatrix},
+\end{equation}
+while an algebraic expression will  be (also employing equation \ref{eq:xoperator})
+\begin{align}
+\bra{m}X\ket{n} &= \sqrt{\frac{\hbar}{2m\omega}}(\sqrt{n+1}\braket{m}{n+1}+\sqrt{n}\braket{m}{n-1}) \\
+&= \sqrt{\frac{\hbar}{2m\omega}}(\sqrt{n+1}\delta_{m,n+1}-\sqrt{n}\delta_{m,n-1}).
+\end{align}
 
 \end{document}
