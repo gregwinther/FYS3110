@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage{physics}
 
+\usepackage[utf8]{inputenc}
+
 \title{Problem Sheet 4 \\
 \large{FYS3110}}
 
@@ -120,7 +122,8 @@ a^{\dagger} &\leftrightarrow \begin{bmatrix}
 
 Finding the matrix representation of $\hat{X}$ is now an easy matter of employing equation \ref{eq:xoperator}
 \begin{equation}
-X \leftrightarrow  \begin{bmatrix}
+\label{eq:xmatrixelements}
+X \leftrightarrow  \sqrt{\frac{\hbar}{2m\omega}}\begin{bmatrix}
 0 & \sqrt{1} & 0 & 0 & \dots \\
 \sqrt{1} & 0 & \sqrt{2} & 0 &  \\
 0 & \sqrt{2} & 0 & \sqrt{3} & \\
@@ -130,8 +133,8 @@ X \leftrightarrow  \begin{bmatrix}
 \end{equation}
 while an algebraic expression will  be (also employing equation \ref{eq:xoperator})
 \begin{align}
-\bra{m}X\ket{n} &= \sqrt{\frac{\hbar}{2m\omega}}(\sqrt{n+1}\braket{m}{n+1}+\sqrt{n}\braket{m}{n-1}) \\
-&= \sqrt{\frac{\hbar}{2m\omega}}(\sqrt{n+1}\delta_{m,n+1}-\sqrt{n}\delta_{m,n-1}).
+\bra{m}X\ket{n} &= \sqrt{\frac{\hbar}{2m\omega}}(\sqrt{n+1}\braket{m}{n+1}+\sqrt{n}\braket{m}{n-1}) \nonumber \\
+&= \sqrt{\frac{\hbar}{2m\omega}}(\sqrt{n+1}\delta_{m,n+1}-\sqrt{n}\delta_{m,n-1}). \label{eq:xmatrixelements2}
 \end{align}
 
 \subsection*{b)}
@@ -143,6 +146,76 @@ Let $\ket{\psi(0)}=\sum_{x=0}^n c_n\ket{n}$. It follows that
 where the first Kronecker delta will always be $1$ and the second Kronecker delta will always be $0$. The condition on the $c_n$'s for $\ket{\psi(0)}$ to have unit norm is therefore
 \begin{equation}
 \sum_n \abs{c_n}^2 = 1
+\end{equation}
+
+Letting the lowering operator work on the ground state outputs the ground state energy, $\hat{a}\ket{0}=0$, here arbitrarily set to zero. Letting, $\ket{0} \mapsto \psi_0(x)$ and $\hat{a} \mapsto \frac{1}{\sqrt{2\hbar m \omega}}(m\omega \hat{X} + i\hat{P})$, one can expand upon this idea to find an expression for the ground state
+\begin{align*}
+\hat{a}\ket{0}&=\frac{1}{\sqrt{2\hbar m\omega}}(m\omega \hat{X} + i\hat{P})\psi_0(x) = \frac{1}{\sqrt{2\hbar m\omega}}(m\omega x + i\frac{\hbar}{i}\frac{d}{d x})\psi_0(x) = 0\\
+&\rightarrow \left(m\omega x + \hbar\frac{d}{d x}\right)\psi_0(x)=0 \rightarrow \frac{d}{d x} = -\frac{m\omega x}{\hbar} \psi_0(x) \\
+&\rightarrow \frac{d \psi_0(x)}{\psi_0}=-\frac{m\omega x}{\hbar} d x \rightarrow \psi_0(x) = C_0e^{-m\omega x^2/2\hbar}
+\end{align*}
+Normalizing, denoting $\alpha = \frac{m\omega}{\hbar}$
+\begin{align*}
+\braket{\psi_0(x)} = \abs{C_0}^2\int_{-\infty}^{\infty}e^{-\alpha x^2}dx = \abs{C_0}^2\sqrt{\frac{\pi}{\alpha}}=1,
+\end{align*}
+which gives
+\begin{equation}
+C_0=\left(\frac{\pi\hbar}{m\omega}\right)^{\frac{1}{4}}
+\end{equation}
+
+The full wave equation, $\Psi(x,y)$, is a product of two parts, the time-independent equation, $\psi(x)$, and the time-dependent equation $\phi(t)=ce^{-i\ E_n t/\hbar}$
+\begin{equation}
+\Psi(x,t)=\sum_{n=1}^{\infty}c_n\psi_n(x)e^{i\ E_n t/\hbar}
+\end{equation}
+
+Alternatively, one can express the wave function with Dirac notation using $\psi_n=\braket{x}{n}$
+\begin{equation}
+\psi_1(x) = \bra{x}\hat{a}^{\dagger}\ket{0}
+\end{equation}
+For a general expression one needs some general function for the eigenstates $\ket{n}$. These can be expressed as in terms of the ground state $\ket{0}$
+\begin{equation*}
+\hat{a}^{\dagger}\ket{n} = \sqrt{n+1}\ket{n+1} \rightarrow \ket{n}=\frac{\hat{a}^{\dagger}}{\sqrt{n}}\ket{n-1} = \frac{(\hat{a}^{\dagger})^2}{\sqrt{n(n-1)}}\ket{n-1} \dots
+\end{equation*}
+thus giving the expression
+\begin{equation}
+\ket{n} = \frac{(\hat{a}^{\dagger})^n}{\sqrt{n!}}\ket{0}
+\end{equation}
+All the ingredients are there to write down the complete time-dependent wave function
+\begin{equation}
+\Psi_n(x,t)=\bra{x}\phi_n(t)\ket{n}=\bra{x}e^{-\frac{i E_n }{\hbar}t}\frac{(\hat{a}^{\dagger})^n}{\sqrt{n!}}\ket{0}
+\end{equation}
+
+\subsection*{c)}
+
+When computing the expected values of a harmonic oscillator Schrödinger wave function the time-dependency parts will equate to one, given normality.
+\begin{equation*}
+\psi*(t)\psi(t)=e^{\frac{iE_nt}{\hbar}}e^{-\frac{iE_nt}{\hbar}}=e^0=1
+\end{equation*}
+
+Now the computation of the expected values are fairly straight-forward
+\begin{align*}
+\ev{\hat{X}}_{nm}&=\bra{\psi_n}\hat{X}\ket{\psi_m}=\sqrt{\frac{\hbar}{2m\omega}}\bra{\psi_n}(\hat{a}+\hat{a}^{\dagger})\ket{\psi_m} \\
+&=\sqrt{\frac{\hbar}{2m\omega}}(\bra{\psi_n}\sqrt{m}\ket{\psi_{m-1}}+\bra{\psi_n}\sqrt{m+1}\ket{\psi_{m+1}}) \\
+&= \sqrt{\frac{\hbar}{2m\omega}}(\sqrt{m}\bra{\psi_n}\ket{\psi_{m-1}}+\sqrt{m+1}\bra{\psi_n}\ket{\psi_{m+1}}) \\
+&= \sqrt{\frac{\hbar}{2m\omega}}(\sqrt{m}\delta_{n,m-1}+\sqrt{m+1}\delta_{n,m+1}) 
+= \begin{cases}
+	\sqrt{\frac{\hbar (m+1)}{2m\omega}}, & n=m+1 \\
+	\sqrt{\frac{\hbar m}{2m\omega}}, & n=m-1\\
+	0, & \text{otherwise}
+\end{cases}
+\end{align*}
+which has a similar symmetry to the matrix elements in equations \ref{eq:xmatrixelements} and \ref{eq:xmatrixelements2}. In fact, it is the exact same thing. 
+\begin{align*}
+\ev{\hat{H}}_{nm}&=\bra{\psi_n}\hat{H}\ket{\psi_m}=\bra{\psi_n}\hbar\omega\left(\hat{a}\hat{a}^{\dagger}+\frac{1}{2}\right)\ket{\psi_m} \\
+&= \hbar\omega \bra{\psi_n}\hat{a}\hat{a}^{\dagger}\ket{\psi_m}+\frac{\hbar\omega}{2}\braket{\psi_n}{\psi_m}\\
+&=\hbar\omega m\braket{\psi_n}{\psi_m}+\frac{\hbar\omega}{2}\braket{\psi_n}{\psi_m} = \hbar\omega\left(m+\frac{1}{2}\right) \delta_{n,m}
+\end{align*}
+
+\section*{4.2}
+
+In three dimensions the Schrödinger equation for the harmonic oscillator using cartesian coordinates is
+\begin{equation}
+-\frac{\hbar}{2m}\laplacian \psi + \frac{1}{2}(x^2+y^2+z^2)\psi = E\psi
 \end{equation}
 
 \end{document}
