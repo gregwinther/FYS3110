@@ -248,4 +248,33 @@ d(n)&=\sum_{n_x=0}^n (n+1-n_x) = \sum_{n_x=0}^n n  +\sum_{n_x=0}^n 1 - \sum_{n_x
 \end{align*}
 This result amounts to the dimensionality of a symmetric representation of the special unitary group of degree 3\footnote{Fradkin, D. M. (1965). Three-dimensional isotropic harmonic oscillator and SU3. American Journal of Physics, 33(3), 207-211.}
 
+\subsection*{4.3}
+Changing from position space to momentum space is done by way of Fourier transform
+\begin{equation}
+\phi(p)=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\psi(x)e^{-ipx/\hbar}dx
+\end{equation}
+
+In momentum space $\hat{P}\mapsto p$ and $\hat{X}\mapsto i\hbar\frac{d}{dp}$. The lowering operator becomes
+\begin{equation}
+\hat{a} \mapsto \frac{1}{\sqrt{2\hbar m\omega}}\left(m\omega \hat{X}+\hat{P} \right)=\frac{1}{\sqrt{2\hbar m\omega}}\left(m\omega i\hbar\frac{d}{dp}+p \right)
+\end{equation}
+The ground state in momentum space can be found by looking at $\hat{a}\ket{0}=0$, where $\ket{0} \mapsto \phi_0(p)$.
+\begin{align*}
+\hat{a}\ket{0} &= \frac{1}{\sqrt{2\hbar m\omega}}\left(m\omega i\hbar\frac{d}{dp}+p \right)\phi_0(p)=0 \\
+&\rightarrow i \sqrt{\frac{m\omega\hbar}{2}}\frac{d\phi_0}{dp}=-\frac{ip\phi_0}{\sqrt{2\hbar m \omega}} \\
+&\rightarrow \frac{1}{\phi_0}d\phi_0=-\frac{1}{m\hbar\omega}pdp
+\end{align*}
+Taking the integral on both sides yields
+\begin{equation}
+\phi_0(p)=c_0e^{-p^2/2m\hbar\omega}
+\end{equation}
+
+The first excited state can be found by applying $\hat{a}^{\dagger}$
+\begin{align*}
+\hat{a}^{\dagger}\phi_0 &=\frac{c_0}{\sqrt{2\hbar m\omega}}\left(m\omega i\hbar\frac{d}{dp} -ip\right)e^{-p^2/2m\hbar\omega} \\
+&= -\frac{c_0}{\sqrt{2\hbar m\omega}}\left(\frac{-im\hbar\omega}{2m\hbar\omega}2pe^{-p^2/2m\hbar\omega} -ipe^{-p^2/2m\hbar\omega}\right) \\
+&= -i\frac{c_0}{2\hbar m\omega}pe^{-p^2/2m\hbar\omega},
+\end{align*}
+which, interestingly enough, is an imaginary number..
+
 \end{document}
