@@ -215,7 +215,37 @@ which has a similar symmetry to the matrix elements in equations \ref{eq:xmatrix
 
 In three dimensions the Schrödinger equation for the harmonic oscillator using cartesian coordinates is
 \begin{equation}
+\label{eq:3dschr}
 -\frac{\hbar}{2m}\laplacian \psi + \frac{1}{2}(x^2+y^2+z^2)\psi = E\psi
 \end{equation}
+This equation can be solved by employing esperation of variables, such that
+\begin{equation}
+\label{eq:3dsep}
+\psi(x,y,z)=\xi(x)\upsilon(y)\zeta(z)
+\end{equation}
+Dividing equation \ref{eq:3dschr} by equation \ref{eq:3dsep} yields
+\begin{equation}
+-\frac{\hbar^2}{2m}\frac{1}{\xi}\frac{d^2\xi}{dx} + \frac{1}{2}m\omega^2x^2
+-\frac{\hbar^2}{2m}\frac{1}{\upsilon}\frac{d^2\upsilon}{dy} + \frac{1}{2}m\omega^2x^2
+-\frac{\hbar^2}{2m}\frac{1}{\zeta}\frac{d^2\zeta}{dx} + \frac{1}{2}m\omega^2x^2
+=E
+\end{equation}
+The reasoning behind such an operation, which leaves a seemingly untidy expression, is that we now have three seperate groups, each of which depends only on one of the coordinate variables. The sum of all these groups equals the constant $E$, and one can argue that each of the groups on its own must therefore be equalt to a constant. Some may find this assumption a bit farfetched, but it makes the problem vastly more simple, by reducing the equation dependent on three variables to three equations each dependent on one variable. From the one-dimensional case we can furhtermore assume that each of the dimensions will contribute $\hbar\omega/(n+\frac{1}{2})$ towards the totat energy $E$. The energy will still have the same discretization, but wil have a ground sate three times as ``energetic'' as in the one-dimensional case, $E_0=\frac{3}{2}\hbar\omega$. Energy level $n$ will have an energy of
+\begin{equation}
+E_n=\left(n+\frac{3}{2}\right)\hbar\omega.
+\end{equation}
+
+When going from the ground state, where $E_0=\frac{3}{2}\hbar\omega$, to the first state, where $E_1=\frac{5}{2}\hbar\omega$, the increase in energy may come from either of the three dimensions as $n=n_x+n_y+n_z$. This implies that all states, except the ground state, must be degenerate. One can alternatively write the energy of state $n$ as
+\begin{equation}
+E(n_x+n_y+n_z)=(n_x+n_y+n_z+\frac{3}{2})\hbar\omega.
+\end{equation}
+
+The number of degenerative states is equal to the number of ways one can write an integer $n$ as a sum of three non-negative integers. For a given $n$ choose $n_x=0,1,2,3,...,n$, then choose $n_y=0,1,2,3,...,n-n_x$. Now $n_z$ is determined by the two previous choices $n-n_x-n_y$. Ergo, for each $n_x$ there are $n-_nx+1$ possible choices for $n_y$. This gives
+\begin{align*}
+d(n)&=\sum_{n_x=0}^n (n+1-n_x) = \sum_{n_x=0}^n n  +\sum_{n_x=0}^n 1 - \sum_{n_x=0}^n n_x \\
+&= (n+1)n-\frac{1}{2}n(n+1)+n+1 = (n+1)\left(n-\frac{n}{2}+1 \right) \\
+&= (n+1)\left(\frac{n}{2} +1\right) = \frac{1}{2}(n+1)(n+1)
+\end{align*}
+This result amounts to the dimensionality of a symmetric representation of the special unitary group of degree 3\footnote{Fradkin, D. M. (1965). Three-dimensional isotropic harmonic oscillator and SU3. American Journal of Physics, 33(3), 207-211.}
 
 \end{document}
