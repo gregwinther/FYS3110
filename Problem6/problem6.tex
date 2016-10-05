@@ -2,6 +2,8 @@
 
 \usepackage{physics}
 \usepackage{amsmath}
+\usepackage{bbold}
+\usepackage[export]{adjustbox}
 
 \usepackage[utf8]{inputenc}
 
@@ -15,5 +17,56 @@
 \begin{document}
 
 \maketitle
+
+
+\begin{figure}[!htbp]
+	\begin{minipage}[b]{0.5\textwidth}
+	\adjincludegraphics[width=\textwidth, trim={0 {0.51\height} 0 0}, clip]{figures/futuramameasurement.jpg}
+	\end{minipage}
+	\begin{minipage}[b]{0.5\textwidth}
+	\adjincludegraphics[width=\textwidth, trim={0 0 0 {0.51\height}}, clip]{figures/futuramameasurement.jpg}
+	\end{minipage}
+	\caption{Quantum joke from Futurama.}
+\end{figure}
+
+\section*{Problem 6.1}s
+
+An electron which has spin-$1/2$ is in the states
+\begin{equation}
+\label{eq:thestate}
+\ket{\psi} = \sqrt{\frac{2}{5}}\ket{3,2,1}\otimes\ket{\downarrow_z}+\sqrt{\frac{3}{5}}\ket{2,1,1}\otimes\ket{\uparrow_z},
+\end{equation}
+of the hydrogen atom. The state with quantum numbers $n,l,m$ and spin $s_z=\{\uparrow_z=\hbar/2, \quad \downarrow_z=-\hbar/2\}$ along the $z$-axis is denoted $\ket{n,l,m}\otimes\ket{s_z}$.
+
+\subsection*{a)}
+The probability that the electron is measured to be in the spin up state along the $z$-axis can be calculated in a very difficult manner by computing $\bra{\psi}(\mathbb{1}\otimes\ket{\uparrow_z}\bra{\uparrow_z}) \ket{\psi}$. However, one can simply look at the coefficients in the superposition represesenation of the state in equation \ref{eq:thestate} and realize that 
+\begin{equation}
+\label{eq:probupanddown}
+P(\uparrow_z)=\frac{3}{5}, \quad P(\downarrow_z)=\frac{2}{5}.
+\end{equation}
+The probabilities add up to one, implying that the state is normalized.
+
+\subsection*{b)}
+
+To find which values can be measured for $L^2$ and for what probabilities one need simply to apply the $\hat{L}^2$ operator to the state of the electron in equation \ref{eq:thestate}.
+\begin{align*}
+\hat{L}^2\ket{\psi}
+&=\sqrt{\frac{2}{5}}\hat{L}^2\ket{3,2,1}\otimes\ket{\downarrow_z}
++ \sqrt{\frac{3}{5}}\hat{L}^2\ket{2,1,1}\otimes\ket{\uparrow_z} \\
+&=\sqrt{\frac{2}{5}}(\hbar^22(2+1)\ket{3,2,1}\otimes\ket{\downarrow_z})
++ \sqrt{\frac{3}{5}}(\hbar^21(1+1)\ket{2,1,1}\otimes\ket{\uparrow_z}) \\
+&=\sqrt{\frac{2}{5}}(6\hbar\ket{3,2,1}\otimes\ket{\downarrow_z})
++ \sqrt{\frac{2}{5}}(2\hbar^2\ket{2,1,1}\otimes\ket{\uparrow_z})
+\end{align*}
+which means that you can measure $6\hbar^2$ with probability $2/5$ and $2\hbar^2$ with probability $3/5$ for $L^2$. 
+
+The same computation for $L_z$ is
+\begin{align*}
+\hat{L}_z\ket{\psi}
+&=\sqrt{\frac{2}{5}}\hat{L}_z\ket{3,2,1}\otimes\ket{\downarrow_z}
++ \sqrt{\frac{3}{5}}\hat{L}_z\ket{2,1,1}\otimes\ket{\uparrow_z} \\
+&=\sqrt{\frac{2}{5}}\ket{3,2,1}\otimes\ket{\downarrow_z}
++ \sqrt{\frac{3}{5}}\ket{2,1,1}\otimes\ket{\downarrow_z}
+\end{align*}
 
 \end{document}
