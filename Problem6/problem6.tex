@@ -58,15 +58,56 @@ To find which values can be measured for $L^2$ and for what probabilities one ne
 &=\sqrt{\frac{2}{5}}(6\hbar\ket{3,2,1}\otimes\ket{\downarrow_z})
 + \sqrt{\frac{2}{5}}(2\hbar^2\ket{2,1,1}\otimes\ket{\uparrow_z})
 \end{align*}
-which means that you can measure $6\hbar^2$ with probability $2/5$ and $2\hbar^2$ with probability $3/5$ for $L^2$. 
+which means that one measures $6\hbar^2$ with probability $2/5$ and $2\hbar^2$ with probability $3/5$ for $L^2$. 
 
-The same computation for $L_z$ is
+The corresponding computation for $L_z$ is
 \begin{align*}
 \hat{L}_z\ket{\psi}
-&=\sqrt{\frac{2}{5}}\hat{L}_z\ket{3,2,1}\otimes\ket{\downarrow_z}
-+ \sqrt{\frac{3}{5}}\hat{L}_z\ket{2,1,1}\otimes\ket{\uparrow_z} \\
-&=\sqrt{\frac{2}{5}}\ket{3,2,1}\otimes\ket{\downarrow_z}
-+ \sqrt{\frac{3}{5}}\ket{2,1,1}\otimes\ket{\downarrow_z}
+&=\sqrt{\frac{2}{5}}(\hat{L}_z\ket{3,2,1}\otimes\ket{\downarrow_z})
++ \sqrt{\frac{3}{5}}(\hat{L}_z\ket{2,1,1}\otimes\ket{\uparrow_z}) \\
+&=\sqrt{\frac{2}{5}}(\hbar\ket{3,2,1}\otimes\ket{\downarrow_z})
++ \sqrt{\frac{3}{5}}(\hbar\ket{2,1,1}\otimes\ket{\uparrow_z}) \\
 \end{align*}
+which means that one measures $\hbar$ with probability $1$ for $L_z$.
 
+Lastly, the computation for $S^2$
+\begin{align*}
+\hat{L}_z\ket{\psi} 
+&=\sqrt{\frac{2}{5}}\left(\hbar^2\frac{1}{2}\frac{3}{2}\ket{3,2,1}\otimes\ket{\downarrow_z}\right)
++ \sqrt{\frac{3}{5}}\left(\hbar^2\frac{1}{2}\frac{3}{2}\ket{2,1,1}\otimes\ket{\uparrow_z}\right)\\
+&=\sqrt{\frac{2}{5}}\left(\frac{3\hbar^2}{4}\ket{3,2,1}\otimes\ket{\downarrow_z}\right)
++ \sqrt{\frac{3}{5}}\left(\frac{3\hbar^2}{4}\ket{3,2,1}\otimes\ket{\uparrow_z}\right)
+\end{align*}
+which means that one measure $\frac{3\hbar^2}{4}$ with probability $1$ for $S^2$.
+
+\subsection*{c)}
+Now, consider the total angular momentum $\vb{J}=\vb{L}+\vb{S}$ (really $\vb{L}\otimes I + I \otimes\vb{S}$).
+
+First considering the superposed state from equation \ref{eq:thestate}
+\begin{align*}
+\ket{\psi}
+&=\sqrt{\frac{2}{5}}\ket{3,2,1}\otimes\ket{\downarrow_z}
++ \sqrt{\frac{3}{5}}\ket{2,1,1}\otimes\ket{\uparrow_z} \\
+&=\sqrt{\frac{2}{5}}R_{3,2}Y_2^1\ket{\frac{1}{2},-\frac{1}{2}}
++ \sqrt{\frac{3}{5}}R_{2,1}Y_1^1\ket{\frac{1}{2},\frac{1}{2}}
+\end{align*}
+Because the radial wave function is unnecessary to calculate total angular momentum this can be simplified to
+\begin{equation}
+\label{eq:simplepsi}
+\ket{\psi}
+= \sqrt{\frac{2}{5}}\ket{\frac{1}{2},-\frac{1}{2}}\ket{2,1} 
++ \sqrt{\frac{3}{2}}\ket{\frac{1}{2},\frac{1}{2}}\ket{1,1}
+\end{equation}
+Employting Glebsch-Gordan coefficient tables one can find that
+\begin{align}
+\label{eq:glebschgordan1}
+\ket{\frac{1}{2},-\frac{1}{2}}\ket{2,1} &=\sqrt{\frac{2}{5}}\ket{\frac{5}{2},\frac{1}{2}}+ \sqrt{\frac{3}{5}}\ket{\frac{3}{5},\frac{1}{2}} \\
+\label{eq:glebschgordan2}
+\ket{\frac{1}{2},\frac{1}{2}}\ket{1,1} &= \ket{\frac{1}{2},\frac{1}{2}}
+\end{align}
+Inserting \ref{eq:glebschgordan1} and \ref{eq:glebschgordan2} into \ref{eq:simplepsi} yields
+\begin{align*}
+\ket{\psi} = \sqrt{\frac{2}{5}}\left(\sqrt{\frac{2}{5}}\ket{\frac{5}{2},\frac{1}{2}} + \sqrt{\frac{3}{5}}\ket{\frac{3}{2},\frac{1}{2}}\right) + \sqrt{\frac{3}{2}}\ket{\frac{1}{2},\frac{1}{2}} \\ = \sqrt{\frac{4}{25}}\ket{\frac{5}{2},\frac{1}{2}} + \sqrt{\frac{15}{25}}\ket{\frac{3}{2},\frac{1}{2}}+\sqrt{\frac{15}{25}}\ket{\frac{1}{2},\frac{1}{2}}
+\end{align*}
+One can clearly see that the superposition is normalized, which is good and expected.
 \end{document}
