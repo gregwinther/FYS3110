@@ -1,0 +1,56 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{physics}
+
+\title{Midterm "Take home"-exam\\
+		\large{FYS3110}}
+
+\author{Unable to see candidate no}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Spin-$1/2$ systems}
+
+The following is given:
+\begin{align*}
+\hat{S}^2 = \hat{S}_x^2+\hat{S}_y^2+\hat{S}_z^2, &\quad
+\hat{S}^{\pm}=\hat{S}_x \pm i\hat{S}_y \\
+\ket{\uparrow} \equiv \ket{s=\frac{1}{2},m_s=\frac{1}{2}}, &\quad 
+\ket{\downarrow} \equiv \ket{s=\frac{1}{2},m_s=-\frac{1}{2}} \\
+\hat{S}^2\ket{\uparrow} = \hbar^2\frac{1}{2}\left(\frac{1}{2}+1\right)\ket{\uparrow}, &\quad
+\hat{S}^2\ket{\downarrow} = \hbar^2\frac{1}{2}\left(\frac{1}{2}+1\right)\ket{\downarrow} \\
+\hat{S}_z\ket{\uparrow} = \frac{\hbar}{2}\ket{\uparrow}, &\quad 
+\hat{S}_z\ket{\downarrow} = -\frac{\hbar}{2}\ket{\downarrow} \\
+[\hat{S}_x,\hat{S}_y]=i\hbar\hat{S}_z, \quad
+[\hat{S}_y,\hat{S}_z]&=i\hbar\hat{S}_x, \quad
+[\hat{S}_z,\hat{S}_x]=i\hbar\hat{S}_y 
+\end{align*}
+
+\subsection{}
+\begin{equation*}
+\hat{S}_z\hat{S}^+\ket{\downarrow} = \hat{S}_z\hat{S}_x\ket{\downarrow} + i\hat{S}_z\hat{S}_y\ket{\downarrow}
+\end{equation*}
+rewriting commutation relations
+\begin{align*}
+[\hat{S}_z,\hat{S}_x]=\hat{S}_z\hat{S}_x - \hat{S}_x\hat{S}_z =i\hbar\hat{S}_y  &\rightarrow
+\hat{S}_z\hat{S}_x = i\hbar\hat{S}_y + \hat{S}_x\hat{S}_z \\
+[\hat{S}_y,\hat{S}_z]=\hat{S}_y\hat{S}_z - \hat{S}_z\hat{S}_y =i\hbar\hat{S}_x  &\rightarrow
+\hat{S}_z\hat{S}_y = \hat{S}_y\hat{S}_z - i\hbar\hat{S}_x,
+\end{align*}
+gives
+\begin{align*}
+\hat{S}_z\hat{S}^+\ket{\downarrow} &=(i\hbar\hat{S}_y+\hat{S}_x\hat{S}_z+i\hat{S}_y\hat{S}_z+\hbar\hat{S}_x)\ket{\downarrow} \\
+&= \left(i\hbar\hat{S}_y -\frac{\hbar}{2}\hat{S}_x -i\frac{\hbar}{2}\hat{S}_y + \hbar\hat{S}_x \right) \ket{\downarrow} \\
+&=\left(\frac{\hbar}{2}\hat{S}_x + i\frac{\hbar}{2} \hat{S}_y\right)\ket{\downarrow} = \frac{\hbar}{2}\hat{S}^+\ket{\downarrow}.
+\end{align*}
+This means that $\hat{S}^+\ket{\downarrow}$ is an eigenstate of $\hat{S}_z$ with eigenvalue $\hbar/2$.
+
+\subsection{}
+
+
+\end{document}
