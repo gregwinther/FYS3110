@@ -3,7 +3,7 @@
 \usepackage{amsmath}
 \usepackage{physics}
 
-\title{Midterm "Take home"-exam\\
+\title{Midterm ``Take home''-exam\\
 		\large{FYS3110}}
 
 \author{Unable to see candidate no}
@@ -51,6 +51,24 @@ gives
 This means that $\hat{S}^+\ket{\downarrow}$ is an eigenstate of $\hat{S}_z$ with eigenvalue $\hbar/2$.
 
 \subsection{}
-
+\begin{align*}
+\hat{S}^-\hat{S}^+ &=(\hat{S}_x-i\hat{S}_y)(\hat{S}_x+i\hat{S}_y) \\
+&= \hat{S}_x^2+i\hat{S}_x\hat{S}_y-i\hat{S}_y\hat{S}_x+\hat{S}_y^2 \\
+&= \hat{S}_x^2+\hat{S}_y^2+i[\hat{S}_x,\hat{S}_y] \\
+&= \hat{S}^2-\hat{S}_z^2-i\hbar\hat{S}_x
+\end{align*}
+This can be uses to compute the norm of $\ket{\psi_1} = \hat{S}^+\ket{\uparrow}$ and $\ket{\psi_2} = \hat{S}^+\ket{\uparrow}$.
+\begin{align*}
+\braket{\psi_1} &= \bra{\downarrow}\hat{S}^-\hat{S}^+\ket{\downarrow} = \bra{\downarrow}(\hat{S}^2-\hat{S}_z^2-\hbar\hat{S}_z)\ket{\downarrow} \\
+&= \bra{\downarrow}\hbar^2\frac{1}{2}\left(\frac{1}{2} +1 \right)\ket{\downarrow} -\bra{\downarrow}\frac{\hbar^2}{4} \ket{\downarrow} +\bra{\downarrow}\frac{2\hbar^2}{4} \ket{\downarrow} \\
+&= \frac{3\hbar^2}{4} -\frac{\hbar^2}{4}+\frac{2\hbar}{4} = \hbar^2 
+\end{align*}
+which means that $\norm{\ket{\psi_1}} = \hbar$.
+\begin{align*}
+\braket{\psi_2} &= \bra{\uparrow}\hat{S}^-\hat{S}^+\ket{\uparrow} = \bra{\uparrow}(\hat{S}^2-\hat{S}_z^2-\hbar\hat{S}_z)\ket{\uparrow} \\
+&= \bra{\uparrow}\hbar^2\frac{1}{2}\left(\frac{1}{2} +1 \right)\ket{\uparrow} -\bra{\uparrow}\frac{\hbar^2}{4} \ket{\uparrow} -\bra{\uparrow}\frac{2\hbar^2}{4} \ket{\uparrow} \\
+&= \frac{3\hbar^2}{4} -\frac{\hbar^2}{4}-\frac{2\hbar^2}{4} = 0
+\end{align*}
+which measn that $\norm{\ket{\psi_2}} = 0$.
 
 \end{document}
