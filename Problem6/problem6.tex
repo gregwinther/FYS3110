@@ -29,14 +29,14 @@
 	\caption{Quantum joke from Futurama.}
 \end{figure}
 
-\section*{Problem 6.1}s
+\section*{Problem 6.1}
 
 An electron which has spin-$1/2$ is in the states
 \begin{equation}
 \label{eq:thestate}
 \ket{\psi} = \sqrt{\frac{2}{5}}\ket{3,2,1}\otimes\ket{\downarrow_z}+\sqrt{\frac{3}{5}}\ket{2,1,1}\otimes\ket{\uparrow_z},
 \end{equation}
-of the hydrogen atom. The state with quantum numbers $n,l,m$ and spin $s_z=\{\uparrow_z=\hbar/2, \quad \downarrow_z=-\hbar/2\}$ along the $z$-axis is denoted $\ket{n,l,m}\otimes\ket{s_z}$.
+of the hydrogen atom. The state with quantum numbers $n,l,m$ and spin $s_z=\{\uparrow_z=\hbar/2, \downarrow_z=-\hbar/2\}$ along the $z$-axis is denoted $\ket{n,l,m}\otimes\ket{s_z}$.
 
 \subsection*{a)}
 The probability that the electron is measured to be in the spin up state along the $z$-axis can be calculated in a very difficult manner by computing $\bra{\psi}(\mathbb{1}\otimes\ket{\uparrow_z}\bra{\uparrow_z}) \ket{\psi}$. However, one can simply look at the coefficients in the superposition represesenation of the state in equation \ref{eq:thestate} and realize that 
@@ -68,20 +68,20 @@ The corresponding computation for $L_z$ is
 &=\sqrt{\frac{2}{5}}(\hbar\ket{3,2,1}\otimes\ket{\downarrow_z})
 + \sqrt{\frac{3}{5}}(\hbar\ket{2,1,1}\otimes\ket{\uparrow_z}) \\
 \end{align*}
-which means that one measures $\hbar$ with probability $1$ for $L_z$.
+which means that one will measure $\hbar$ with probability $1$ for $L_z$.
 
 Lastly, the computation for $S^2$
 \begin{align*}
-\hat{L}_z\ket{\psi} 
+\hat{S}^2\ket{\psi} 
 &=\sqrt{\frac{2}{5}}\left(\hbar^2\frac{1}{2}\frac{3}{2}\ket{3,2,1}\otimes\ket{\downarrow_z}\right)
 + \sqrt{\frac{3}{5}}\left(\hbar^2\frac{1}{2}\frac{3}{2}\ket{2,1,1}\otimes\ket{\uparrow_z}\right)\\
 &=\sqrt{\frac{2}{5}}\left(\frac{3\hbar^2}{4}\ket{3,2,1}\otimes\ket{\downarrow_z}\right)
 + \sqrt{\frac{3}{5}}\left(\frac{3\hbar^2}{4}\ket{3,2,1}\otimes\ket{\uparrow_z}\right)
 \end{align*}
-which means that one measure $\frac{3\hbar^2}{4}$ with probability $1$ for $S^2$.
+which means that one will measure $\frac{3\hbar^2}{4}$ with probability $1$ for $S^2$.
 
 \subsection*{c)}
-Now, consider the total angular momentum $\vb{J}=\vb{L}+\vb{S}$ (really $\vb{L}\otimes I + I \otimes\vb{S}$).
+Now, consider the total angular momentum $\vb{J}=\vb{L}+\vb{S}$ (really $\vb{L}\otimes \mathbb{1} + \mathbb{1} \otimes\vb{S}$).
 
 First considering the superposed state from equation \ref{eq:thestate}
 \begin{align*}
@@ -94,20 +94,108 @@ First considering the superposed state from equation \ref{eq:thestate}
 Because the radial wave function is unnecessary to calculate total angular momentum this can be simplified to
 \begin{equation}
 \label{eq:simplepsi}
-\ket{\psi}
+\ket{\psi'}
 = \sqrt{\frac{2}{5}}\ket{\frac{1}{2},-\frac{1}{2}}\ket{2,1} 
 + \sqrt{\frac{3}{2}}\ket{\frac{1}{2},\frac{1}{2}}\ket{1,1}
 \end{equation}
-Employting Glebsch-Gordan coefficient tables one can find that
+Employing Glebsch-Gordan coefficient tables one can find that
 \begin{align}
 \label{eq:glebschgordan1}
 \ket{\frac{1}{2},-\frac{1}{2}}\ket{2,1} &=\sqrt{\frac{2}{5}}\ket{\frac{5}{2},\frac{1}{2}}+ \sqrt{\frac{3}{5}}\ket{\frac{3}{5},\frac{1}{2}} \\
 \label{eq:glebschgordan2}
-\ket{\frac{1}{2},\frac{1}{2}}\ket{1,1} &= \ket{\frac{1}{2},\frac{1}{2}}
+\ket{\frac{1}{2},\frac{1}{2}}\ket{1,1} &= \ket{\frac{3}{2},\frac{3}{2}}
 \end{align}
-Inserting \ref{eq:glebschgordan1} and \ref{eq:glebschgordan2} into \ref{eq:simplepsi} yields
+Inserting equations \ref{eq:glebschgordan1} and \ref{eq:glebschgordan2} into equation \ref{eq:simplepsi} yields
+\begin{align}
+\begin{split}
+\label{eq:ggresult}
+\ket{\psi'} = \sqrt{\frac{2}{5}}\left(\sqrt{\frac{2}{5}}\ket{\frac{5}{2},\frac{1}{2}} + \sqrt{\frac{3}{5}}\ket{\frac{3}{2},\frac{1}{2}}\right) + \sqrt{\frac{3}{5}}\ket{\frac{3}{2},\frac{3}{2}} \\ = \sqrt{\frac{4}{25}}\ket{\frac{5}{2},\frac{1}{2}} + \sqrt{\frac{6}{25}}\ket{\frac{3}{2},\frac{1}{2}}+\sqrt{\frac{15}{25}}\ket{\frac{3}{2},\frac{3}{2}}
+\end{split}
+\end{align}
+One can clearly see that the superposition is normalized, as the sum of all coefficients sums up to one, which is good and expected. Now the state has been conerted to a $\ket{j,m}$-form. The eigenvalue equation (operator/energy-relationship) for total angular momentum is
+\begin{equation}
+\hat{J}^2\ket{j,m} = \hbar^2j(j+1)\ket{j,m}
+\end{equation}
+we see that in our case 
+\begin{equation*}
+j=\frac{3}{2} \lor j=\frac{5}{2}
+\end{equation*}
+which gives
 \begin{align*}
-\ket{\psi} = \sqrt{\frac{2}{5}}\left(\sqrt{\frac{2}{5}}\ket{\frac{5}{2},\frac{1}{2}} + \sqrt{\frac{3}{5}}\ket{\frac{3}{2},\frac{1}{2}}\right) + \sqrt{\frac{3}{2}}\ket{\frac{1}{2},\frac{1}{2}} \\ = \sqrt{\frac{4}{25}}\ket{\frac{5}{2},\frac{1}{2}} + \sqrt{\frac{15}{25}}\ket{\frac{3}{2},\frac{1}{2}}+\sqrt{\frac{15}{25}}\ket{\frac{1}{2},\frac{1}{2}}
+&\hbar^2\frac{3}{2}\left(\frac{3}{2}+1 \right) \text{ with probability } \frac{21}{25}\\
+&\hbar^2\frac{5}{2}\left(\frac{5}{2}+1 \right) \text{ with probability } \frac{4}{25}
 \end{align*}
-One can clearly see that the superposition is normalized, which is good and expected.
+These results actually stem from equation \ref{eq:ggresult}.
+
+\subsection*{d)}
+
+The angular momentum's $z$-projection is given by
+\begin{equation*}
+j_z = \hbar m
+\end{equation*}
+we see from equation \ref{eq:ggresult} that
+\begin{equation*}
+m=\frac{1}{2} \quad \lor \quad m=\frac{3}{2}
+\end{equation*}
+which gives
+\begin{align*}
+&\hbar\frac{1}{2} \text{ with probability } \frac{10}{25} \\
+&\hbar\frac{3}{2} \text{ with probability } \frac{15}{25}
+\end{align*}
+Again, the results can be deduced from the Glebsch-Gordan transform\footnote{I am not sure this is the correct name for what I have done.} in equation \ref{eq:ggresult}
+
+\subsection*{e)}
+
+To calculate the radial probability density $P_{\uparrow_z}(r)$ I will start be rewriting equation \ref{eq:thestate}
+\begin{equation*}
+\ket{\psi} = \sqrt{\frac{2}{5}}\ket{3,2,1}\otimes\ket{\downarrow_z}+\sqrt{\frac{3}{5}}\ket{2,1,1}\otimes\ket{\uparrow_z}
+= \sqrt{\frac{2}{5}}R_{3,2}Y_2^1\chi_-+\sqrt{\frac{3}{5}}R_{2,1}Y_1^1\chi_+
+\end{equation*}
+Using this, the probability is
+\begin{align*}
+P_{\uparrow_z}(r)&=\left(\sqrt{\frac{3}{5}}\right)^2(R_{2,1}^*Y_1^{*1}\chi_+^*)(R_{2,1}Y_1^1\chi_+) \\
+&=\frac{3}{5}\abs{R_{2,1}}^2 r^2 dr \int \abs{Y_1^1}^2 \sin^2{\theta}d\theta d\phi \\
+&=\frac{3}{5}\abs{R_{2,1}}^2 = \frac{3}{5}\left(\frac{1}{24a^3}\frac{r^2}{a^2}e^{-r/a} \right) \\
+&= \frac{3}{120}\frac{r^2}{a^5}e^{-r/a}
+\end{align*}
+
+The second-to-last step in the calculation above stems from the fact that the radial equation for the Hydrogen atom is given by 
+\begin{equation}
+R_{n,l} = r^lL_n^le^{-r/na}
+\end{equation}
+where $L_n^l$ is tha associated Laguerre polynomial and $a$ is a fine structure constant. I have included a short brief on Laguerre polynomials in appendix \ref{app:laguerre} for sake of completeness.
+
+\pagebreak
+
+\begin{appendix}
+\section{Laguerre Polynomials}
+\label{app:laguerre}
+Generally, the name Laguerre polynomials is used for solutions to 
+\begin{equation}
+x\frac{d^2y}{dx^2}+(\alpha+1-x)\frac{dy}{dx} + ny = 0.
+\end{equation}
+These polynomials are a polynomial sequence which may be defined by the explicit series formula (a.k.a. the Rodriguez formula)
+\begin{equation}
+L_{n-l-1}^{2l+1}(x) = L_p^q(x) = c_0 \sum_{j=0}^p (-1)^j\frac{(p+q)!}{(p-j)!(q+j)!j!}x^j
+\end{equation}
+The first few Laguerre polynomials for $q=0$ are shown in table \ref{tab:laguerre}.
+
+\begin{table}[ht]
+	\centering
+	\caption{The first few Laguerre polynomials for $q=0$}
+	\begin{tabular}{cl} \hline
+	$n$ & $L_p^0(x)$  \\ \hline
+	$0$ & $1$ \\
+	$1$ & $-x+1$ \\
+	$2$ & $\frac{1}{2}(x^2-4x+2)$ \\
+	$3$ & $\frac{1}{6}(-x^3+9x^2-18x+6)$ \\
+	$4$ & $\frac{1}{24}(x^4-16x^3+72x^2-96x+24$ \\
+	$5$ & $\frac{1}{120}(-x^5+25x^4-200x^3+600x^2-600x+120) $ \\
+	$6$ & $\frac{1}{720}(x^6-36x^5+450x^4-2400x^3+5400x^2-4320x+720)$ \\ \hline
+	\end{tabular}
+	\label{tab:laguerre}
+\end{table}
+
+\end{appendix}
+
 \end{document}
