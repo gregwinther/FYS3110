@@ -2,6 +2,7 @@
 
 \usepackage{amsmath}
 \usepackage{physics}
+\usepackage{bbm}
 
 \title{Midterm ``Take home''-exam\\
 		\large{FYS3110}}
@@ -160,5 +161,40 @@ And finally
 \sigma_{sx}^2 \sigma_{sy}^2 
 = \frac{\hbar^4}{64}(e^{i\theta}\sin^2\theta-3\sin^2\theta+2)(e^{i\theta}\cos^2\theta-3\cos^2\theta+2)
 \end{align*}
+
+\subsection{}
+A system has three interacting spin degrees of freedom with the followin hamiltonian
+\begin{equation}
+H = \frac{J}{\hbar^2}(\vb{S}_1\cdot\vb{S}_2 + \vb{S}_2\cdot\vb{S}_3 + \vb{S}_3\cdot\vb{S}_1)
+\end{equation}
+where $J$ si a positive number with units of energy. The spin operators are $\vb{S}_1\equiv \vb{S}\otimes\mathbbm{1}\otimes\mathbbm{1}$, $\vb{S}_2\equiv \mathbbm{1}\otimes\vb{S}\otimes\mathbbm{1}$ and $\vb{S}_3\equiv \mathbbm{1}\otimes\mathbbm{1}\otimes\vb{S}$, where $\vb{S}=(S_x,S_y,S_z)$. A general state of this three-spin system is a linear combination of product states $\ket{m_{s1}m_{s2}m_{s3}}\equiv\ket{m_{s1}}\otimes\ket{m_{s2}}\otimes\ket{m_{s3}}$ where $m_{si}$ is hte spin-$z$ quantum number of spin number $i$, either up ($\frac{1}{2}$) or down ($-\frac{1}{2}$). For example: the product state $\ket{\uparrow\downarrow\uparrow}$ is a state where spin number one is in state $\ket{\uparrow}$, spin number two is in state $\ket{\downarrow}$ and spin number three is in state $\ket{\uparrow}$.
+
+$\vb{S}_1\cdot\vb{S}_2$ can be expressed in terms of $S_1^+$, $S_1^-$, $S_2^+$, $S_2^-$, $S_1^z$ and $S_2^z$. First we have
+\begin{equation*}
+\vb{S}_1\cdot\vb{S}_2=S_1^xS_2^x + S_1^yS_2^y + S_1^zS_2^z
+\end{equation*}
+where
+\begin{align*}
+S_1^xS_2^x= \frac{1}{4}(S_1^+S_2^+ +S_1^+S_2^- + S_1^-S_2^+ + S_1^+S_2^+)\\
+S_1^yS_2^y=-\frac{1}{4}(S_1^+S_2^+ -S_1^+S_2^- - S_1^-S_2^+ + S_1^+S_2^+)
+\end{align*}
+then
+\begin{equation*}
+S_1^xS_2^x + S_1^yS_2^y = S_1^+S_2^-
+\end{equation*}
+assuming that the lowering and raising operators of different spins commutes\footnote{Ladder operator for same spin/state commute: $[S^+,S^-]=(S^x+iS^y)(S^x-iS^y)-(S^x-iS^y)(S^x+iS^y)=S_x^2+S_y^2-S_x^2-S_y^2$=0}, i.e. $[S_i^+,S_j^j]=0$. We end up with
+\begin{equation}
+\vb{S}_1\cdot\vb{S}_2 = S_1^+S_2^- + S_1^zS_2^z
+\end{equation}
+if the ladder operators does not commute then
+\begin{equation*}
+S_1^xS_2^x + S_1^yS_2^y = \frac{1}{2}(S_1^+S_2^- + S_2^+S_1^-)
+\end{equation*}
+and we end up with
+\begin{equation}
+\vb{S}_1\cdot\vb{S}_2 = \frac{1}{2}(S_1^+S_2^- + S_2^+S_1^-) + S_1^zS_2^z
+\end{equation}
+which seems more reasonable.
+
 
 \end{document}
