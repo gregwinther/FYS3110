@@ -55,7 +55,7 @@ This means that $\hat{S}^+\ket{\downarrow}$ is an eigenstate of $\hat{S}_z$ with
 \hat{S}^-\hat{S}^+ &=(\hat{S}_x-i\hat{S}_y)(\hat{S}_x+i\hat{S}_y) \\
 &= \hat{S}_x^2+i\hat{S}_x\hat{S}_y-i\hat{S}_y\hat{S}_x+\hat{S}_y^2 \\
 &= \hat{S}_x^2+\hat{S}_y^2+i[\hat{S}_x,\hat{S}_y] \\
-&= \hat{S}^2-\hat{S}_z^2-i\hbar\hat{S}_x
+&= \hat{S}^2-\hat{S}_z^2-i\hbar\hat{S}_z
 \end{align*}
 This can be uses to compute the norm of $\ket{\psi_1} = \hat{S}^+\ket{\uparrow}$ and $\ket{\psi_2} = \hat{S}^+\ket{\uparrow}$.
 \begin{align*}
@@ -70,5 +70,95 @@ which means that $\norm{\ket{\psi_1}} = \hbar$.
 &= \frac{3\hbar^2}{4} -\frac{\hbar^2}{4}-\frac{2\hbar^2}{4} = 0
 \end{align*}
 which measn that $\norm{\ket{\psi_2}} = 0$.
+
+\subsection{}
+
+Phases are chosen sucht that the following relations hold
+\begin{equation*}
+\hat{S}^+\ket{\downarrow}=\hbar\ket{\uparrow}, \quad \hat{S}^-\ket{\uparrow}=\hbar\ket{\downarrow}.
+\end{equation*}
+
+Introducing a new state
+\begin{equation*}
+\ket{\phi}=\frac{1}{\sqrt{2}}(\ket{\uparrow}+e^{i\theta}\ket{\downarrow})
+\end{equation*}
+where $\theta$ is a real number. We wish to compute the ``uncertainty'' product $\sigma_{sx}^2\sigma_{sy}^2$ where
+\begin{align*}
+\sigma_{sx}^2 &= \bra{\phi}(\hat{S}_x-\bra{\phi}\hat{S}_x\ket{\phi} )^2\ket{\phi}  \\
+\sigma_{sy}^2 &= \bra{\phi}(\hat{S}_y-\bra{\phi}\hat{S}_y\ket{\phi} )^2\ket{\phi}.
+\end{align*}
+First we need to find expressions for $\hat{S}_x$ and $\hat{S}_y$
+\begin{align}
+\label{eq:Sx}
+\hat{S}^++\hat{S}^- &= (\hat{S}_x + i\hat{S}_y) + (\hat{S}_x-i\hat{S}_y) = 2\hat{S}_x 
+\rightarrow \hat{S}_x = \frac{1}{2}(\hat{S}^++\hat{S}^-)\\
+\label{eq:Sy}
+\hat{S}^+-\hat{S}^- &= (\hat{S}_x + i\hat{S}_y) - (\hat{S}_x-i\hat{S}_y) = 2i\hat{S}_y 
+\rightarrow \hat{S}_y = \frac{1}{2i}(\hat{S}^+-\hat{S}^-)
+\end{align}
+It will also make things easier to calculate $\hat{S}_x\ket{\uparrow}$, $\hat{S}_x\ket{\downarrow}$, $\hat{S}_y\ket{\uparrow}$ and $\hat{S}_y\ket{\downarrow}$. These values can be found using equations \ref{eq:Sx} and \ref{eq:Sy}.
+\begin{align*}
+\hat{S}_x\ket{\uparrow}		= \frac{\hbar}{2}\ket{\downarrow}& \quad
+\hat{S}^2_x\ket{\uparrow}	= \frac{\hbar^2}{4}\ket{\uparrow}\\
+\hat{S}_x\ket{\downarrow}	= \frac{\hbar}{2}\ket{\uparrow}& \quad
+\hat{S}^2_x\ket{\downarrow}	= \frac{\hbar^2}{4}\ket{\downarrow}\\
+\hat{S}_y\ket{\uparrow}		= -\frac{\hbar}{2i}\ket{\downarrow}& \quad
+\hat{S}^2_y\ket{\uparrow}	= \frac{\hbar^2}{4}\ket{\uparrow}\\
+\hat{S}_y\ket{\downarrow}	= \frac{\hbar}{2i}\ket{\uparrow}& \quad
+\hat{S}^2_y\ket{\downarrow}	= \frac{\hbar^2}{4}\ket{\downarrow}\\
+\end{align*}
+We can begin on what is the real task at hand
+\begin{align*}
+\bra{\phi}\hat{S}_x\ket{\phi} 
+&= \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})\hat{S}_x(\ket{\uparrow}+e^{i\theta}\ket{\downarrow}) \\
+&= \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})\left(\frac{\hbar}{2}\ket{\downarrow}+e^{i\theta}\frac{\hbar}{2}\ket{\uparrow} \right) \\
+&= \frac{\hbar}{4}\left(e^{i\theta}+e^{-i\theta} \right)\\ 
+&= \frac{\hbar}{4}(\cos{\theta}+i\sin{\theta}+\cos{\theta}-i\sin{\theta}) \\
+&= \frac{\hbar}{2}\cos{\theta} \\
+\bra{\phi}\hat{S}_y\ket{\phi} 
+&= \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})\hat{S}_y(\ket{\uparrow}+e^{i\theta}\ket{\downarrow}) \\
+&= \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})\left(-\frac{\hbar}{2i}\ket{\downarrow}+e^{i\theta}\frac{\hbar}{2i}\ket{\uparrow} \right) \\
+&= \frac{\hbar}{4i}\left(e^{i\theta}-e^{-i\theta} \right)\\ 
+&= \frac{\hbar}{4i}(\cos{\theta}+i\sin{\theta}-\cos{\theta}+i\sin{\theta}) \\
+&= \frac{\hbar}{2}\sin{\theta}
+\end{align*}
+
+\begin{align*}
+\sigma_{sx}^2 
+=& \bra{\phi}(\hat{S}_x-\frac{\hbar}{2}\cos{\theta})^2\ket{\phi} \\
+=& \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})(\hat{S}^2_x-\hbar\cos{\theta}\hat{S}_x+\frac{\hbar^2}{4}\cos^2\theta )(\ket{\uparrow}+e^{i\theta}\ket{\downarrow}) \\
+=& \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow}) \\
+&\left(
+\frac{\hbar^2}{4}\ket{\uparrow}
++\frac{\hbar^2}{4}e^{i\theta}\ket{\downarrow}
+-\frac{\hbar^2}{2}\cos{\theta}\ket{\downarrow}
+-\frac{\hbar^2}{2} e^{i\theta}\cos{\theta}\ket{\uparrow}
++\frac{\hbar^2}{4}\cos^2{\theta}\ket{\uparrow}
++\frac{\hbar^2}{4}e^{i\theta}\cos^2{\theta}\ket{\uparrow} 
+\right) \\
+=&\frac{\hbar^2}{8}-\frac{\hbar^2}{4}e^{i\theta}\cos{\theta}+\frac{\hbar^2}{8}\cos^2{\theta}+\frac{\hbar^2}{8}e^{i\theta}\cos^2{\theta}+\frac{\hbar^2}{8}-\frac{\hbar^2}{4}e^{-i\theta}\cos{\theta} \\
+=& \frac{\hbar^2}{4}-\frac{\hbar^2}{4}(\cos^2\theta+i\sin\theta\cos\theta) +\frac{\hbar^2}{8}\cos^2\theta+\frac{\hbar^2}{8}(\cos^3\theta+i\sin\theta\cos^2\theta)-\frac{\hbar^2}{4}(\cos^2\theta-i\sin\theta\cos\theta) \\
+=& \frac{\hbar^2}{4}-\frac{3\hbar^2}{8}\cos^2\theta+\frac{\hbar^2}{8}(\cos^3\theta+i\sin\theta\cos^2\theta) \\
+\sigma_{sy}^2
+=& \bra{\phi}(\hat{S}_y-\frac{\hbar}{2}\sin{\theta})^2\ket{\phi} \\
+=& \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})(\hat{S}^2_y-\hbar\sin{\theta}\hat{S}_y+\frac{\hbar^2}{4}\sin^2\theta )(\ket{\uparrow}+e^{i\theta}\ket{\downarrow}) \\
+=&\frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow}) \\
+&\left(
+\frac{\hbar^2}{4}\ket{\uparrow}
++\frac{\hbar^2}{4}e^{i\theta}\ket{\downarrow}
++\frac{\hbar^2}{2i}\sin{\theta}\ket{\downarrow}
+-\frac{\hbar^2}{2i} e^{i\theta}\sin{\theta}\ket{\uparrow}
++\frac{\hbar^2}{4}\sin^2{\theta}\ket{\uparrow}
++\frac{\hbar^2}{4}e^{i\theta}\sin^2{\theta}\ket{\uparrow} 
+\right) \\
+=&\frac{\hbar^2}{8}-\frac{\hbar^2}{4i}e^{i\theta}\sin{\theta}+\frac{\hbar^2}{8}\sin^2{\theta}+\frac{\hbar^2}{8}e^{i\theta}\sin^2{\theta}+\frac{\hbar^2}{8}+\frac{\hbar^2}{4i}e^{-i\theta}\sin{\theta} \\
+=& \frac{\hbar^2}{4}-\frac{\hbar^2}{4i}(\sin\theta\cos\theta+i\sin^2\theta)+\frac{\hbar^2}{8}\sin^2\theta+\frac{\hbar^2}{8}(\sin^2\theta\cos\theta+i\sin^3\theta) +\frac{\hbar^2}{4i}(\sin\theta\cos\theta-i\sin^2\theta) \\
+&=\frac{\hbar^2}{4}-\frac{3\hbar^2}{8}\sin^2\theta+\frac{\hbar^2}{8}(\sin^2\theta\cos\theta+i\sin^3\theta)
+\end{align*}
+And finally
+\begin{align*}
+\sigma_{sx}^2 \sigma_{sy}^2 
+= \frac{\hbar^4}{64}(e^{i\theta}\sin^2\theta-3\sin^2\theta+2)(e^{i\theta}\cos^2\theta-3\cos^2\theta+2)
+\end{align*}
 
 \end{document}
