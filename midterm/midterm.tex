@@ -196,5 +196,21 @@ and we end up with
 \end{equation}
 which seems more reasonable.
 
+Comtuting $H\ket{\uparrow\downarrow\downarrow}$ should now be quite straight-forward.
+\begin{align*}
+H\ket{\uparrow\downarrow\downarrow} = 
+\frac{J}{\hbar^2} \big(&\frac{1}{2} (S_1^+S_2^- + S_2^+S_1^-)\ket{\uparrow\downarrow\downarrow} + S_1^zS_2^z\ket{\uparrow\downarrow\downarrow} \\
++&\frac{1}{2}(S_2^+S_3^- + S_3^+S_2^-)\ket{\uparrow\downarrow\downarrow} + S_2^zS_3^z\ket{\uparrow\downarrow\downarrow} \\
++&\frac{1}{2}(S_3^+S_1^- + S_1^+S_3^-)\ket{\uparrow\downarrow\downarrow} + S_3^zS_1^z\ket{\uparrow\downarrow\downarrow} \big)\\
+=&\frac{J}{\hbar^2}\big(
+\frac{\hbar^2}{2}\ket{\downarrow\uparrow\downarrow} 
+\frac{\hbar^2}{2}\ket{\downarrow\downarrow\uparrow} 
+\frac{\hbar^2}{4}\ket{\uparrow\downarrow\downarrow} 
+\big) \\
+=&J(
+\frac{1}{2}\ket{\downarrow\uparrow\downarrow} 
+\frac{1}{2}\ket{\downarrow\downarrow\uparrow} 
+\frac{1}{4}\ket{\uparrow\downarrow\downarrow})
+\end{align*}
 
 \end{document}
