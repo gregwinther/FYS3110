@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{physics}
 \usepackage{bbm}
+\usepackage{listings}
 
 \title{Midterm ``Take home''-exam\\
 		\large{FYS3110}}
@@ -212,5 +213,58 @@ H\ket{\uparrow\downarrow\downarrow} =
 \frac{1}{2}\ket{\downarrow\downarrow\uparrow} 
 \frac{1}{4}\ket{\uparrow\downarrow\downarrow})
 \end{align*}
+
+This result is confirmed by the python script in appendix \ref{app:updndn}.
+
+%% --------------- PROBLEM 1.5 -------------- %%
+\subsection{}
+
+%% --------------- PROBLEM 1.6 -------------- %%
+\subsection{}
+
+%% --------------- PROBLEM 1.7 -------------- %%
+\subsection{}
+
+%% --------------- PROBLEM 1.8 -------------- %%
+\subsection{}
+At time $t=0$ the system is in state $\ket{\uparrow\downarrow\downarrow}$. After som time $t$ the system will be in state $\hat{U}(t,t_0)\ket{\uparrow\downarrow\downarrow}$, where $\hat{U}(t,t_0)$ is the time evolution operator (or propegator). The propagator satisfy three important properties. First, it does nothing when $t=0$
+\begin{equation}
+\lim_{t\to t_0}\hat{U}(t,t0)=1.
+\end{equation}
+Second, it is unitary ($\hat{U}^{\dagger}\hat{U}=1$), and as a consequence preserves the norm of the states
+\begin{equation}
+\braket{\psi} = \braket{\psi(t)} = \bra{\psi(t)} \hat{U}^{\dagger}(t,t_0){U}(t,t_0) \ket{\psi(t)}
+\end{equation}
+Third, it satisfies the composition property
+\begin{equation}
+\hat{U}(t_2,t_0)=\hat{U}(t_2,t_1)\hat{U}(t_1,t_0)
+\end{equation}
+
+One can see from the simplest form of Scrhödinger's equation that the Hamiltonian $H$ generates the time evolution of quantum states. if $\ket{\psi(t)}$ is the state of the system at time $t$, then
+\begin{equation}
+H\ket{\psi(t)}=i\hbar\frac{\partial}{\partial t}\ket{\psi(t)}.
+\end{equation}
+
+Given the state at some initial time ($t=0$) one can solve Schrödinger's equation in order to obtain the state at any subsequent time. Particularly, if $H$ is independent of time, then
+\begin{equation}
+\ket{\psi(t)}=e^{-iHt/\hbar}\ket{\psi(0)}.
+\end{equation}
+This exponential operator is usually defined by the corresponding power series. 
+\begin{equation}
+U(t) = \sum_{k=0}^{\infty}\frac{1}{k!}\left(\frac{it}{\hbar} \right)H^k.
+\end{equation}
+
+If a spin system is initially in state $\ket{\uparrow\downarrow\downarrow}$ at $t=t_0=0$ then the expression $\abs{\bra{\uparrow\downarrow\downarrow}\hat{U}(t,0) \ket{\uparrow\downarrow\downarrow}}^2$ gives the probability that the system is still in that state.
+
+\section{}
+TAYLOR THEN TRUNCATE?
+
+\pagebreak
+\begin{appendix}
+\section{Numerical computation of $H\ket{\uparrow\downarrow\downarrow}$}
+\label{app:updndn}
+\lstinputlisting[language=Python]{scripts/tensors.py}
+
+\end{appendix}
 
 \end{document}
