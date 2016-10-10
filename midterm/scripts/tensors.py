@@ -18,6 +18,8 @@ S1z = np.kron(Sz, np.kron(np.eye(2), np.eye(2)))
 S2z = np.kron(np.eye(2), np.kron(Sz, np.eye(2)))
 S3z = np.kron(np.eye(2), np.kron(np.eye(2), Sz)) 
 
+Sztot = S1z + S2z + S3z
+
 S1_plus = np.kron(S_plus, np.kron(np.eye(2), np.eye(2)))
 S2_plus = np.kron(np.eye(2), np.kron(S_plus, np.eye(2)))
 S3_plus = np.kron(np.eye(2), np.kron(np.eye(2), S_plus))
@@ -44,7 +46,7 @@ def Hamilton(state):
 
 
 updndn = np.kron(up, np.kron(dn, dn))
-print("Hamiltonian = ")
+print("Hamiltonian(up down down) = ")
 print(Hamilton(updndn))
 
 '''
@@ -57,11 +59,12 @@ problem 1.8
 hbar 	= float(1)
 J 		= float(1)
 
-def propagator(t, hbar=hbar, J=J):
-	Hoperator = (J/(hbar*hbar))*\
+Hoperator = (J/(hbar*hbar))*\
 				((1.0/2)*(S1_plus*S2_minus + S2_plus*S1_plus) + S1z*S2z +\
 				 (1.0/2)*(S2_plus*S3_minus + S3_plus*S2_plus) + S2z*S3z +\
 				 (1.0/2)*(S3_plus*S1_minus + S1_plus*S3_plus) + S3z*S1z)
+
+def propagator(t, hbar=hbar, J=J):
 	matrixexponential = scipy.linalg.expm((-1.0)*(0+1j)*Hoperator*t/hbar)
 	return matrixexponential
 
@@ -73,8 +76,9 @@ def bra(ket):
 #print(scipy.linalg.norm(np.dot(matrixexponential, updndn)))
 newstate 	= np.dot(propagator(1), updndn)
 newstate2 	= np.dot(propagator(2), updndn)
-newstate3	= np.dot(propagator(100), updndn)
+newstate3	= np.dot(propagator(4), updndn)
 
+'''
 print("Up down down: ")
 print(updndn)
 print("Inner prod sq: ", np.dot(bra(updndn), updndn)**2)
@@ -85,4 +89,11 @@ print("Inner prod sq: ", np.dot(bra(updndn), newstate)**2)
 print("")
 print("New state, t=100: ")
 print(newstate2)
-print("Innner prod sq: ", abs(np.dot(bra(updndn), newstate3))**2)
+print("Innner prod sq: ", np.dot(bra(updndn), newstate3)**2)
+'''
+print("\nH = ")
+print(Hoperator)
+print("\nSztot = ")
+print(Sztot)
+print("\nH*Sztot-Sztot*H = ")
+print(np.dot(Hoperator,Sztot) - np.dot(Sztot,Hoperator))

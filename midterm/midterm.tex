@@ -218,12 +218,39 @@ This result is confirmed by the python script in appendix \ref{app:updndn}.
 
 %% --------------- PROBLEM 1.5 -------------- %%
 \subsection{}
+It is realtively easy to show with matrices or algebra or a script or anything that
+\begin{equation}
+[H,S^z_{tot}]=0
+\end{equation}
+
+The eigenvalues of $S^z_tot$ are easy enough to compute
+\begin{equation*}
+S^z_{tot}\ket{\uparrow\uparrow\uparrow}=\frac{\hbar}{2}\ket{\uparrow\uparrow\uparrow}+\frac{\hbar}{2}\ket{\uparrow\uparrow\uparrow} + \frac{\hbar}{2}\ket{\uparrow\uparrow\uparrow} = \frac{3\hbar}{2}\ket{\uparrow\uparrow\uparrow}
+\end{equation*}
+the rest are
+\begin{align*}
+S^z_{tot}\ket{\uparrow\uparrow\downarrow}&=\frac{\hbar}{2}\ket{\uparrow\uparrow\downarrow} \\
+S^z_{tot}\ket{\uparrow\downarrow\uparrow}&=\frac{\hbar}{2}\ket{\uparrow\downarrow\uparrow} \\
+S^z_{tot}\ket{\downarrow\uparrow\downarrow}&=\frac{\hbar}{2}\ket{\downarrow\uparrow\downarrow} \\
+S^z_{tot}\ket{\downarrow\downarrow\uparrow}&=-\frac{\hbar}{2}\ket{\downarrow\downarrow\uparrow} \\
+S^z_{tot}\ket{\downarrow\uparrow\downarrow}&=-\frac{\hbar}{2}\ket{\downarrow\uparrow\downarrow} \\
+S^z_{tot}\ket{\uparrow\downarrow\downarrow}&=-\frac{\hbar}{2}\ket{\uparrow\downarrow\downarrow} \\
+S^z_{tot}\ket{\downarrow\downarrow\downarrow}&=-\frac{3\hbar}{2}\ket{\downarrow\downarrow\downarrow} 
+\end{align*}
+
+The ``general'' rule appears to be
+\begin{equation}
+S^z_{tot}\ket{m_{s1}m_{s2}m_{s3}}=\hbar (m_{s1}+m_{s2}+m_{s3})\ket{m_{s1}m_{s2}m_{s3}}
+\end{equation}
+
 
 %% --------------- PROBLEM 1.6 -------------- %%
 \subsection{}
 
+
 %% --------------- PROBLEM 1.7 -------------- %%
 \subsection{}
+
 
 %% --------------- PROBLEM 1.8 -------------- %%
 \subsection{}
@@ -265,7 +292,7 @@ TAYLOR THEN TRUNCATE?
 \begin{appendix}
 \section{Numerical computation of $H\ket{\uparrow\downarrow\downarrow}$}
 \label{app:updndn}
-\lstinputlisting[language=Python]{scripts/tensors.py}
+\lstinputlisting[language=Python, lastline=51]{scripts/tensors.py}
 
 \end{appendix}
 
