@@ -1,3 +1,9 @@
+'''
+TAKE HOME MIDTERM EXAM, Quantum Mechanics FYS3110
+The first part of this script is to check the computation
+in problem 1.4.
+'''
+
 import numpy as np 
 import scipy.linalg
 
@@ -20,6 +26,7 @@ S1_minus = np.kron(S_minus, np.kron(np.eye(2), np.eye(2)))
 S2_minus = np.kron(np.eye(2), np.kron(S_minus, np.eye(2)))
 S3_minus = np.kron(np.eye(2), np.kron(np.eye(2), S_minus))
 
+# Hamilton operator w/o (J/hbar^2) factor
 def Hamilton(state):
 	return \
 	(1.0/2)*\
@@ -37,12 +44,45 @@ def Hamilton(state):
 
 
 updndn = np.kron(up, np.kron(dn, dn))
+print("Hamiltonian = ")
 print(Hamilton(updndn))
 
-S1S2 =  (1.0/2)*(S1_plus*S2_minus + S2_plus*S1_plus) + S1z*S2z +\
-		(1.0/2)*(S2_plus*S3_minus + S3_plus*S2_plus) + S2z*S3z +\
-		(1.0/2)*(S3_plus*S1_minus + S1_plus*S3_plus) + S3z*S1z
+'''
+Computation of probabilities that the state is preserved,
+problem 1.8
+'''
 
-print(S1S2)
-matrixexponential = scipy.linalg.expm(S1S2)
-print(scipy.linalg.norm(np.dot(matrixexponential, updndn)))
+# By scaling the probem, hbar can be set to one
+# The value om J seems somewhat arbitrary
+hbar 	= float(1)
+J 		= float(1)
+
+def propagator(t, hbar=hbar, J=J):
+	Hoperator = (J/(hbar*hbar))*\
+				((1.0/2)*(S1_plus*S2_minus + S2_plus*S1_plus) + S1z*S2z +\
+				 (1.0/2)*(S2_plus*S3_minus + S3_plus*S2_plus) + S2z*S3z +\
+				 (1.0/2)*(S3_plus*S1_minus + S1_plus*S3_plus) + S3z*S1z)
+	matrixexponential = scipy.linalg.expm((-1.0)*(0+1j)*Hoperator*t/hbar)
+	return matrixexponential
+
+# Function that returns a bra from a
+def bra(ket):
+	return np.transpose(np.conj(ket))
+
+#matrixexponential = scipy.linalg.expm(S1S2)
+#print(scipy.linalg.norm(np.dot(matrixexponential, updndn)))
+newstate 	= np.dot(propagator(1), updndn)
+newstate2 	= np.dot(propagator(2), updndn)
+newstate3	= np.dot(propagator(100), updndn)
+
+print("Up down down: ")
+print(updndn)
+print("Inner prod sq: ", np.dot(bra(updndn), updndn)**2)
+print("")
+print("New state, t=1: ")
+print(newstate)
+print("Inner prod sq: ", np.dot(bra(updndn), newstate)**2)
+print("")
+print("New state, t=100: ")
+print(newstate2)
+print("Innner prod sq: ", abs(np.dot(bra(updndn), newstate3))**2)
