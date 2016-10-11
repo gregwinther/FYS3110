@@ -246,6 +246,17 @@ S^z_{tot}\ket{m_{s1}m_{s2}m_{s3}}=\hbar (m_{s1}+m_{s2}+m_{s3})\ket{m_{s1}m_{s2}m
 
 %% --------------- PROBLEM 1.6 -------------- %%
 \subsection{}
+Finding eigenvalues of $H$. The trick is first to express $H$ in terms of $S_{tot}^2$.
+\begin{align*}
+S_tot^2 &= S_1^2 + S_2^2 + S_3^2 + 2S_1\cdot S_2 + 2S_2\cdot S_3 + 2S_3\cdot S_1 \\
+H &= \frac{J}{2\hbar^2}(2S_1\cdot S_2 + 2S_2\cdot S_3 + 2S_3\cdot S_1) \\
+  &= \frac{J}{2\hbar^2}(S_{tot}^2-(S_1^2+S_2^2+S_3^3))
+\end{align*}
+So for the first eigenvalue
+\begin{equation*}
+H\ket{\uparrow\uparrow\uparrow} = \frac{J}{2\hbar^2}(S_{tot}^2\ket{\uparrow\uparrow\uparrow}-(S_1^2+S_2^2+S_3^2)\ket{\uparrow\uparrow\uparrow})=\frac{J}{2\hbar^2}\left(\frac{9\hbar^2}{4}\ket{\uparrow\uparrow\uparrow} -3\frac{3\hbar^2}{4} \right) = 
+\end{equation*}
+most others will be some negative value. I'm not sure that makes sense.
 
 
 %% --------------- PROBLEM 1.7 -------------- %%
