@@ -4,6 +4,7 @@
 \usepackage{physics}
 \usepackage{bbm}
 \usepackage{listings}
+\usepackage{verbatim}
 
 \title{Midterm ``Take home''-exam\\
 		\large{FYS3110}}
@@ -33,6 +34,8 @@ The following is given:
 [\hat{S}_z,\hat{S}_x]=i\hbar\hat{S}_y 
 \end{align*}
 
+
+%% -------------------- PROBLEM 1.1 ------------------ %%
 \subsection{}
 \begin{equation*}
 \hat{S}_z\hat{S}^+\ket{\downarrow} = \hat{S}_z\hat{S}_x\ket{\downarrow} + i\hat{S}_z\hat{S}_y\ket{\downarrow}
@@ -52,12 +55,14 @@ gives
 \end{align*}
 This means that $\hat{S}^+\ket{\downarrow}$ is an eigenstate of $\hat{S}_z$ with eigenvalue $\hbar/2$.
 
+
+%% ------------------- PROBLEM 1.2 --------------------- %%
 \subsection{}
 \begin{align*}
 \hat{S}^-\hat{S}^+ &=(\hat{S}_x-i\hat{S}_y)(\hat{S}_x+i\hat{S}_y) \\
 &= \hat{S}_x^2+i\hat{S}_x\hat{S}_y-i\hat{S}_y\hat{S}_x+\hat{S}_y^2 \\
 &= \hat{S}_x^2+\hat{S}_y^2+i[\hat{S}_x,\hat{S}_y] \\
-&= \hat{S}^2-\hat{S}_z^2-i\hbar\hat{S}_z
+&= \hat{S}^2-\hat{S}_z^2-\hbar\hat{S}_z
 \end{align*}
 This can be uses to compute the norm of $\ket{\psi_1} = \hat{S}^+\ket{\uparrow}$ and $\ket{\psi_2} = \hat{S}^+\ket{\uparrow}$.
 \begin{align*}
@@ -71,7 +76,7 @@ which means that $\norm{\ket{\psi_1}} = \hbar$.
 &= \bra{\uparrow}\hbar^2\frac{1}{2}\left(\frac{1}{2} +1 \right)\ket{\uparrow} -\bra{\uparrow}\frac{\hbar^2}{4} \ket{\uparrow} -\bra{\uparrow}\frac{2\hbar^2}{4} \ket{\uparrow} \\
 &= \frac{3\hbar^2}{4} -\frac{\hbar^2}{4}-\frac{2\hbar^2}{4} = 0
 \end{align*}
-which measn that $\norm{\ket{\psi_2}} = 0$.
+which means that $\norm{\ket{\psi_2}} = 0$. Useful in the following problems..
 
 \subsection{}
 
@@ -163,12 +168,14 @@ And finally
 = \frac{\hbar^4}{64}(e^{i\theta}\sin^2\theta-3\sin^2\theta+2)(e^{i\theta}\cos^2\theta-3\cos^2\theta+2)
 \end{align*}
 
+
+%% -------------- PROBLEM 1.4 ---------------- %%
 \subsection{}
 A system has three interacting spin degrees of freedom with the followin hamiltonian
 \begin{equation}
 H = \frac{J}{\hbar^2}(\vb{S}_1\cdot\vb{S}_2 + \vb{S}_2\cdot\vb{S}_3 + \vb{S}_3\cdot\vb{S}_1)
 \end{equation}
-where $J$ si a positive number with units of energy. The spin operators are $\vb{S}_1\equiv \vb{S}\otimes\mathbbm{1}\otimes\mathbbm{1}$, $\vb{S}_2\equiv \mathbbm{1}\otimes\vb{S}\otimes\mathbbm{1}$ and $\vb{S}_3\equiv \mathbbm{1}\otimes\mathbbm{1}\otimes\vb{S}$, where $\vb{S}=(S_x,S_y,S_z)$. A general state of this three-spin system is a linear combination of product states $\ket{m_{s1}m_{s2}m_{s3}}\equiv\ket{m_{s1}}\otimes\ket{m_{s2}}\otimes\ket{m_{s3}}$ where $m_{si}$ is hte spin-$z$ quantum number of spin number $i$, either up ($\frac{1}{2}$) or down ($-\frac{1}{2}$). For example: the product state $\ket{\uparrow\downarrow\uparrow}$ is a state where spin number one is in state $\ket{\uparrow}$, spin number two is in state $\ket{\downarrow}$ and spin number three is in state $\ket{\uparrow}$.
+where $J$ is a positive number with units of energy. The spin operators are $\vb{S}_1\equiv \vb{S}\otimes\mathbbm{1}\otimes\mathbbm{1}$, $\vb{S}_2\equiv \mathbbm{1}\otimes\vb{S}\otimes\mathbbm{1}$ and $\vb{S}_3\equiv \mathbbm{1}\otimes\mathbbm{1}\otimes\vb{S}$, where $\vb{S}=(S_x,S_y,S_z)$. A general state of this three-spin system is a linear combination of product states $\ket{m_{s1}m_{s2}m_{s3}}\equiv\ket{m_{s1}}\otimes\ket{m_{s2}}\otimes\ket{m_{s3}}$ where $m_{si}$ is hte spin-$z$ quantum number of spin number $i$, either up ($\frac{1}{2}$) or down ($-\frac{1}{2}$). For example: the product state $\ket{\uparrow\downarrow\uparrow}$ is a state where spin number one is in state $\ket{\uparrow}$, spin number two is in state $\ket{\downarrow}$ and spin number three is in state $\ket{\uparrow}$.
 
 $\vb{S}_1\cdot\vb{S}_2$ can be expressed in terms of $S_1^+$, $S_1^-$, $S_2^+$, $S_2^-$, $S_1^z$ and $S_2^z$. First we have
 \begin{equation*}
@@ -176,18 +183,19 @@ $\vb{S}_1\cdot\vb{S}_2$ can be expressed in terms of $S_1^+$, $S_1^-$, $S_2^+$, 
 \end{equation*}
 where
 \begin{align*}
-S_1^xS_2^x= \frac{1}{4}(S_1^+S_2^+ +S_1^+S_2^- + S_1^-S_2^+ + S_1^+S_2^+)\\
-S_1^yS_2^y=-\frac{1}{4}(S_1^+S_2^+ -S_1^+S_2^- - S_1^-S_2^+ + S_1^+S_2^+)
+S_1^xS_2^x= \frac{1}{4}(S_1^+S_2^+ +S_1^+S_2^- + S_1^-S_2^+ + S_1^+S_2^-)\\
+S_1^yS_2^y=-\frac{1}{4}(S_1^+S_2^+ -S_1^+S_2^- - S_1^-S_2^+ + S_1^+S_2^-)
 \end{align*}
-then
+\begin{comment}then
 \begin{equation*}
 S_1^xS_2^x + S_1^yS_2^y = S_1^+S_2^-
 \end{equation*}
-assuming that the lowering and raising operators of different spins commutes\footnote{Ladder operator for same spin/state commute: $[S^+,S^-]=(S^x+iS^y)(S^x-iS^y)-(S^x-iS^y)(S^x+iS^y)=S_x^2+S_y^2-S_x^2-S_y^2$=0}, i.e. $[S_i^+,S_j^j]=0$. We end up with
+assuming that the lowering and raising operators of different spins commute\footnote{Ladder operator for same spin/state commute: $[S^+,S^-]=(S^x+iS^y)(S^x-iS^y)-(S^x-iS^y)(S^x+iS^y)=S_x^2+S_y^2-S_x^2-S_y^2$=0}, i.e. $[S_i^+,S_j^-]=0$. We end up with
 \begin{equation}
 \vb{S}_1\cdot\vb{S}_2 = S_1^+S_2^- + S_1^zS_2^z
 \end{equation}
-if the ladder operators does not commute then
+\end{comment}
+If the ladder operators does not commute then
 \begin{equation*}
 S_1^xS_2^x + S_1^yS_2^y = \frac{1}{2}(S_1^+S_2^- + S_2^+S_1^-)
 \end{equation*}
@@ -195,26 +203,25 @@ and we end up with
 \begin{equation}
 \vb{S}_1\cdot\vb{S}_2 = \frac{1}{2}(S_1^+S_2^- + S_2^+S_1^-) + S_1^zS_2^z
 \end{equation}
-which seems more reasonable.
 
-Comtuting $H\ket{\uparrow\downarrow\downarrow}$ should now be quite straight-forward.
+Computing $H\ket{\uparrow\downarrow\downarrow}$ should now be quite straight-forward.
 \begin{align*}
 H\ket{\uparrow\downarrow\downarrow} = 
 \frac{J}{\hbar^2} \big(&\frac{1}{2} (S_1^+S_2^- + S_2^+S_1^-)\ket{\uparrow\downarrow\downarrow} + S_1^zS_2^z\ket{\uparrow\downarrow\downarrow} \\
 +&\frac{1}{2}(S_2^+S_3^- + S_3^+S_2^-)\ket{\uparrow\downarrow\downarrow} + S_2^zS_3^z\ket{\uparrow\downarrow\downarrow} \\
 +&\frac{1}{2}(S_3^+S_1^- + S_1^+S_3^-)\ket{\uparrow\downarrow\downarrow} + S_3^zS_1^z\ket{\uparrow\downarrow\downarrow} \big)\\
 =&\frac{J}{\hbar^2}\big(
-\frac{\hbar^2}{2}\ket{\downarrow\uparrow\downarrow} 
-\frac{\hbar^2}{2}\ket{\downarrow\downarrow\uparrow} 
+\frac{\hbar^2}{2}\ket{\downarrow\uparrow\downarrow} + 
+\frac{\hbar^2}{2}\ket{\downarrow\downarrow\uparrow} -
 \frac{\hbar^2}{4}\ket{\uparrow\downarrow\downarrow} 
 \big) \\
 =&J(
-\frac{1}{2}\ket{\downarrow\uparrow\downarrow} 
-\frac{1}{2}\ket{\downarrow\downarrow\uparrow} 
+\frac{1}{2}\ket{\downarrow\uparrow\downarrow} +
+\frac{1}{2}\ket{\downarrow\downarrow\uparrow} -
 \frac{1}{4}\ket{\uparrow\downarrow\downarrow})
 \end{align*}
 
-This result is confirmed by the python script in appendix \ref{app:updndn}.
+This result is confirmed by the python script in appendix \ref{app:updndn}. $\ket{\uparrow\downarrow\downarrow}$ is not an eigen state of $H$.
 
 %% --------------- PROBLEM 1.5 -------------- %%
 \subsection{}
@@ -223,7 +230,7 @@ It is realtively easy to show with matrices or algebra or a script or anything t
 [H,S^z_{tot}]=0
 \end{equation}
 
-The eigenvalues of $S^z_tot$ are easy enough to compute
+The eigenvalues of $S^z_{tot}$ are easy enough to compute
 \begin{equation*}
 S^z_{tot}\ket{\uparrow\uparrow\uparrow}=\frac{\hbar}{2}\ket{\uparrow\uparrow\uparrow}+\frac{\hbar}{2}\ket{\uparrow\uparrow\uparrow} + \frac{\hbar}{2}\ket{\uparrow\uparrow\uparrow} = \frac{3\hbar}{2}\ket{\uparrow\uparrow\uparrow}
 \end{equation*}
@@ -248,19 +255,40 @@ S^z_{tot}\ket{m_{s1}m_{s2}m_{s3}}=\hbar (m_{s1}+m_{s2}+m_{s3})\ket{m_{s1}m_{s2}m
 \subsection{}
 Finding eigenvalues of $H$. The trick is first to express $H$ in terms of $S_{tot}^2$.
 \begin{align*}
-S_tot^2 &= S_1^2 + S_2^2 + S_3^2 + 2S_1\cdot S_2 + 2S_2\cdot S_3 + 2S_3\cdot S_1 \\
+S_{tot}^2 &= S_1^2 + S_2^2 + S_3^2 + 2S_1\cdot S_2 + 2S_2\cdot S_3 + 2S_3\cdot S_1 \\
 H &= \frac{J}{2\hbar^2}(2S_1\cdot S_2 + 2S_2\cdot S_3 + 2S_3\cdot S_1) \\
   &= \frac{J}{2\hbar^2}(S_{tot}^2-(S_1^2+S_2^2+S_3^3))
 \end{align*}
-So for the first eigenvalue
-\begin{equation*}
-H\ket{\uparrow\uparrow\uparrow} = \frac{J}{2\hbar^2}(S_{tot}^2\ket{\uparrow\uparrow\uparrow}-(S_1^2+S_2^2+S_3^2)\ket{\uparrow\uparrow\uparrow})=\frac{J}{2\hbar^2}\left(\frac{9\hbar^2}{4}\ket{\uparrow\uparrow\uparrow} -3\frac{3\hbar^2}{4} \right) = 
-\end{equation*}
-most others will be some negative value. I'm not sure that makes sense.
 
+We know from the previous problem that total spin angular momentum quantum number $s_{tot}$ must be $3/2$ or $1/2$. The general formula for the energy eigenvalue of total spin quantum number squared is $S^2_{tot}\ket{\psi}=s_{tot}(1+s_{tot})\hbar^2\ket{\psi}$. The eigenvalue energy for $s_{tot}=3/2$ is therefore given by
+\begin{align*}
+H\ket{\psi} =& \frac{J}{2\hbar^2}(S_{tot}^2\ket{\psi}-(S_1^2+S_2^2+S_3^2)\ket{\psi})=\frac{J}{2\hbar^2}\left(\frac{3}{2}\left(\frac{3}{2}+1\right)\hbar^2 +3\frac{1}{2}\left(\frac{1}{2}+1\right)\hbar^2\right)\\
+=&\frac{J}{2\hbar^2}\left(\frac{15\hbar^2}{4}\ket{\psi} -3\frac{3\hbar^2}{4}\ket{\psi} \right) = J\frac{3}{4}\ket{\psi},
+\end{align*}
+and for $s_{tot}=1/2$
+\begin{align*}
+H\ket{\psi} =& \frac{J}{2\hbar^2}(S_{tot}^2\ket{\psi}-(S_1^2+S_2^2+S_3^2)\ket{\psi})=\frac{J}{2\hbar^2}\left(\frac{1}{2}\left(\frac{1}{2}+1\right)\hbar^2 +3\frac{1}{2}\left(\frac{1}{2}+1\right)\hbar^2\right)\\
+=&\frac{J}{2\hbar^2}\left(\frac{3\hbar^2}{4}\ket{\psi} -3\frac{3\hbar^2}{4}\ket{\psi} \right) = -J\frac{3}{4}\ket{\psi}.
+\end{align*}
+The eigenvalues of $H$ is $\pm\frac{3}{4}J$.
 
 %% --------------- PROBLEM 1.7 -------------- %%
 \subsection{}
+In order to write down the normalized eigenstates of $S_{tot}$ of total spin angular momentum quantum number $s_{tot}=\frac{1}{2}$ one must employ Clebsch-Gordan coefficient tables. First, combine two of the spins, and then the result with the third spin.
+\begin{equation*}
+\ket{s_1m_{s1}s_2m_{s2}s_3m_{s3}}=\ket{s_1m_{s1}s_2m_{s2}}\otimes\ket{s_3m_{s3}}=\ket{s_1m_{s1}}\otimes\ket{s_2m_{s2}}\otimes\ket{s_3m_{s3}}
+\end{equation*}
+
+A system of two spin-$1/2$ particles can have $s_{tot}=0$ and $s_{tot}=1$. The former case, the singlet, has only one possible linear combination of $s=1/2$ kets
+\begin{equation}
+\ket{0,0}=\frac{1}{\sqrt{2}}\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}-\frac{1}{\sqrt{2}}\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}},
+\end{equation}
+while if $s=1$ we have the triplet
+\begin{align}
+&\ket{1,-1} = \ket{\frac{1}{2},\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}} \\
+&\ket{1, 0} = \frac{1}{\sqrt{2}}\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}} + \frac{1}{\sqrt{2}}\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}} \\
+&\ket{1,+1} = \ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}}
+\end{align}
 
 
 %% --------------- PROBLEM 1.8 -------------- %%
