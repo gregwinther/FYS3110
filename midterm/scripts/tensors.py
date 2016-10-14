@@ -6,6 +6,7 @@ in problem 1.4.
 
 import numpy as np 
 import scipy.linalg
+from matplotlib import pyplot as plt
 
 up = np.array([[1], [0]])
 dn = np.array([[0], [1]])
@@ -72,30 +73,20 @@ def propagator(t, hbar=hbar, J=J):
 def bra(ket):
 	return np.transpose(np.conj(ket))
 
-#matrixexponential = scipy.linalg.expm(S1S2)
-#print(scipy.linalg.norm(np.dot(matrixexponential, updndn)))
-newstate 	= np.dot(propagator(1), updndn)
-newstate2 	= np.dot(propagator(2), updndn)
-newstate3	= np.dot(propagator(4), updndn)
+# Function that determines the probability that the state is same at time t
+def statePropagationProbability(t, state):
+	newState = np.dot(propagator(t), state)
+	prob = float((np.dot(bra(newState), state)).real**2)
+	return prob
 
-'''
-print("Up down down: ")
-print(updndn)
-print("Inner prod sq: ", np.dot(bra(updndn), updndn)**2)
-print("")
-print("New state, t=1: ")
-print(newstate)
-print("Inner prod sq: ", np.dot(bra(updndn), newstate)**2)
-print("")
-print("New state, t=100: ")
-print(newstate2)
-print("Innner prod sq: ", np.dot(bra(updndn), newstate3)**2)
-'''
-#print("\nH = ")
-#print(Hoperator)
-#print("\nSztot = ")
-#print(Sztot)
-#print("\nH*Sztot-Sztot*H = ")
-#print(np.dot(Hoperator,Sztot) - np.dot(Sztot,Hoperator))
+t = np.linspace(0,20,1001)
+probVector = np.zeros(len(t))
+i = 0;
+for i in range(len(t)):
+	probVector[i] = statePropagationProbability(t[i], updndn)
 
-print(np.dot(Hoperator, Sztot)-np.dot(Sztot, Hoperator))
+plt.plot(t, probVector)
+plt.show()
+
+
+print(Hoperator)

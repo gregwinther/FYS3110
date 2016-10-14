@@ -9,7 +9,7 @@
 \title{Midterm ``Take home''-exam\\
 		\large{FYS3110}}
 
-\author{Unable to see candidate no}
+\author{Candidate 83}
 
 \date{\today}
 
@@ -76,13 +76,17 @@ which means that $\norm{\ket{\psi_1}} = \hbar$.
 &= \bra{\uparrow}\hbar^2\frac{1}{2}\left(\frac{1}{2} +1 \right)\ket{\uparrow} -\bra{\uparrow}\frac{\hbar^2}{4} \ket{\uparrow} -\bra{\uparrow}\frac{2\hbar^2}{4} \ket{\uparrow} \\
 &= \frac{3\hbar^2}{4} -\frac{\hbar^2}{4}-\frac{2\hbar^2}{4} = 0
 \end{align*}
-which means that $\norm{\ket{\psi_2}} = 0$. Useful in the following problems..
+which means that $\norm{\ket{\psi_2}} = 0$.
 
 \subsection{}
 
-Phases are chosen sucht that the following relations hold
+Phases are chosen so that the following relations hold
 \begin{equation*}
 \hat{S}^+\ket{\downarrow}=\hbar\ket{\uparrow}, \quad \hat{S}^-\ket{\uparrow}=\hbar\ket{\downarrow}.
+\end{equation*}
+From the the two previous problems we also know that
+\begin{equation*}
+\hat{S}^+\ket{\uparrow}=0, \quad \hat{S}^-\ket{\downarrow}=0
 \end{equation*}
 
 Introducing a new state
@@ -114,6 +118,18 @@ It will also make things easier to calculate $\hat{S}_x\ket{\uparrow}$, $\hat{S}
 \hat{S}_y\ket{\downarrow}	= \frac{\hbar}{2i}\ket{\uparrow}& \quad
 \hat{S}^2_y\ket{\downarrow}	= \frac{\hbar^2}{4}\ket{\downarrow}\\
 \end{align*}
+A few more pieces of the problem will be nice to have
+\begin{align*}
+\hat{S}^{+2}\ket{\phi}&=\hat{S}^{+2}(\ket{\uparrow}+e^{i\theta}\ket{\downarrow})=\hbar\hat{S}^{+}e^{i\theta}\ket{\uparrow}=0 \\
+\hat{S}^{-2}\ket{\phi}&=\hat{S}^{-2}(\ket{\uparrow}+e^{i\theta}\ket{\downarrow})=\hbar\hat{S}^{-}\ket{\downarrow}=0 \\
+\hat{S}^+\hat{S}^-\ket{\phi}&=\hat{S}^+\hat{S}^-\frac{1}{\sqrt{2}}(\ket{\uparrow}+e^{i\theta}\ket{\downarrow})=\frac{\hbar}{\sqrt{2}}\hat{S}^+\ket{\downarrow} = \frac{\hbar^2}{\sqrt{2}}\ket{\uparrow} \\
+\hat{S}^-\hat{S}^+\ket{\phi}&=\hat{S}^-\hat{S}^+\frac{1}{\sqrt{2}}(\ket{\uparrow}+e^{i\theta}\ket{\downarrow})=\frac{\hbar}{\sqrt{2}}\hat{S}^-e^{i\theta}\ket{\uparrow} = \frac{\hbar^2}{\sqrt{2}}e^{i\theta}\ket{\downarrow}
+\end{align*}
+% Anticommutator
+\begin{equation*}
+\{\hat{S}^+,\hat{S}^-\}\ket{\phi}=(\hat{S}^+\hat{S}^-+\hat{S}^-\hat{S}^+)
+\frac{1}{\sqrt{2}}(\ket{\uparrow}+e^{i\theta}\ket{\downarrow})=\frac{\hbar^2}{\sqrt{2}}(\ket{\uparrow}+e^{i\theta}\ket{\downarrow}) =\hbar^2\ket{\phi}
+\end{equation*}
 We can begin on what is the real task at hand
 \begin{align*}
 \bra{\phi}\hat{S}_x\ket{\phi} 
@@ -121,7 +137,9 @@ We can begin on what is the real task at hand
 &= \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})\left(\frac{\hbar}{2}\ket{\downarrow}+e^{i\theta}\frac{\hbar}{2}\ket{\uparrow} \right) \\
 &= \frac{\hbar}{4}\left(e^{i\theta}+e^{-i\theta} \right)\\ 
 &= \frac{\hbar}{4}(\cos{\theta}+i\sin{\theta}+\cos{\theta}-i\sin{\theta}) \\
-&= \frac{\hbar}{2}\cos{\theta} \\
+&= \frac{\hbar}{2}\cos{\theta}
+\end{align*}
+\begin{align*}
 \bra{\phi}\hat{S}_y\ket{\phi} 
 &= \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})\hat{S}_y(\ket{\uparrow}+e^{i\theta}\ket{\downarrow}) \\
 &= \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})\left(-\frac{\hbar}{2i}\ket{\downarrow}+e^{i\theta}\frac{\hbar}{2i}\ket{\uparrow} \right) \\
@@ -129,45 +147,59 @@ We can begin on what is the real task at hand
 &= \frac{\hbar}{4i}(\cos{\theta}+i\sin{\theta}-\cos{\theta}+i\sin{\theta}) \\
 &= \frac{\hbar}{2}\sin{\theta}
 \end{align*}
-
+Employing all of the above for the last algebraic exercise
+\begin{equation}
+\label{eq:sigmax}
+\sigma_x^2=\bra{\phi}(\hat{S}^x-\bra{\phi}\hat{S}^x\ket{\phi})^2\ket{\phi} =
+\bra{\phi}(\hat{S}^{x2}-\hbar\cos\theta\hat{S}^x+\frac{\hbar^2}{4}\cos^2\theta)\ket{\phi}
+\end{equation}
+where
 \begin{align*}
-\sigma_{sx}^2 
-=& \bra{\phi}(\hat{S}_x-\frac{\hbar}{2}\cos{\theta})^2\ket{\phi} \\
-=& \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})(\hat{S}^2_x-\hbar\cos{\theta}\hat{S}_x+\frac{\hbar^2}{4}\cos^2\theta )(\ket{\uparrow}+e^{i\theta}\ket{\downarrow}) \\
-=& \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow}) \\
-&\left(
-\frac{\hbar^2}{4}\ket{\uparrow}
-+\frac{\hbar^2}{4}e^{i\theta}\ket{\downarrow}
--\frac{\hbar^2}{2}\cos{\theta}\ket{\downarrow}
--\frac{\hbar^2}{2} e^{i\theta}\cos{\theta}\ket{\uparrow}
-+\frac{\hbar^2}{4}\cos^2{\theta}\ket{\uparrow}
-+\frac{\hbar^2}{4}e^{i\theta}\cos^2{\theta}\ket{\uparrow} 
-\right) \\
-=&\frac{\hbar^2}{8}-\frac{\hbar^2}{4}e^{i\theta}\cos{\theta}+\frac{\hbar^2}{8}\cos^2{\theta}+\frac{\hbar^2}{8}e^{i\theta}\cos^2{\theta}+\frac{\hbar^2}{8}-\frac{\hbar^2}{4}e^{-i\theta}\cos{\theta} \\
-=& \frac{\hbar^2}{4}-\frac{\hbar^2}{4}(\cos^2\theta+i\sin\theta\cos\theta) +\frac{\hbar^2}{8}\cos^2\theta+\frac{\hbar^2}{8}(\cos^3\theta+i\sin\theta\cos^2\theta)-\frac{\hbar^2}{4}(\cos^2\theta-i\sin\theta\cos\theta) \\
-=& \frac{\hbar^2}{4}-\frac{3\hbar^2}{8}\cos^2\theta+\frac{\hbar^2}{8}(\cos^3\theta+i\sin\theta\cos^2\theta) \\
-\sigma_{sy}^2
-=& \bra{\phi}(\hat{S}_y-\frac{\hbar}{2}\sin{\theta})^2\ket{\phi} \\
-=& \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})(\hat{S}^2_y-\hbar\sin{\theta}\hat{S}_y+\frac{\hbar^2}{4}\sin^2\theta )(\ket{\uparrow}+e^{i\theta}\ket{\downarrow}) \\
-=&\frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow}) \\
-&\left(
-\frac{\hbar^2}{4}\ket{\uparrow}
-+\frac{\hbar^2}{4}e^{i\theta}\ket{\downarrow}
-+\frac{\hbar^2}{2i}\sin{\theta}\ket{\downarrow}
--\frac{\hbar^2}{2i} e^{i\theta}\sin{\theta}\ket{\uparrow}
-+\frac{\hbar^2}{4}\sin^2{\theta}\ket{\uparrow}
-+\frac{\hbar^2}{4}e^{i\theta}\sin^2{\theta}\ket{\uparrow} 
-\right) \\
-=&\frac{\hbar^2}{8}-\frac{\hbar^2}{4i}e^{i\theta}\sin{\theta}+\frac{\hbar^2}{8}\sin^2{\theta}+\frac{\hbar^2}{8}e^{i\theta}\sin^2{\theta}+\frac{\hbar^2}{8}+\frac{\hbar^2}{4i}e^{-i\theta}\sin{\theta} \\
-=& \frac{\hbar^2}{4}-\frac{\hbar^2}{4i}(\sin\theta\cos\theta+i\sin^2\theta)+\frac{\hbar^2}{8}\sin^2\theta+\frac{\hbar^2}{8}(\sin^2\theta\cos\theta+i\sin^3\theta) +\frac{\hbar^2}{4i}(\sin\theta\cos\theta-i\sin^2\theta) \\
-&=\frac{\hbar^2}{4}-\frac{3\hbar^2}{8}\sin^2\theta+\frac{\hbar^2}{8}(\sin^2\theta\cos\theta+i\sin^3\theta)
+\bra{\phi}\hat{S}^{x2}\ket{\phi} &= \frac{1}{4}\bra{\phi}(\hat{S}^+ + S^-)^2\ket{\phi}
+=\frac{1}{4}\bra{\phi}(\hat{S}^++\{\hat{S}^+,\hat{S}^-\}+\hat{S}^-)\ket{\phi} = \frac{\hbar^2}{4}
 \end{align*}
-And finally
+and
+\begin{equation*}
+\bra{\phi}\hbar\cos\theta\hat{S}^x\ket{\phi} = \frac{2}{4}\hbar^2\cos^2\theta
+\end{equation*}
+Equation \ref{eq:sigmax} becomes
+\begin{equation}
+\sigma_x^2=\frac{\hbar^2}{4}-\frac{2\hbar}{4}\cos\theta+\frac{\hbar^2}{4}\cos^2\theta =
+\frac{\hbar^2}{4}(1-\cos^2\theta)=\frac{\hbar^2}{4}\sin^2\theta
+\end{equation}
+Now for the other part of the product
+\begin{equation}
+\label{eq:sigmay}
+\sigma_y^2=\bra{\phi}(\hat{S}^y-\bra{\phi}\hat{S}^y\ket{\phi})^2\ket{\phi} =
+\bra{\phi}(\hat{S}^{y2}-\hbar\sin\theta\hat{S}^y+\frac{\hbar^2}{4}\sin^2\theta)\ket{\phi}
+\end{equation}
+where
 \begin{align*}
-\sigma_{sx}^2 \sigma_{sy}^2 
-= \frac{\hbar^4}{64}(e^{i\theta}\sin^2\theta-3\sin^2\theta+2)(e^{i\theta}\cos^2\theta-3\cos^2\theta+2)
+\bra{\phi}\hat{S}^{y2}\ket{\phi} &= -\frac{1}{4}\bra{\phi}(\hat{S}^+ - S^-)^2\ket{\phi}
+=-\frac{1}{4}\bra{\phi}(\hat{S}^+-\{\hat{S}^+,\hat{S}^-\}+\hat{S}^-)\ket{\phi} = \frac{\hbar^2}{4}
 \end{align*}
-
+and
+\begin{equation*}
+\bra{\phi}\hbar\sin\theta\hat{S}^y\ket{\phi} = \frac{2}{4}\hbar^2\sin^2\theta
+\end{equation*}3
+Equation \ref{eq:sigmay} becomes
+\begin{equation}
+\sigma_y^2 = \frac{\hbar^2}{4}-\frac{2\hbar^2}{4}\sin^2\theta+\frac{\hbar^2}{4}\sin^2\theta =
+\frac{\hbar^2}{4}(1-\sin^2\theta)=\frac{\hbar^2}{4}\cos^2\theta
+\end{equation}
+The product of equation \ref{eq:sigmax} and equation \ref{eq:sigmay} is
+\begin{equation}
+\sigma_x^2\sigma_y^2=\frac{\hbar^4}{16}(\sin^2\theta\cos^2\theta)=\frac{\hbar^4}{32}\sin^2{(2\theta)}
+\end{equation}
+which is zero for $\theta=0$ and $\theta=\pi/2$. Heisenber's uncertainty relation is not violated, because only one of the components of the product is zero, $\sigma_x^2=0$ while $\sigma_y^2=\hbar^2/4$. Furthermore, we see that
+\begin{equation}
+\phi=
+\begin{cases}
+\frac{1}{\sqrt{2}}(\ket{\uparrow} + \ket{\downarrow}), &\text{for} \theta = 0, \\
+\frac{1}{\sqrt{2}}(\ket{\uparrow} + i\ket{\downarrow}), &\text{for} \theta = \frac{\pi}{2}
+\end{cases}
+\end{equation}
+We do have quantum states with all uncertainties that comes with it.
 
 %% -------------- PROBLEM 1.4 ---------------- %%
 \subsection{}
@@ -281,14 +313,34 @@ In order to write down the normalized eigenstates of $S_{tot}$ of total spin ang
 
 A system of two spin-$1/2$ particles can have $s_{tot}=0$ and $s_{tot}=1$. The former case, the singlet, has only one possible linear combination of $s=1/2$ kets
 \begin{equation}
+\label{eq:spins0}
 \ket{0,0}=\frac{1}{\sqrt{2}}\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}-\frac{1}{\sqrt{2}}\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}},
 \end{equation}
 while if $s=1$ we have the triplet
 \begin{align}
+\label{eq:spins1-1}
 &\ket{1,-1} = \ket{\frac{1}{2},\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}} \\
+\label{eq:spins10}
 &\ket{1, 0} = \frac{1}{\sqrt{2}}\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}} + \frac{1}{\sqrt{2}}\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}} \\
+\label{eq:spins1+1}
 &\ket{1,+1} = \ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}}
 \end{align}
+
+Combining the combined spins where $s=0$ with a third spin is relatively simple. The tensor product of an $s=0$ particle with another particle is simply the latter particle. One needs to combine the singlet in equation \ref{eq:spins0} with $\ket{\uparrow}$ and $\ket{\downarrow}$
+\begin{align*}
+&\ket{0,0}\otimes\ket{\frac{1}{2},+\frac{1}{2}} \\
+&=\frac{1}{\sqrt{2}}\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}}-\frac{1}{\sqrt{2}}\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}} \\
+&\ket{0,0}\otimes\ket{\frac{1}{2},-\frac{1}{2}}= \\
+&=\frac{1}{\sqrt{2}}\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}-\frac{1}{\sqrt{2}}\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}
+\end{align*}
+alternatively, in a simplified arrow-form
+\begin{align}
+\frac{1}{\sqrt{2}}\ket{\uparrow\downarrow\uparrow}-\frac{1}{\sqrt{2}}\ket{\downarrow\uparrow\uparrow} \\
+\frac{1}{\sqrt{2}}\ket{\uparrow\downarrow\downarrow}-\frac{1}{\sqrt{2}}\ket{\downarrow\uparrow\downarrow}
+\end{align}
+
+For the tiplet, in equations \ref{eq:spins1-1}, \ref{eq:spins10} and \ref{eq:spins1+1} one must apply Clebsch-Gordan tables again
+
 
 
 %% --------------- PROBLEM 1.8 -------------- %%
@@ -320,18 +372,38 @@ This exponential operator is usually defined by the corresponding power series.
 U(t) = \sum_{k=0}^{\infty}\frac{1}{k!}\left(\frac{it}{\hbar} \right)H^k = e^{-iHt/\hbar}
 \end{equation}
 
-If a spin system is initially in state $\ket{\uparrow\downarrow\downarrow}$ at $t=t_0=0$ then the expression $\abs{\bra{\uparrow\downarrow\downarrow}\hat{U}(t,0) \ket{\uparrow\downarrow\downarrow}}^2$ gives the probability that the system is still in that state.
+If a spin system is initially in state $\ket{\uparrow\downarrow\downarrow}$ at $t_0=0$ then the real part of $\abs{\bra{\uparrow\downarrow\downarrow}\hat{U}(t,0) \ket{\uparrow\downarrow\downarrow}}^2$ gives the probability that the system is still in that state.
 
 To make things a little simpler, I am 
 
+
+%% ------------------- Problem 2 ------------- %%
 \section{}
-TAYLOR THEN TRUNCATE?
+Here we consider a operator $e^{-\hat{H}s}$, where $s$ is a real positive number with units of inverse energy and $\hat{H}$ is a know Hamiltonian. The ground state $\ket{E_0}$ is not known, but we do know a way to compute $\ket{\psi(s)}\equiv e^{-\hat{H}s}\ket{\psi}$ efficiently for any $s$ and $\ket{\psi}$. This can then be used to compute the ground state expected value  $\bra{E_0}\hat{O}\ket{E_0}$ for a given Hermitian operator $\hat{O}$.
+
+First, let us assume that a state $\ket{\psi}$ can be written as a linear combination of eigenstates, such that
+\begin{equation*}
+\ket{\psi(s)}=e^{-\hat{H}s}\ket{\psi}=e^{-\hat{H}s}\sum_i C_i\ket{E_i}=\sum_i e^{-E_i s}C_i\ket{E_i}
+\end{equation*}
+if $s$ is sufficiently large, $s>>1$, all the terms in the sum above will be killed except for the ground state 
+\begin{equation*}
+\ket{\psi} \approx e^{-E_0s}C_0\ket{E_0}
+\end{equation*}
+Then we get
+\begin{align}
+\braket{\psi(s)} &= e^{-2E_0s}\abs{C_0}^2\braket{E_0}=e^{-2E_0s}\abs{C_0}^2 \label{eq:psis1} \\
+\bra{\psi(s)}\hat{O}\ket{\psi(s)} &= e^{-2E_0s}\abs{C_0}^2\bra{E_0}\hat{O}\ket{E_0} \label{eq:psis2}
+\end{align}
+Dividing equation \ref{eq:psis2} by equation \ref{eq:psis1} will for a large $s$ yield the desired result
+\begin{equation}
+\lim_{s\to\infty}\frac{\bra{\psi(s)}\hat{O}\ket{\psi(s)}}{\braket{\psi(s)}}=\bra{E_0}\hat{O}\ket{E_0}
+\end{equation}
 
 \pagebreak
 \begin{appendix}
 \section{Numerical computation of $H\ket{\uparrow\downarrow\downarrow}$}
 \label{app:updndn}
-\lstinputlisting[language=Python, lastline=51]{scripts/tensors.py}
+\lstinputlisting[language=Python, lastline=51, showstringspaces=false]{scripts/tensors.py}
 
 \end{appendix}
 
