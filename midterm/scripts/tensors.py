@@ -61,9 +61,9 @@ hbar 	= float(1)
 J 		= float(1)
 
 Hoperator = (J/(hbar*hbar))*\
-				((1.0/2)*(S1_plus*S2_minus + S2_plus*S1_plus) + S1z*S2z +\
-				 (1.0/2)*(S2_plus*S3_minus + S3_plus*S2_plus) + S2z*S3z +\
-				 (1.0/2)*(S3_plus*S1_minus + S1_plus*S3_plus) + S3z*S1z)
+				((1.0/2)*(S1_plus*S2_minus + S2_plus*S1_minus) + S1z*S2z +\
+				 (1.0/2)*(S2_plus*S3_minus + S3_plus*S2_minus) + S2z*S3z +\
+				 (1.0/2)*(S3_plus*S1_minus + S1_plus*S3_minus) + S3z*S1z)
 
 def propagator(t, hbar=hbar, J=J):
 	matrixexponential = scipy.linalg.expm((-1.0)*(0+1j)*Hoperator*t/hbar)
@@ -86,7 +86,8 @@ for i in range(len(t)):
 	probVector[i] = statePropagationProbability(t[i], updndn)
 
 plt.plot(t, probVector)
+plt.xlabel(r'$t$', fontsize=20)
+plt.ylabel(r'$\Re(\mid{\langle{\uparrow\downarrow\downarrow}\mid\hat{U}(t,0) \mid{\uparrow\downarrow\downarrow}\rangle}\mid)^2$', fontsize=16)
+plt.title("Time propagation of state, Probability")
 plt.show()
 
-
-print(Hoperator)

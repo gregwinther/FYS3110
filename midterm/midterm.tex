@@ -5,6 +5,8 @@
 \usepackage{bbm}
 \usepackage{listings}
 \usepackage{verbatim}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
 
 \title{Midterm ``Take home''-exam\\
 		\large{FYS3110}}
@@ -257,10 +259,18 @@ This result is confirmed by the python script in appendix \ref{app:updndn}. $\ke
 
 %% --------------- PROBLEM 1.5 -------------- %%
 \subsection{}
-It is realtively easy to show with matrices or algebra or a script or anything that
+It is realtively easy, yet tiresome, to show (with matrices or algebra or a script or anything) that
 \begin{equation}
-[H,S^z_{tot}]=0
+[H,S^z_{tot}]=0.
 \end{equation}
+Most of the terms will cancel each other out, but one will also need the following commutating relations
+\begin{align*}
+[S_i^+,S^z]&=S^+S^z-S^zS^+ = S^xS^z+iS^yS^z-S^zS^x-iS^zS^y \\
+&= [S^x,S^z] + i[S^y, S^z] = -i\hbar S^y-\hbar S^x\\
+[S_i^-,S^z]&=S^-S^z-S^zS^- = S^xS^z-iS^yS^z-S^zS^x+iS^zS^y \\
+&= [S^x,S^z] + i[S^z, S^y] = -i\hbar S^y+\hbar S^x
+\end{align*}
+The rest of the calculation is in appendix \ref{app:prob1.5}.
 
 The eigenvalues of $S^z_{tot}$ are easy enough to compute
 \begin{equation*}
@@ -339,8 +349,27 @@ alternatively, in a simplified arrow-form
 \frac{1}{\sqrt{2}}\ket{\uparrow\downarrow\downarrow}-\frac{1}{\sqrt{2}}\ket{\downarrow\uparrow\downarrow}
 \end{align}
 
-For the tiplet, in equations \ref{eq:spins1-1}, \ref{eq:spins10} and \ref{eq:spins1+1} one must apply Clebsch-Gordan tables again
-
+For the tiplet, in equations \ref{eq:spins1-1}, \ref{eq:spins10} and \ref{eq:spins1+1} one must apply Clebsch-Gordan tables again. We want to combine the new spin-$1$ particles in equations \ref{eq:spins1-1}, \ref{eq:spins10} and \ref{eq:spins1+1} with another spin-$1/2$ particle. This can be found in the $1\times1/2$ table. We are only interested in the cases that have total spin $s_{tot}=1/2$ which leaves us with
+\begin{align}
+\label{eq:1timeshalf1}
+\ket{\frac{1}{2},+\frac{1}{2}} &= \sqrt{\frac{2}{3}}\ket{1,+1}\otimes\ket{\frac{1}{2},-\frac{1}{2}}-\frac{1}{\sqrt{3}}\ket{1,0}\otimes\ket{\frac{1}{2},+\frac{1}{2}} \\
+\label{eq:1timeshalf2}
+\ket{\frac{1}{2},-\frac{1}{2}} &= \frac{2}{\sqrt{3}}\ket{1,0}\otimes\ket{\frac{1}{2},-\frac{1}{2}}-\sqrt{\frac{0}{3}}\ket{1,-1}\otimes\ket{\frac{1}{2},+\frac{1}{2}}
+\end{align}
+Inserting equations \ref{eq:spins1-1}, \ref{eq:spins10} and \ref{eq:spins1+1} into equations \ref{eq:1timeshalf1} and \ref{eq:1timeshalf2} yields
+\begin{align*}
+&\sqrt{\frac{2}{3}}\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}} \\
+-&\frac{1}{\sqrt{6}}\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}} \\
+-&\frac{1}{\sqrt{6}}\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}}, \\[3ex]
+&\frac{1}{\sqrt{6}}\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}} \\
++&\frac{1}{\sqrt{6}}\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}} \\
+-&\sqrt{\frac{2}{3}}\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}},
+\end{align*}
+or in ``arrow notation'' again
+\begin{align}
+\sqrt{\frac{2}{3}}\ket{\uparrow\uparrow\downarrow}-\frac{1}{\sqrt{6}}\ket{\uparrow\downarrow\uparrow}-\frac{1}{\sqrt{6}}\ket{\downarrow\uparrow\uparrow} \\
+\frac{1}{\sqrt{6}}\ket{\uparrow\downarrow\downarrow}+\frac{1}{\sqrt{6}}\ket{\uparrow\downarrow\downarrow}-\sqrt{\frac{2}{3}}\ket{\downarrow\downarrow\uparrow}
+\end{align}
 
 
 %% --------------- PROBLEM 1.8 -------------- %%
@@ -374,8 +403,43 @@ U(t) = \sum_{k=0}^{\infty}\frac{1}{k!}\left(\frac{it}{\hbar} \right)H^k = e^{-iH
 
 If a spin system is initially in state $\ket{\uparrow\downarrow\downarrow}$ at $t_0=0$ then the real part of $\abs{\bra{\uparrow\downarrow\downarrow}\hat{U}(t,0) \ket{\uparrow\downarrow\downarrow}}^2$ gives the probability that the system is still in that state.
 
-To make things a little simpler, I am 
+I have chosen to compute these probabilities using a numerical approach. The components of the Hamiltonian can all be represented by Pauli matrices. These are the same matrices that are calculated in appendix \ref{app:updndn}. In the following computation, both $J$ and $\hbar$ is set to $1$, which is perfectly alright as the solution will be the same. The Hamiltonian can then be represented by a matrix computed like so:
+\begin{lstlisting}[language=Python]
+Hoperator = (J/(hbar*hbar))*\
+ ((1.0/2)*(S1_plus*S2_minus + S2_plus*S1_minus) + S1z*S2z +\
+  (1.0/2)*(S2_plus*S3_minus + S3_plus*S2_minus) + S2z*S3z +\
+  (1.0/2)*(S3_plus*S1_minus + S1_plus*S3_minus) + S3z*S1z)
+\end{lstlisting}
+Luckily, the Hamiltonian is a diagonal matrix. This means one can easily compute the propagater as a matrix exponential, thusly:
+\begin{lstlisting}[language=Python]
+def propagator(t, hbar=hbar, J=J):
+  matrixexponential =\ 
+   scipy.linalg.expm((-1.0)*(0+1j)*Hoperator*t/hbar)
+  return matrixexponential
+\end{lstlisting}
+The following function computes the probability that the state is the same as the input state
+\begin{lstlisting}[language=Python]
+def statePropagationProbability(t, state):
+  newState = np.dot(propagator(t), state)
+  prob = float((np.dot(bra(newState), state)).real**2)
+  return prob
+\end{lstlisting}
+Then one needs only put a time-point vector through the ``machinery'' in order to compute the probabilities at different times $t$
+\begin{lstlisting}[language=Python]
+t = np.linspace(0,20,1001)
+probVector = np.zeros(len(t))
+i = 0;
+for i in range(len(t)):
+  probVector[i] = statePropagationProbability(t[i], updndn)
+\end{lstlisting}
+A plot of the probabilities is shown in figure \ref{fig:probability}. It is obvious that the probability follows a cosine-like oscillation. Moreover, one can see that the average probability is constant. This is reasonable, because the state has the lowest energy possible for the system and is therefore a ground state. If the state was a higher-energy state one would assume the amplitude of the probability plot to fall over time.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/probability.png}
+	\caption{Probability that state remains in initial state $\ket{\uparrow\downarrow\downarrow}$.}
+	\label{fig:probability}
+\end{figure}
 
 %% ------------------- Problem 2 ------------- %%
 \section{}
@@ -399,12 +463,29 @@ Dividing equation \ref{eq:psis2} by equation \ref{eq:psis1} will for a large $s$
 \lim_{s\to\infty}\frac{\bra{\psi(s)}\hat{O}\ket{\psi(s)}}{\braket{\psi(s)}}=\bra{E_0}\hat{O}\ket{E_0}
 \end{equation}
 
+An interesting matter to look into further is how big $s$ must be. If there is an energy difference of $dE$ between the lowest and second lowest state, then knowing the value of $dE$ allows one to quantify how big $s$ must be by employing the following expression
+\begin{equation*}
+\ket{\psi(s)}\approx e^{-E_0s}(C_0\ket{e_0}+e^{sdE}C_1\ket{E_1}+\dots)
+\end{equation*}
+
 \pagebreak
 \begin{appendix}
 \section{Numerical computation of $H\ket{\uparrow\downarrow\downarrow}$}
 \label{app:updndn}
 \lstinputlisting[language=Python, lastline=51, showstringspaces=false]{scripts/tensors.py}
 
+\pagebreak
+\section{Calculation of $[H,S_{tot}]$}
+\label{app:prob1.5}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.58\textwidth]{figures/Problem1_5_1.jpg}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/Problem1_5_2.jpg}
+\end{figure}
 \end{appendix}
 
 \end{document}
