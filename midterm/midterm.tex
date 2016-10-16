@@ -66,7 +66,7 @@ This means that $\hat{S}^+\ket{\downarrow}$ is an eigenstate of $\hat{S}_z$ with
 &= \hat{S}_x^2+\hat{S}_y^2+i[\hat{S}_x,\hat{S}_y] \\
 &= \hat{S}^2-\hat{S}_z^2-\hbar\hat{S}_z
 \end{align*}
-This can be uses to compute the norm of $\ket{\psi_1} = \hat{S}^+\ket{\uparrow}$ and $\ket{\psi_2} = \hat{S}^+\ket{\uparrow}$.
+This can be used to compute the norm of $\ket{\psi_1} = \hat{S}^+\ket{\downarrow}$ and $\ket{\psi_2} = \hat{S}^+\ket{\uparrow}$.
 \begin{align*}
 \braket{\psi_1} &= \bra{\downarrow}\hat{S}^-\hat{S}^+\ket{\downarrow} = \bra{\downarrow}(\hat{S}^2-\hat{S}_z^2-\hbar\hat{S}_z)\ket{\downarrow} \\
 &= \bra{\downarrow}\hbar^2\frac{1}{2}\left(\frac{1}{2} +1 \right)\ket{\downarrow} -\bra{\downarrow}\frac{\hbar^2}{4} \ket{\downarrow} +\bra{\downarrow}\frac{2\hbar^2}{4} \ket{\downarrow} \\
@@ -80,16 +80,13 @@ which means that $\norm{\ket{\psi_1}} = \hbar$.
 \end{align*}
 which means that $\norm{\ket{\psi_2}} = 0$.
 
+%% ------------------ PROBLEM 1.3 --------------------- %%
 \subsection{}
-
 Phases are chosen so that the following relations hold
 \begin{equation*}
 \hat{S}^+\ket{\downarrow}=\hbar\ket{\uparrow}, \quad \hat{S}^-\ket{\uparrow}=\hbar\ket{\downarrow}.
 \end{equation*}
-From the the two previous problems we also know that
-\begin{equation*}
-\hat{S}^+\ket{\uparrow}=0, \quad \hat{S}^-\ket{\downarrow}=0
-\end{equation*}
+From the the previous problem we also know that $\hat{S}^+\ket{\uparrow}=0$, and because $\bra{\psi}\hat{S}^+\hat{S}^-\ket{\psi}=\bra{\psi}\hat{S}^-\hat{S}^+\ket{\psi}=0$ then $\hat{S}^-\ket{\downarrow}=0$.
 
 Introducing a new state
 \begin{equation*}
@@ -191,17 +188,35 @@ Equation \ref{eq:sigmay} becomes
 \end{equation}
 The product of equation \ref{eq:sigmax} and equation \ref{eq:sigmay} is
 \begin{equation}
+\label{eq:heisenbergish}
 \sigma_x^2\sigma_y^2=\frac{\hbar^4}{16}(\sin^2\theta\cos^2\theta)=\frac{\hbar^4}{32}\sin^2{(2\theta)}
 \end{equation}
-which is zero for $\theta=0$ and $\theta=\pi/2$. Heisenber's uncertainty relation is not violated, because only one of the components of the product is zero, $\sigma_x^2=0$ while $\sigma_y^2=\hbar^2/4$. Furthermore, we see that
+which is zero for $\theta=0$ and $\theta=\pi/2$. Does this violate Heisenberg's uncerainty principle? Not necessarily.
+
+The generalized Heisenberg uncertainty is given by 
+\begin{equation}
+\label{eq:heisenberg}
+\sigma_x\sigma_y \geq \frac{1}{2}\abs{\ev{[\hat{S}_x,\hat{S}_y]}}=\frac{1}{2}\abs{i\hbar\ev{\hat{S}_z}}
+\end{equation}
+Computing the expected value of the spin-operator along the $z$-axis
+\begin{align*}
+\ev{\hat{S}_z}&=\bra{\phi}\hat{S}_z\ket{\phi} = \frac{1}{2}(\bra{\uparrow}+e^{-i\theta}\bra{\downarrow})\hat{S}_z(\ket{\uparrow}+e^{i\theta}\ket{\downarrow} \\
+&= \frac{\hbar}{4}(\bra{\uparrow} + e^{-i\theta}\bra{\downarrow})(\ket{\uparrow}-e^{i\theta}\ket{\downarrow}) = \frac{\hbar}{4}(1-1)=0
+\end{align*}
+interting this into equation \ref{eq:heisenberg} yields 0. We see that Heisenberg's uncertainty principle is not violated, because 
+\begin{equation}
+\sigma_x\sigma_y \geq 0
+\end{equation}
+
+Furthermore, only one of the components of the product in equation \ref{eq:heisenbergish} is zero, $\sigma_x^2=0$ while $\sigma_y^2=\hbar^2/4$.
 \begin{equation}
 \phi=
 \begin{cases}
-\frac{1}{\sqrt{2}}(\ket{\uparrow} + \ket{\downarrow}), &\text{for} \theta = 0, \\
-\frac{1}{\sqrt{2}}(\ket{\uparrow} + i\ket{\downarrow}), &\text{for} \theta = \frac{\pi}{2}
+\frac{1}{\sqrt{2}}(\ket{\uparrow} + \ket{\downarrow}), &\text{for } \theta = 0, \\
+\frac{1}{\sqrt{2}}(\ket{\uparrow} + i\ket{\downarrow}), &\text{for } \theta = \frac{\pi}{2}
 \end{cases}
 \end{equation}
-We do have quantum states with all uncertainties that comes with it.
+
 
 %% -------------- PROBLEM 1.4 ---------------- %%
 \subsection{}
@@ -209,7 +224,7 @@ A system has three interacting spin degrees of freedom with the followin hamilto
 \begin{equation}
 H = \frac{J}{\hbar^2}(\vb{S}_1\cdot\vb{S}_2 + \vb{S}_2\cdot\vb{S}_3 + \vb{S}_3\cdot\vb{S}_1)
 \end{equation}
-where $J$ is a positive number with units of energy. The spin operators are $\vb{S}_1\equiv \vb{S}\otimes\mathbbm{1}\otimes\mathbbm{1}$, $\vb{S}_2\equiv \mathbbm{1}\otimes\vb{S}\otimes\mathbbm{1}$ and $\vb{S}_3\equiv \mathbbm{1}\otimes\mathbbm{1}\otimes\vb{S}$, where $\vb{S}=(S_x,S_y,S_z)$. A general state of this three-spin system is a linear combination of product states $\ket{m_{s1}m_{s2}m_{s3}}\equiv\ket{m_{s1}}\otimes\ket{m_{s2}}\otimes\ket{m_{s3}}$ where $m_{si}$ is hte spin-$z$ quantum number of spin number $i$, either up ($\frac{1}{2}$) or down ($-\frac{1}{2}$). For example: the product state $\ket{\uparrow\downarrow\uparrow}$ is a state where spin number one is in state $\ket{\uparrow}$, spin number two is in state $\ket{\downarrow}$ and spin number three is in state $\ket{\uparrow}$.
+where $J$ is a positive number with units of energy. The spin operators are $\vb{S}_1\equiv \vb{S}\otimes\mathbbm{1}\otimes\mathbbm{1}$, $\vb{S}_2\equiv \mathbbm{1}\otimes\vb{S}\otimes\mathbbm{1}$ and $\vb{S}_3\equiv \mathbbm{1}\otimes\mathbbm{1}\otimes\vb{S}$, where $\vb{S}=(S_x,S_y,S_z)$. A general state of this three-spin system is a linear combination of product states $\ket{m_{s1}m_{s2}m_{s3}}\equiv\ket{m_{s1}}\otimes\ket{m_{s2}}\otimes\ket{m_{s3}}$ where $m_{si}$ is the spin-$z$ quantum number of spin number $i$, either up ($\frac{1}{2}$) or down ($-\frac{1}{2}$). For example: the product state $\ket{\uparrow\downarrow\uparrow}$ is a state where spin number one is in state $\ket{\uparrow}$, spin number two is in state $\ket{\downarrow}$ and spin number three is in state $\ket{\uparrow}$.
 
 $\vb{S}_1\cdot\vb{S}_2$ can be expressed in terms of $S_1^+$, $S_1^-$, $S_2^+$, $S_2^-$, $S_1^z$ and $S_2^z$. First we have
 \begin{equation*}
@@ -255,7 +270,7 @@ H\ket{\uparrow\downarrow\downarrow} =
 \frac{1}{4}\ket{\uparrow\downarrow\downarrow})
 \end{align*}
 
-This result is confirmed by the python script in appendix \ref{app:updndn}. $\ket{\uparrow\downarrow\downarrow}$ is not an eigen state of $H$.
+This result is confirmed by the python script in appendix \ref{app:updndn}. One can conclude that $\ket{\uparrow\downarrow\downarrow}$ is not an eigenstate of $H$.
 
 %% --------------- PROBLEM 1.5 -------------- %%
 \subsection{}
@@ -265,12 +280,12 @@ It is realtively easy, yet tiresome, to show (with matrices or algebra or a scri
 \end{equation}
 Most of the terms will cancel each other out, but one will also need the following commutating relations
 \begin{align*}
-[S_i^+,S^z]&=S^+S^z-S^zS^+ = S^xS^z+iS^yS^z-S^zS^x-iS^zS^y \\
+[S^+,S^z]&=S^+S^z-S^zS^+ = S^xS^z+iS^yS^z-S^zS^x-iS^zS^y \\
 &= [S^x,S^z] + i[S^y, S^z] = -i\hbar S^y-\hbar S^x\\
-[S_i^-,S^z]&=S^-S^z-S^zS^- = S^xS^z-iS^yS^z-S^zS^x+iS^zS^y \\
+[S^-,S^z]&=S^-S^z-S^zS^- = S^xS^z-iS^yS^z-S^zS^x+iS^zS^y \\
 &= [S^x,S^z] + i[S^z, S^y] = -i\hbar S^y+\hbar S^x
 \end{align*}
-The rest of the calculation is in appendix \ref{app:prob1.5}.
+The rest of the calculation is in appendix \ref{app:prob1.5}\footnote{I have chosen not to include it because it woudld a nightmare to code in \LaTeX. I get the same result when doing the calculation with Pauli matrices in Python using the data structures in appendix \ref{app:updndn}}.
 
 The eigenvalues of $S^z_{tot}$ are easy enough to compute
 \begin{equation*}
@@ -304,12 +319,14 @@ H &= \frac{J}{2\hbar^2}(2S_1\cdot S_2 + 2S_2\cdot S_3 + 2S_3\cdot S_1) \\
 
 We know from the previous problem that total spin angular momentum quantum number $s_{tot}$ must be $3/2$ or $1/2$. The general formula for the energy eigenvalue of total spin quantum number squared is $S^2_{tot}\ket{\psi}=s_{tot}(1+s_{tot})\hbar^2\ket{\psi}$. The eigenvalue energy for $s_{tot}=3/2$ is therefore given by
 \begin{align*}
-H\ket{\psi} =& \frac{J}{2\hbar^2}(S_{tot}^2\ket{\psi}-(S_1^2+S_2^2+S_3^2)\ket{\psi})=\frac{J}{2\hbar^2}\left(\frac{3}{2}\left(\frac{3}{2}+1\right)\hbar^2 +3\frac{1}{2}\left(\frac{1}{2}+1\right)\hbar^2\right)\\
+H\ket{\psi} =& \frac{J}{2\hbar^2}(S_{tot}^2\ket{\psi}-(S_1^2+S_2^2+S_3^2)\ket{\psi})\\
+=&\frac{J}{2\hbar^2}\left(\frac{3}{2}\left(\frac{3}{2}+1\right)\hbar^2 +3\frac{1}{2}\left(\frac{1}{2}+1\right)\hbar^2\right)\ket{\psi}\\
 =&\frac{J}{2\hbar^2}\left(\frac{15\hbar^2}{4}\ket{\psi} -3\frac{3\hbar^2}{4}\ket{\psi} \right) = J\frac{3}{4}\ket{\psi},
 \end{align*}
 and for $s_{tot}=1/2$
 \begin{align*}
-H\ket{\psi} =& \frac{J}{2\hbar^2}(S_{tot}^2\ket{\psi}-(S_1^2+S_2^2+S_3^2)\ket{\psi})=\frac{J}{2\hbar^2}\left(\frac{1}{2}\left(\frac{1}{2}+1\right)\hbar^2 +3\frac{1}{2}\left(\frac{1}{2}+1\right)\hbar^2\right)\\
+H\ket{\psi} =& \frac{J}{2\hbar^2}(S_{tot}^2\ket{\psi}-(S_1^2+S_2^2+S_3^2)\ket{\psi})\\
+=&\frac{J}{2\hbar^2}\left(\frac{1}{2}\left(\frac{1}{2}+1\right)\hbar^2 +3\frac{1}{2}\left(\frac{1}{2}+1\right)\hbar^2\right)\ket{\psi}\\
 =&\frac{J}{2\hbar^2}\left(\frac{3\hbar^2}{4}\ket{\psi} -3\frac{3\hbar^2}{4}\ket{\psi} \right) = -J\frac{3}{4}\ket{\psi}.
 \end{align*}
 The eigenvalues of $H$ is $\pm\frac{3}{4}J$.
@@ -343,13 +360,13 @@ Combining the combined spins where $s=0$ with a third spin is relatively simple.
 &\ket{0,0}\otimes\ket{\frac{1}{2},-\frac{1}{2}}= \\
 &=\frac{1}{\sqrt{2}}\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}-\frac{1}{\sqrt{2}}\ket{\frac{1}{2},-\frac{1}{2}}\otimes\ket{\frac{1}{2},+\frac{1}{2}}\otimes\ket{\frac{1}{2},-\frac{1}{2}}
 \end{align*}
-alternatively, in a simplified arrow-form
+alternatively, in a simplified ``arrow notation''
 \begin{align}
 \frac{1}{\sqrt{2}}\ket{\uparrow\downarrow\uparrow}-\frac{1}{\sqrt{2}}\ket{\downarrow\uparrow\uparrow} \\
 \frac{1}{\sqrt{2}}\ket{\uparrow\downarrow\downarrow}-\frac{1}{\sqrt{2}}\ket{\downarrow\uparrow\downarrow}
 \end{align}
 
-For the tiplet, in equations \ref{eq:spins1-1}, \ref{eq:spins10} and \ref{eq:spins1+1} one must apply Clebsch-Gordan tables again. We want to combine the new spin-$1$ particles in equations \ref{eq:spins1-1}, \ref{eq:spins10} and \ref{eq:spins1+1} with another spin-$1/2$ particle. This can be found in the $1\times1/2$ table. We are only interested in the cases that have total spin $s_{tot}=1/2$ which leaves us with
+For the triplet, in equations \ref{eq:spins1-1}, \ref{eq:spins10} and \ref{eq:spins1+1} one must apply Clebsch-Gordan tables again. We want to combine the new spin-$1$ particles in equations \ref{eq:spins1-1}, \ref{eq:spins10} and \ref{eq:spins1+1} with another spin-$1/2$ particle. This can be found in the $1\times1/2$ table. We are only interested in the cases that have total spin $s_{tot}=1/2$ which leaves us with
 \begin{align}
 \label{eq:1timeshalf1}
 \ket{\frac{1}{2},+\frac{1}{2}} &= \sqrt{\frac{2}{3}}\ket{1,+1}\otimes\ket{\frac{1}{2},-\frac{1}{2}}-\frac{1}{\sqrt{3}}\ket{1,0}\otimes\ket{\frac{1}{2},+\frac{1}{2}} \\
@@ -374,7 +391,7 @@ or in ``arrow notation'' again
 
 %% --------------- PROBLEM 1.8 -------------- %%
 \subsection{}
-At time $t=0$ the system is in state $\ket{\uparrow\downarrow\downarrow}$. After som time $t$ the system will be in state $\hat{U}(t,t_0)\ket{\uparrow\downarrow\downarrow}$, where $\hat{U}(t,t_0)$ is the time evolution operator (or propegator). The propagator satisfy three important properties. First, it does nothing when $t=0$
+At time $t=0$ the system is in state $\ket{\uparrow\downarrow\downarrow}$. After som time $t$ the system will be in state $\hat{U}(t,t_0)\ket{\uparrow\downarrow\downarrow}$, where $\hat{U}(t,t_0)$ is the time evolution operator (or propagator). The propagator satisfy three important properties. First, it does nothing when $t=0$
 \begin{equation}
 \lim_{t\to t_0}\hat{U}(t,t0)=1.
 \end{equation}
@@ -394,7 +411,7 @@ H\ket{\psi(t)}=i\hbar\frac{\partial}{\partial t}\ket{\psi(t)}.
 
 Given the state at some initial time ($t=0$) one can solve Schrödinger's equation in order to obtain the state at any subsequent time. Particularly, if $H$ is independent of time, then
 \begin{equation}
-\ket{\psi(t)}=e^{-iHt/\hbar}\ket{\psi(0)}.
+\ket{\psi(t)}=e^{-iHt/\hbar}\ket{\psi(0)} = e^{-iE_nt/\hbar}\ket{\psi(0)}.
 \end{equation}
 This exponential operator is usually defined by the corresponding power series. 
 \begin{equation}
@@ -424,7 +441,9 @@ def statePropagationProbability(t, state):
   prob = float((np.dot(bra(newState), state)).real**2)
   return prob
 \end{lstlisting}
-Then one needs only put a time-point vector through the ``machinery'' in order to compute the probabilities at different times $t$
+Where the \verb|bra| function computes the bra vector from a ket vector by transposing and complex conjugating.
+
+Now one needs only put a time-point vector through the ``machinery'' in order to compute the probabilities at different times $t$
 \begin{lstlisting}[language=Python]
 t = np.linspace(0,20,1001)
 probVector = np.zeros(len(t))
@@ -440,6 +459,21 @@ A plot of the probabilities is shown in figure \ref{fig:probability}. It is obvi
 	\caption{Probability that state remains in initial state $\ket{\uparrow\downarrow\downarrow}$.}
 	\label{fig:probability}
 \end{figure}
+
+An analytical expression for the probability will look something like this
+\begin{equation*}
+P(t) = \abs{\bra{\uparrow\downarrow\downarrow}\hat{U}(t,0)\ket{\uparrow\downarrow\downarrow}}^2
+\end{equation*}
+rewriting the expected value of this exuation as a sum of energy eigenvalue states
+\begin{equation*}
+\bra{\uparrow\downarrow\downarrow}\hat{U}(t,0)\ket{\uparrow\downarrow\downarrow} =
+\sum_n \abs{C_n}^2e^{iE_n}t/\hbar
+\end{equation*}
+then the probability becomes
+\begin{equation}
+P(t) = \sum_n\sum_m\abs{C_n}^2\abs{C_m}^2e^{-i(E_n-E_m)t/\hbar}=\sum_nC_n^4+\sum_{n\neq m}C_n^2C_m^2\cos(E_n-E_m)t/\hbar
+\end{equation}
+by employing Euler's formula and only including the real parts, because a probability is not a complex number.
 
 %% ------------------- Problem 2 ------------- %%
 \section{}
@@ -465,7 +499,7 @@ Dividing equation \ref{eq:psis2} by equation \ref{eq:psis1} will for a large $s$
 
 An interesting matter to look into further is how big $s$ must be. If there is an energy difference of $dE$ between the lowest and second lowest state, then knowing the value of $dE$ allows one to quantify how big $s$ must be by employing the following expression
 \begin{equation*}
-\ket{\psi(s)}\approx e^{-E_0s}(C_0\ket{e_0}+e^{sdE}C_1\ket{E_1}+\dots)
+\ket{\psi(s)}\approx e^{-E_0s}(C_0\ket{e_0}+e^{-sdE}C_1\ket{E_1}+\dots)
 \end{equation*}
 
 \pagebreak
