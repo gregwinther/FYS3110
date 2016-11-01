@@ -1,0 +1,71 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath}
+\usepackage{physics}
+
+\title[Problem Sheet 9]{Problem Sheet 9\\
+		\large{FYS3110}}
+		
+\author[Winther-Larsen]{Sebastian G. Winther-Larsen}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 6.1}
+
+For the harmonic oscillator the potential is $V(x) = \frac{1}{2}kx^2$ and the allowed energies are
+\begin{equation}
+E_n = \left(n + \frac{1}{2} \right)\hbar \omega, \text{ for } n = 0,1,2,\dots
+\end{equation}
+where $\omega = \sqrt{\frac{k}{m}}$ is the classical angular frequency. 
+
+\subsection*{a}
+The spring constant is increased slightly from $k$ to $(1+\epsilon)k$. The exact new allowed energies are
+\begin{equation}
+\label{eq:harmonicenergies}
+E_n = \left(n + \frac{1}{2} \right)\hbar\sqrt{\frac{(1+\epsilon)k}{m}}.
+\end{equation}
+The MacLaurin series\footnote{Taylor expansion around zero, from which the power series arises.} of the increased spring constant up to second order is
+\begin{equation}
+\label{eq:powerseries}
+\sqrt{1+\epsilon} \approx 1 + \frac{\epsilon}{2} - \frac{\epsilon^2}{8} \dots
+\end{equation}
+Inserting equation \ref{eq:powerseries} into \ref{eq:harmonicenergies} yields
+\begin{equation}
+E_n \approx \left(n + \frac{1}{2} \right)\hbar\sqrt{\frac{k}{m}}\left(1 + \frac{\epsilon}{2} - \frac{\epsilon}{8}\right) 
+\end{equation}
+
+\subsection*{b}
+Now to calculate the first-order peturbation in the energy
+\begin{equation}
+\label{eq:firstorderpeturbationenergy}
+E_n^1 = \bra{\psi_n^0}H'\ket{\psi_n^0},
+\end{equation}
+where $H' = T + V'$ and $V' = \frac{1+\epsilon}{2}kx^2$. The change in change in energy is
+\begin{equation*}
+H' - H = V' - V = \frac{1+\epsilon}{2}kx^2 - \frac{1}{2}kx^2 = \frac{1}{2}\epsilon kx^2 = \epsilon V, 
+\end{equation*}
+which reduces equation \ref{eq:firstorderpeturbationenergy} to
+\begin{equation}
+\label{eq:firstorderpeturbationenergy1}
+E_n^1 = \bra{\psi_n^0}\epsilon V \ket{\psi_n^0}.
+\end{equation}
+
+This equation can be solved quite easily be employing the virial theorem for a stationary state
+\begin{equation}
+\label{eq:virial}
+2\ev{T} = \ev{x\frac{dV}{dx}}.
+\end{equation}
+For the harmonic oscillator
+\begin{equation*}
+\ev{x\frac{dV}{dx}}= k \ev{x^2} \rightarrow \ev{T} =  k \ev{x^2} \rightarrow \ev{T} = \frac{1}{2}k\ev{x^2} = \ev{V} = \frac{E_n}{2}.
+\end{equation*}
+It follows that equation \ref{eq:firstorderpeturbationenergy1} becomes
+\begin{equation}
+E_n^1 = \frac{\epsilon}{2}E_n^0 = \frac{\epsilon}{2}\left(n + \frac{1}{2} \right) \hbar \omega,
+\end{equation}
+which is interesting considering that $\omega$ includes the original spring constant.
+
+
+\end{document}
