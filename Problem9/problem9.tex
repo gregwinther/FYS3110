@@ -37,7 +37,7 @@ E_n \approx \left(n + \frac{1}{2} \right)\hbar\sqrt{\frac{k}{m}}\left(1 + \frac{
 \end{equation}
 
 \subsection*{b}
-Now to calculate the first-order peturbation in the energy
+Now to calculate the first-order perturbation in the energy
 \begin{equation}
 \label{eq:firstorderpeturbationenergy}
 E_n^1 = \bra{\psi_n^0}H'\ket{\psi_n^0},
@@ -67,5 +67,186 @@ E_n^1 = \frac{\epsilon}{2}E_n^0 = \frac{\epsilon}{2}\left(n + \frac{1}{2} \right
 \end{equation}
 which is interesting considering that $\omega$ includes the original spring constant.
 
+\section*{Problem 6.2}
+A spin-$\frac{1}{2}$ degree of freedom is influenced by a magnetic field that has a large $z$-component and a small $x$-component such that the Hamiltonian is
+\begin{equation}
+\label{eq:magHam}
+H = -\frac{B}{\hbar}S^z-\frac{g}{\hbar}S^x.
+\end{equation}
+The $x$-component of the field will be treated as a perturbation.
+
+The unperturbed Schrödinger equation reads 
+\begin{equation}
+H\ket{n} = E_n^0\ket{n}.
+\end{equation}
+Employing Pauli matrices for convenience, one must find the eigenvalues of
+\begin{equation}
+H^0=-\frac{B}{\hbar}\frac{\hbar}{2}
+\begin{bmatrix}
+1 & 0 \\
+0 & -1
+\end{bmatrix}
+= -\frac{B}{2}
+\begin{bmatrix}
+1 & 0 \\
+0 & -1
+\end{bmatrix}
+\end{equation}
+if
+\begin{equation}
+\ket{\uparrow^0} = 
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}, \quad
+\ket{\downarrow^0} = 
+\begin{bmatrix}
+0 \\ 1
+\end{bmatrix},
+\end{equation}
+then it is quite easy to see that the ground state energy eigenvalues must be
+\begin{equation}
+E_\uparrow^0 = -\frac{B}{2}, \quad E_\downarrow^0 = \frac{B}{2}
+\end{equation}
+
+\subsection*{a}
+
+Now to find the change in energy and due to the perturbation Hamiltonian
+\begin{equation}
+H' = -\frac{g}{\hbar}\frac{\hbar}{2}
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+= -\frac{g}{2}
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\end{equation}
+The first order shift in ground state is 
+\begin{equation}
+E_\uparrow^1 = \bra{\uparrow^0} H'\ket{\uparrow^0} = -\frac{g}{2} 
+\begin{bmatrix}
+1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+1 \\ 0 
+\end{bmatrix}=0,
+\end{equation}
+which means that there is \emph{no} first-order shift in ground state energy. You will get the same result for $\ket{\downarrow}$ and/or using $S^x = \frac{1}{2}(S^+ + S^-)$ as well.
+\begin{equation}
+E_\downarrow^1 = -\frac{g}{\hbar}\bra{\downarrow^0}S^x\ket{\downarrow^0} = -\frac{g}{2\hbar}\bra{\downarrow^0} (S^+ + S^-) \ket{\downarrow^0} = -\frac{g}{2} \bra{\downarrow^0} \ket{\uparrow^0} = 0
+\end{equation}
+
+\subsection*{c}
+
+The perturbed first order eigenkets are found by way of the following formula
+\begin{equation}
+\ket{n} = \ket{n^0}+  \sum_{m} \frac{\ket{m^0}\bra{m^0}H'\ket{n^0}}{E_n^0-E_m^0} = \ket{n^0} + \ket{n^1}
+\end{equation} 
+the first order correction is given by $\ket{n^1}$. This gives us
+\begin{align*}
+\ket{\uparrow} &= 
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}
++
+\frac{ 
+\begin{bmatrix}
+0 \\ 1
+\end{bmatrix}
+\begin{bmatrix}
+0 & 1
+\end{bmatrix}
+\left(-\frac{g}{2}\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}\right)
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}
+}{-\frac{B}{2}-\frac{B}{2}}
+\\&= 
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}
++
+\frac{ 
+\begin{bmatrix}
+0 & 0 \\
+0 & 1
+\end{bmatrix}
+\left(-\frac{g}{2}\begin{bmatrix}
+0 \\ 1
+\end{bmatrix}\right)
+}{-B}
+\\&=
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}
++ 
+\frac{g}{2B}
+\begin{bmatrix}
+0 \\ 1
+\end{bmatrix}
+= \ket{\uparrow^0} + \frac{g}{2B}\ket{\downarrow^0},
+\end{align*}
+similarly,
+\begin{equation*}
+\ket{\downarrow} = \ket{\downarrow^0} - \frac{g}{2B}\ket{\uparrow^0}
+\end{equation*}
+
+\subsection*{b}
+Using the perturbed first order wave function one can calculate the second-order energy shift due to perturbation using the following formula.
+\begin{equation}
+E^2_n = \bra{n^0}H'\ket{n}.
+\end{equation}
+We get
+\begin{align*}
+E_\uparrow^2 &= \begin{bmatrix}
+1 & 0
+\end{bmatrix} 
+\left(
+-\frac{g}{2}
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\right)
+\left(
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}
++\frac{g}{2B}
+\begin{bmatrix}
+0 \\ 1
+\end{bmatrix}
+\right)
+= -\frac{g^2}{4B} \\
+E_\downarrow^2 &= \begin{bmatrix}
+0 & 1
+\end{bmatrix} 
+\left(
+-\frac{g}{2}
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\right)
+\left(
+\begin{bmatrix}
+0 \\ 1
+\end{bmatrix}
+-\frac{g}{2B}
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}
+\right)
+= \frac{g^2}{4B}
+\end{align*}
 
 \end{document}
