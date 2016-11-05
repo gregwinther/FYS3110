@@ -249,4 +249,28 @@ E_\downarrow^2 &= \begin{bmatrix}
 = \frac{g^2}{4B}
 \end{align*}
 
+\section*{Problem 9.3}
+This is a problem illustrating both first-order non-degenerate and degenerate perturbation theory. Consider the two-dimensional harmonic oscillator with an extra bilinear term $gxy$, $g \in \mathcal{R}$.
+\begin{equation}
+H = \frac{p_x^2}{2m} + \frac{p_y^2}{2m} + \frac{1}{2}m\omega^2x^2 \frac{1}{2}m\omega^2y + gxy.
+\end{equation} 
+For $g=0$ the exact energy eigenstates are tensor products of one-dimensional harmonic oscillator states: $\ket{n_x,n_y}=\ket{n_x}\otimes\ket{n_y}$, where $n_x,n_y \in \{0,1,\dots \}$. Their energies are $E_{n_x,n_y}=\hbar\omega(n_x + n_y +1)$.
+
+\subsection*{a}
+The two lowest energies are
+\begin{equation*}
+E_{0,0} = \hbar\omega, \quad E_{1,0}=E_{0,1} = 2\hbar\omega,
+\end{equation*}
+corresponding to the eigenstates
+\begin{equation*}
+\ket{0,0}, \quad \ket{1,0}, \quad \ket{0,1}.
+\end{equation*}
+We see that the ground state is non-degenerative and the next energy level has a degeneracy of 2.
+
+\subsection*{b}
+If $g=0$ first-order non-degenerate perturbation theory can be used to compute how the ground state energy changes. The first-order energy shift will be
+\begin{equation*}
+E_0^1 = \ket{0,0}qxy\ket{0,0} = qxy
+\end{equation*}
+
 \end{document}
