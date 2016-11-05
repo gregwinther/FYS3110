@@ -12,7 +12,7 @@
 
 \maketitle
 
-\section*{Problem 6.1}
+\section*{Problem 9.1}
 
 For the harmonic oscillator the potential is $V(x) = \frac{1}{2}kx^2$ and the allowed energies are
 \begin{equation}
@@ -67,7 +67,7 @@ E_n^1 = \frac{\epsilon}{2}E_n^0 = \frac{\epsilon}{2}\left(n + \frac{1}{2} \right
 \end{equation}
 which is interesting considering that $\omega$ includes the original spring constant.
 
-\section*{Problem 6.2}
+\section*{Problem 9.2}
 A spin-$\frac{1}{2}$ degree of freedom is influenced by a magnetic field that has a large $z$-component and a small $x$-component such that the Hamiltonian is
 \begin{equation}
 \label{eq:magHam}
@@ -265,12 +265,83 @@ corresponding to the eigenstates
 \begin{equation*}
 \ket{0,0}, \quad \ket{1,0}, \quad \ket{0,1}.
 \end{equation*}
-We see that the ground state is non-degenerative and the next energy level has a degeneracy of 2.
+We see that the ground state is non-degenerative and the next-lowest energy level has a degeneracy of 2.
 
 \subsection*{b}
 If $g=0$ first-order non-degenerate perturbation theory can be used to compute how the ground state energy changes. The first-order energy shift will be
+\begin{align*}
+E_{00}^1 	&= \bra{0,0}H\ket{0,0} = \bra{0,0}qxy\ket{0,0} \\
+			&=  g\frac{\hbar}{2}\frac{1}{m\omega}(\bra{0}\otimes\bra{0})(a_x^{\dagger}+a_x)(a_y^{\dagger}+a_y)(\ket{0}\otimes\ket{0}) \\
+			&=  g\frac{\hbar}{2}\frac{1}{m\omega}(\bra{0}\otimes\bra{0})\left[(a^{\dagger}+a)\ket{0}\otimes(a^{\dagger}+a)\ket{0}\right] \\
+			&= g\frac{\hbar}{2}\frac{1}{m\omega}(\bra{0}\otimes\bra{0})(\ket{1}\otimes\ket{1}) \\
+			&= g\frac{\hbar}{2}\frac{1}{m\omega}\braket{0,0}{1,1} = 0.
+\end{align*}
+
+\subsection*{c}
+By employing first-order degenerate perturbation theory one can find how the first excited energy splits up when $g$ is finite. The fundamental result of degenerate perturbation theory is the following formula.
+\begin{equation}
+\label{eq:degpet}
+E_\pm^1=\frac{1}{2}\left(W_{aa} + "_{bb} \pm \sqrt{(W_{aa}-W_{bb})^2 + 4\abs{W_{ab}}^2} \right)
+\end{equation}
+where $W_{ij} = \bra{\psi_i^0}H'\ket{\psi}$. Setting $\ket{0,1}=\psi_a^0$ and $\ket{1,0}=\psi_b^0$ gives
+\begin{align*}
+W_{ab} 	&= \bra{0,1}H'\ket{1,0} \\
+		&= \frac{g\hbar}{2m\omega}\bra{0,1}(a_x^{\dagger}+a_x)(a_y^{\dagger}+a_y)\ket{1,0} \\
+		&= \frac{g\hbar}{2m\omega}\braket{0,1} = \frac{g\hbar}{m\omega}, 
+\end{align*}
+similarly
 \begin{equation*}
-E_0^1 = \ket{0,0}qxy\ket{0,0} = qxy
+W_{ba} = \frac{g\hbar}{2m\omega}, \quad W_{aa} = 0, \quad W_{bb} = 0.
 \end{equation*}
+Inserting into equation \ref{eq:degpet} yields
+\begin{equation*}
+E_\pm^1=\frac{1}{2}\left(0 + 0 \pm \sqrt{0 + \frac{4}{4}\frac{q^2\hbar^2}{m^2\omega^2}}\right) = \pm \frac{g\hbar}{2m\omega}
+\end{equation*}
+
+\subsection*{d}
+Introducing the reflection operator
+\begin{equation}
+\label{eq:reflectionoperator}
+R\ket{n_1}\otimes\ket{n_2}=\ket{n_2}\otimes\ket{n_1}
+\end{equation}
+For $g=0$ I will find eigenstates of $R$ that also are eigenstates of $H$, all with energies $2\hbar\omega$, 
+id est they belong to the first excited energy level.
+
+By setting
+\begin{equation*}
+\ket{0,1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \quad \ket{1,0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}
+\end{equation*}
+then
+\begin{equation*}
+R = \begin{bmatrix}
+0 & 1 \\
+1 & 0 
+\end{bmatrix}
+\end{equation*}
+$R$ is a unitary matrix and therefore has eigenvalues $\pm1$. This means that the eigenstates of $R$ can be
+\begin{align*}
+\begin{bmatrix} 1 \\ 1 \end{bmatrix} &=  \begin{bmatrix} 0 \\ 1 \end{bmatrix} + \begin{bmatrix} 1 \\ 0 \end{bmatrix} \\
+\begin{bmatrix} 1 \\ -1 \end{bmatrix} &=  \begin{bmatrix} 1 \\ 0 \end{bmatrix} - \begin{bmatrix} 0 \\ -1 \end{bmatrix}
+\end{align*}
+Normalising these we end up with
+\begin{equation}
+\psi_\pm^0 = \frac{1}{\sqrt{2}}(\ket{1,0} \pm \ket{0,1})
+\end{equation}
+
+\subsection*{e}
+With the ``good" states from the previous sub-problem, one can apply non-degenerate first order perturbation theory.
+\begin{align*}
+E_+^1 	&= \bra{\psi_+^0}H'\ket{\psi_+^0} \\
+		&= \frac{g}{2}(\bra{1,0} + \bra{0,1})xy(\ket{1,0} + \ket{0,1}) \\
+		&= \frac{g\hbar}{4m\omega}(\bra{1,0} + \bra{0,1})(a_x^{\dagger}+a_x)(a_y^{\dagger}+a_y)(\ket{1,0} + \ket{0,1}) \\
+		&= \frac{g\hbar}{4m\omega}(\bra{1,0} + \bra{0,1})(\ket{0,1} + \ket{1,0}) = \frac{g\hbar}{2m\omega}
+\end{align*}
+\begin{align*}
+E_-^1 	&= \bra{\psi_-^0}H'\ket{\psi_-^0} \\
+		&= \frac{g}{2}(\bra{1,0} - \bra{0,1})xy(\ket{1,0} - \ket{0,1}) \\
+		&= \frac{g\hbar}{4m\omega}(\bra{1,0} - \bra{0,1})(a_x^{\dagger}+a_x)(a_y^{\dagger}+a_y)(\ket{1,0} - \ket{0,1}) \\
+		&= \frac{g\hbar}{4m\omega}(\bra{1,0} - \bra{0,1})(\ket{0,1} - \ket{1,0}) = -\frac{g\hbar}{2m\omega}
+\end{align*}
+We see that we get the same results using the ``good'' states for non-degenerate perturbation as for degenerate perturbation. Neat!
 
 \end{document}
