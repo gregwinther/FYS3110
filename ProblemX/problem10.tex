@@ -1,0 +1,47 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage[utf8]{inputenc}
+
+\title[Problem Sheet 10]{Problem Sheet 10\\
+		\large{FYS3110}}
+		
+\author[Winther-Larsen]{Sebastian G. Winther-Larsen}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 10.1}
+The Zeeman correction, when choosing the external field $\vb{B}_{ext}$ to lie along the $z$-axis, can be expressed by the following condensed formula.
+\begin{equation}
+\label{eq:condensedzeeman}
+E_Z^1 = \mu_B g_J B_{ext} j_z,
+\end{equation}
+where
+\begin{equation}
+\label{eq:bohrmagneton}
+\mu_B = \frac{e\hbar}{2m} = 5.788\times10^{-5}eV/T
+\end{equation}
+is the Bohr magneton, and
+\begin{equation}
+\label{eq:langeg}
+g_J=1 + \frac{j(j+1) + \frac{3}{4} - l(l+1)}{2j(j+1)}
+\end{equation}
+is the Landé g-factor. Adding the fine structure equation
+\begin{equation}
+\label{eq:finestructure}
+E_{nj} = -\frac{13.6eV}{n^2}\left[1 + \frac{\alpha^2}{n^2} \left(\frac{n}{j + \frac{1}{2}} -\frac{3}{4} \right) \right]
+\end{equation}
+to the Zeeman correction (equation \ref{eq:condensedzeeman}) yields an equation for total energy in presence of weak-field Zeeman effect
+\begin{equation}
+\label{eq:totalweakzeeman}
+E_{nljj_z} = -\frac{13.6eV}{n^2} \left[1 + \frac{\alpha}{n^2}\left(\frac{n}{j + \frac{1}{2}} -\frac{3}{4} \right) \right] + \mu_B g_J B_{ext} j_z.
+\end{equation}
+
+For $n=2$
+
+\end{document}
