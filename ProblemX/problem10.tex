@@ -104,4 +104,33 @@ One can see that the shift due to the perturbation of a finite-size proton is sm
 
 \section*{Problem 10.3}
 
+The wave function for helium is the product of two hydrogen-like electron wave functions in 1s orbitals
+\begin{equation}
+\label{eq:heliumwave}
+\psi_0(\vb{r}_1,\vb{r}_2) = \psi_{100}(\vb{r}_1)\psi_{100}(\vb{r}_2)=\frac{Z^3}{\pi a^3}e^{-Z(r_1+r_2)/a},
+\end{equation}
+and the helium Hamlitonian is
+\begin{equation}
+H = \frac{\hbar^2}{2m_e}(-\nabla^2_1-\nabla^2_2)\psi(\vb{r}_1,\vb{r}_2) - \frac{2e^2}{4\pi\epsilon_0}\left(\frac{1}{\vb{r}_1}+\frac{1}{\vb{r_2}} \right) + \frac{e^2}{4\pi\epsilon_0\abs{\vb{r}_2-\vb{r}_1}} = H^0 + H'
+\end{equation}
+The first order perturbative correction to the energy level is, as always
+\begin{equation}
+\label{eq:heliumgroundEpeturb}
+E_n^1 = \bra{\psi_n^0}H'\ket{\psi_n^0}
+\end{equation}
+which, by inserting
+\begin{equation*}
+H' = \frac{e^2}{4\pi\epsilon_0\abs{\vb{r}_2-\vb{r}_1}},
+\end{equation*}
+gives
+\begin{equation}
+E_n^1 = \frac{e^2}{4\pi\epsilon_0}\left(\frac{Z^3}{\pi a^3} \right)^2\int\frac{e^{-2Z(r_1+r_2)}}{\abs{\vb{r}_2-\vb{r}_1}}d^3\vb{r}_1d^3\vb{r}_2 = \frac{5Z}{8a}\left(\frac{e^2}{4\pi\epsilon_0} \right) = -\frac{5Z}{4}E_h
+\end{equation}
+Thus the ground state with first order perturbation correction is
+\begin{equation}
+E_0 = E_0^0 + E_0^1 = -4E_h + \frac{5}{8}ZE_h = -\frac{11}{4}E_h = -74.8eV
+\end{equation}
+when inserting $Z=2$. Variational theory gives the same result.
+
+
 \end{document}
