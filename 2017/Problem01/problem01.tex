@@ -1,7 +1,9 @@
-\documentclass[]{article}
+\documentclass[11pt]{article}
 
-\usepackage{amsmath}
+\usepackage{amsmath, amssymb}
 \usepackage{physics}
+
+\usepackage[utf8]{inputenc}
 
 \title{Problem set 1 \\ \large{FYS3110}}
 
@@ -11,6 +13,24 @@
 
 \begin{document}
 
-\
+\maketitle
 
-\end{document}
+\section*{Problem 1.1(L)}
+
+The complex inner product $\braket{u}{v}$ is linear in its \emph{second} factor, which means: Given $\ket{v} = \alpha\ket{v_1} + \beta\ket{v_2}$, where $\alpha, \beta \in \mathbb{C}$, then $\braket{u}{v} = \alpha\braket{u}{v_1} + \beta\braket{u}{v_2}$. However, the complex inner product is \emph{not} linear in its \emph{first} factor.
+
+If $\ket{u} = \alpha\ket{u_1} + \beta\ket{u_2}$ then $\bra{u} = \alpha^*\bra{u_1} + \beta^*\bra{u_2}$, now
+\begin{equation}
+\braket{u}{w} = \alpha^*\braket{u_1}{w} +  \beta^*\braket{u_2}{w},
+\end{equation}
+for an arbitrary $\ket{w}$. This leads one to conclude that the complex inner product is \emph{antilinear} in the first factor.
+
+\section*{Problem 1.2(L)}
+
+The following property holds for the inner product of any two vectors $\ket{\alpha}$ and $\ket{\beta}$
+\begin{equation}
+\braket{\beta}{\alpha} = \braket{\alpha}{\beta}^*.
+\end{equation}
+
+
+\end{document}	
