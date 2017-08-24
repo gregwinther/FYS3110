@@ -5,3 +5,6 @@
 
 # Dirac's book
 Principles of Quantum Mechanics - Dirac.pdf
+
+# Stupid folder thing
+*.DS_store
